@@ -1,0 +1,1157 @@
+---
+title: "Themes from Art"
+author: "Rees Morrison"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+fig_caption: yes
+urlcolor: blue   
+---
+
+what does the package broom() do with broom::df?  What about janitor?
+
+```{r setupThemeName, include=FALSE, echo = FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message = FALSE)
+```
+
+```{r packages, echo=F, message=F}
+
+library(tidyverse)  # frequently used packages that follow a similar coding approach
+library(blogdown)
+library(knitr)
+library(funModeling) # to compare vectors against each other, such as URLs of posts
+library(ggthemes) # to include the theme_tufte them in plots
+library(lubridate) # to deal with date data, such as the date a post is published
+library(ggrepel) # to spread points or text so that they do not overlap on a plot
+library(readxl) # to read in the underlying Excel data
+library(tidytext) # text-mining functions that help analyse the content of posts
+library(writexl) 
+library(kableExtra)
+
+```
+
+KEY KEY Have to delete the index file from BlogThemes1/content/post
+
+&nbsp;&nbsp;&nbsp;  indents a paragraph
+
+
+https://medium.com/lett-digital/nlp-efficient-semantic-similarity-search-with-faiss-facebook-ai-similarity-search-and-gpus-274771d0709a
+
+https://medium.com/analytics-vidhya/a-starter-guide-to-text-analysis-methods-in-python-f7e5e0acdfd2  looks fundamental
+
+https://medium.com/analytics-vidhya/topic-modeling-with-non-negative-matrix-factorization-nmf-3caf3a6bb6da  Excellent. With clustering. Python
+
+https://towardsdatascience.com/understanding-k-means-k-means-and-k-medoids-clustering-algorithms-ad9c9fbf47ca  new kind of k-means and good explanations, including validation
+
+https://cran.r-project.org/web/packages/litRiddle/vignettes/litRiddle.html  This package calculates TTR, type-token ratio of diversity and more.  THE AUTHORS MAY BE INTERESTED IN WHAT I AM DOING!  Maintainer Maciej Eder <maciejeder@gmail.com>  WRITE THEM!
+
+topicmodels.etm v0.1.0: Provides functions to find topics in texts which are semantically embedded using techniques like word2vec or GloVe. See Dieng et al. (2019) for the details
+install.packages("corporaexplorer")   Write author
+
+Latent Semantic Scaling:  LSS estimates semantic similarity of words based on their surrounding contexts, so a LSS model should be trained on data where the text unit is sentence. It is also affected by noises in data such as function words and punctuation marks, so they should also be removed. It requires larger corpus of texts (5000 or moreserve documents) to accurately estimate semantic proximity. The sample corpus contains 10,000 Guardian news articles from 2016.  devtools::install_github("koheiw/LSX")  Write author
+
+stylest estimates speaker style distinctiveness.
+install.packages("stylest")  write authors
+
+Cmdist DEPRECATED - The Concept Mover's Distance Method is now available in the text2map package. Concept Mover's Distance measure a document's conceptual engagement using word embeddings.
+
+https://awesomeopensource.com/project/chainsawriot/sweater  so much here I did not copy out
+
+
+New idea:  Feb. 12, 2022 Combine all of the subtheme paragraphs. Do text similarities among subthemes with Reinert. Determine which themes have the most subtheme connections as an indicator of complexity. Create a social network graph.  ALTERNATIVELY treat the Theme as classification and see if a model can predict which subthemes belong to that class, i.e., from a training set of random 10 subthemes, pick out the others and test for precision, recall and the hypergeometric mean of those two.  This article might help  https://medium.com/@niveythaj5/smart-way-to-do-text-classification-without-labeled-data-zero-shot-classification-d75a3b81b234  Zero-shot encoding!  And Hugging Face!!  This refers to transfer classification:  https://pub.towardsai.net/training-ai-to-predict-myers-briggs-personality-types-from-texts-d4e3d7baf17
+
+Another SIMILARITY:  Affinity Propogation!!  https://towardsdatascience.com/math-and-intuition-behind-affinity-propagation-4ec5feae5b23
+
+The goal of textplex is to calculate textual complexity using the algorithm by Tolochko & Boomgaarden (2019). Further validation of the algorithm is available in Tolochko, Song & Boomgaarden (2019).  https://awesomeopensource.com/project/chainsawriot/textplex  write authors
+
+Dustin S. Stoltz and Marshall A. Taylor  textSpan is an R package to measure textual spanning  write authors
+
+
+lingmatch  for the assessment of linguistic matching and/or accommodation features
+    Input raw text, a document-term matrix (DTM), or LIWC output.
+    Apply various weighting functions to a DTM.
+    Measure similarity and/or accommodation with various metrics.
+    Calculate standard forms of Language Style Matching (LSM) and Latent Semantic Similarity (LSS).
+    
+iramuteqlike is an R package with tools to reproduce the IRaMuTeQ software analyses. The aim of iramuteqlike is to facilitate text analyses, in addition to contributing to research reproducibility. 
+The package use different methods to compute some analyses, hence, the results can differ from the IRaMuTeQ software.  write the authors
+
+Facebook Metric?  Rfacebook Demo ⭐ 1
+Demo on using the Rfacebook package to scrape/mine user generated contents (UGCs) from public FB pages. Simple sentiment, text, trend and posting frequency analysis are performed on these scraped UGCs
+
+This paper compares Hugo and Nebula award-winning short stories using text mining and logistic regression. Science fiction is known for its radical singularity: each text is an ‘event’ in the philosophical sense, creating a universe unto itself. In this light, unlike traditional criticism, quantitative methods generalize in the absence of unifying conventions or topoi. Parallel to Meillassoux's concept of extro-science fiction, digital humanities acts as ‘extro-criticism’ within fields of radical contingency (‘hyperchaos’). This asemic forensics not only traces 114 stories’ lexical detritus to each award’s institutional schemata, but presages xenographic re-mappings for conventional literary notions of ‘code’, ‘genre’, and ‘text’.  From https://awesomeopensource.com/project/gjoncas/Sci-Fi
+
+For Perplexity scores and BERT, see https://garima-mahato.medium.com/understanding-evaluation-metrics-for-nlp-tasks-e720271ed50b
+
+
+TO DO
+Fix dollar signs of Books after I figure out whether they need to be escaped.  Seems to render to PDF with either \$ or no escape!
+Learn keyboard shortcuts like remove word right Ctrl+Del or left Ctrl+Backspace; select to end of document is Ctrl+Shift+End
+Make consistent the style of Expressions (lower case, no quotes) and Records (* 2 hyphens or dash?, URL cites in PDF footnote). Alphabatize Expressions; finish searches by Sharmilaa?
+Print book on Anne's printer (2-ply), edit, and have Fran Gieda make changes in NotePad?
+
+CACHE = TRUE to speed up bookdown?
+
+Image sizing http://zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/#arguments-out.width-and-out.height-apply-to-both-existing-images-and-r-generated-figures
+
+Add at top of RMD; maybe only needed in first chapter or index.Rmd
+
+```{r setup, include=FALSE, echo = FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message = FALSE)
+library(knitr)
+figPath <- "C:/Users/Rees Morrison/Documents/R/Projects/CLIENTS/Themes/BlogThemes1/static/media/"
+
+```
+
+<!-- # make paintings 60%; add caption; change ThemePlot2; add library(knitr) first time -->
+
+```{r, DecisionPlot, out.width="50%", fig.align="center", fig.cap = " "}
+include_graphics(path=paste0(figPath, "Decision.jpg", collapse = ""), error = FALSE) 
+```
+
+dictionaRy v0.1.1: Implements an interface to the Free Dictionary API which allows users to retrieve dictionary definitions for English words, as well as additional information including phonetics, part of speech, origins, audio pronunciation, example usage, synonyms and antonyms which are returned in tidy
+format for ease of use.
+
+For cover of book??  geomtextpath v0.1.0: Implements a ggplot2
+extension which allows text to follow curved paths. Curved text makes it easier to directly label paths or neatly annotate in polar co-ordinates. There is an Introduction and there are vignettes on Curved Text in Polar Plots and Aesthetics.
+
+
+# from https://stackoverflow.com/questions/43551312/wrap-text-around-plots-in-markdown
+include_graphics(path=paste0(figPath, "SunOlive.jpg", collapse = ""), error = FALSE) 
+```
+
+I think text wrap doesn't work with PDF, only HTML
+<div style= "float:left;position: relative; top: -80px;">
+```{r pressure, out.width="50%", echo=FALSE, fig.cap = "Olive Trees Float Left 50% -80px"}
+include_graphics(path=paste0(figPath, "SunOlive.jpg", collapse = ""), error = FALSE) 
+```
+</div>
+
+
+Use PNG for R graphics output, and high-resolution if you plan to print. Don't ever use JPG for R graphics output.  From https://blog.revolutionanalytics.com/2017/06/rmarkdown-tricks.html
+
+*Italicize* titles of works (movies, paintings, books, magazines, newspapers, sculptures, plays). Use "quotation marks" for shorter works (poems, songs, articles). 
+
+When you quote a single line of poetry, write it like any other short quotation. If the piece of poetry you are quoting crosses multiple lines of the poem itself, show the reader where the poem's line breaks fall by using slash marks.  In his poem, "Mending Wall," Robert Frost writes: "Something there is that doesn't love a wall,/ that send the frozen-ground-swell under it" (42-44).
+
+If the quotation is three lines or longer, set it off like a block quotation (see above). Some writers prefer to set off two-line verse quotations for emphasis. Quote the poem line by line as it appears on the original page. Do not use quotation marks, and indent one inch from the left margin.
+
+bold text, use two underscores (__text__) or double asterisks (**text**). R package names are in bold text (e.g., **rmarkdown**)
+
+To keep the indentation in verses, use line blocks by starting the line with a vertical bar (|). The line breaks and any leading spaces will be preserved in the output. For example:  DID NOT WORK
+
+| When dollars appear it's a sign
+|   that your code does not quite align  
+
+turn hyperlinks in text into footnotes for PDF output, because readers will not be able to click the links (generated from \href{URL}{text}).  See https://bookdown.org/yihui/rmarkdown-cookbook/latex-preamble.html
+
+inline R code, use a pair of backticks, e.g., `code`.3   But is this R package function?
+
+Writing to PDF, LaTeX code can be used in the .Rmd file. Pandoc will respect both the LaTeX and RMarkdown formatting when converting the file to the LaTeX file.
+
+underline <span style="text-decoration: underline">underlined text</span> BUT <u> underlined? </u> 
+
+Small caps by HTML tag span, e.g., <span style="font-variant:small-caps;">Small Caps</span>  THEMES?
+
+Links: [text](link), e.g., [RStudio](https://www.rstudio.com); for internal images, add ! at start 
+
+Footnotes: inside square brackets after caret, e.g., ^[footnote.]. No space  after period or comma
+
+When the analtyic posts Part II and III would not render, it was because I still had index.en.html.md  I changed the name and suffix .Rmd, which left the former index!
+
+
+2/10/22 Divide my LeanPub book into Art, Themes and Subthemes, then a second book Centrality and Complexity Analytics that deals with metrics [put unused metrics in Appendix] and algorithms, both books with primary title of Themes from Art.  Third book might be Themes from Art: Natural Language Processing.  Cross reference each to the other.  Publicize both on blog's main page Fourth might be R and Stylometry, or how to write better with R.  Fifth, LeaRnBridge
+
+```{r pressure4, out.width="50%", echo=FALSE, fig.cap = "Olive Trees out.xtraFloat", out.extra='style="float:right; padding:10px"'}
+
+#https://stackoverflow.com/questions/54100806/r-markdown-how-do-i-make-text-float-around-figures/54112408#54112408
+
+```
+
+
+1/21/22 Could my data add to stylometry and readability?  Take all Themes, add synonyms and closely related.  Analyze passage of text for percentage of words in that, if cluster and complexity have applicability, and then correlate findings to Readability tests.  What about adding median words in sentences as another measure that perhaps hasn't been used.  What about POS analysis, always comparing to the best writers of non-fiction that I have assembled -- and can add to?  See Julia Silge on this
+
+tidylog package looks very good see Hoffman post
+
+{tablesgg} 0.7-1: Presentation-Quality Tables, Displayed Using 'ggplot2'
+
+https://stackoverflow.com/questions/36373630/how-to-create-a-loop-that-includes-both-a-code-chunk-and-text-with-knitr-in-r?rq=1  suggests the possibility to insert text into an .md file.  But a better solution for me, rather than the hardcoded "see the other poems, movies etc. is to say "See [something on NavBar]" which I can update and all posts will have available.
+
+{bardr} 0.0.9: Complete Works of William Shakespeare in Tidy Format---
+
+Six most common genre of popular music: rock, hip-hop, pop, country, Christian and Latin music (R&B?)
+
+https://ropensci.org/technotes/2021/01/29/magick-26/  maybe to improve images
+
+<!-- https://cran.r-project.org/web/packages/conText/vignettes/quickstart.html  looks interesting -->
+
+<!-- https://cran.r-project.org/web/packages/ggside/vignettes/ggside_basic_usage.html add y or x -->
+
+<!-- # beautiful fill  ghibli::scale_fill_ghibli_d(name = 'LaputaMedium', guide = 'none') +  -->
+
+
+<!-- when in doubt, run blogdown::check_site()! -->
+
+<!-- CHEAT SHEET https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet -->
+
+RCLables v0.1.0: Provides functions to assist manipulation of matrix row and column labels for all types of matrix mathematics where row and column labels are to be respected. See the vignette.
+
+## Cover to LeanPub book
+
+https://stackoverflow.com/questions/9917049/inserting-an-image-to-ggplot2
+
+```{r leanPubCover}
+
+# library(png) #C:\Users\Rees Morrison\Documents\R\Projects\CLIENTS\Themes\
+library(grid)
+library(jpeg)
+# img <- png::readPNG(source = "C:/Users/Rees Morrison/Documents/R/Projects/CLIENTS/Themes/LeanPub cover.png")
+
+img <- jpeg::readJPEG(source = "C:/Users/Rees Morrison/Documents/R/Projects/CLIENTS/Themes/LeanPub/Cover 02-08.jpg")
+
+cover <- grid::rasterGrob(img, interpolate=TRUE)
+
+qplot(1:10, 1:10, geom="blank") +
+  annotation_custom(cover, xmin=-Inf, xmax=Inf, ymin=-Inf, ymax=Inf) +
+  theme_minimal() +
+  labs(x = NULL, y = NULL) +
+  theme(axis.text = element_text(color = "transparent")) +
+  theme(line = element_blank(), text = element_blank(), title = element_blank()) +
+  annotate("text", label = "Themes from Art", x = 5, y = 6, size = 13, color = "cyan3") +
+  annotate("text", label = "Quantifying Centrality and Complexity", x = 5, y = 5, size = 8, color = "cyan2") +
+  annotate("text", label = "Rees Morrison", x = 7, y = 2, size = 6, color = "cyan1")
+
+
+# trying another method; stick with ggplot if it works
+```{r cover2, echo=FALSE, message=FALSE, warning=FALSE}
+library(imager)
+im <- imager::load.image("C:/Users/Rees Morrison/Documents/R/Projects/CLIENTS/Themes/LeanPub/Cover 02-08.jpg")
+# plot(im, axes=FALSE)
+
+```
+
+# Creating a blog with Hugo, blogdown, Netlify
+
+## changes to the blog site
+
+The first thing to understand is that Hugo builds the website pages out of blocks of code. If you are using a straightforward theme like I am then the file at:
+
+/hugo_root/themes/theme/layouts/_default/single.html
+
+Is the file that builds the pages. This does not contain most of the HTML that will end up in the final page, rather, it contains calls to other files that contain the needed HTML. Notably, the header.html and footer.html files.
+
+If we want to add some custom HTML into the page header then we will need to add it to the header.html or include a call to another file that does contain the HTML. We will do that latter as it will be much easier to keep everything neat if we put the Google Analytics code in its own file.
+
+useful:  rstudioapi::navigateToFile("config.yaml") or pick any file
+
+Under /Themes/BlogThemes found config.yaml and changed a number of features, including title, author, some page names
+
+/BlogThemes/themes/hugo-tanka (changed in early April 2021 to hugo-texify)
+
+much useful: https://alison.rbind.io/post/2019-02-19-hugo-archetypes/
+also http://bioinfohippo.rbind.io/tutorials/r_tutorials/2020_05_20_0847-r_blogdown_usefulstuff/
+http://bioinfohippo.rbind.io/tutorials/r_tutorials/2020_05_20_0847-r_blogdown_tutorial/
+http://estebanmoro.org/post/2019-02-02-setting-up-your-blog-with-rstudio-and-blogdown-i-creating-the-blog/
+
+https://www.r-bloggers.com/2019/01/how-i-started-a-blog-based-on-blogdown-a-walkthrough/
+
+look in Themes by using Files in Pane 4, and find config.  One is params.toml
+
+Will got the HTML code for Google Analytics to be inserted in Header straight from GA.
+{{ template "_internal/google_analytics.html" . }}
+can add to layouts/partials/foot_custom.html (or, I believe, in header)
+configure googleAnalytics in config.toml
+
+When Hugo builds the blog, the final html files and structure go into the public folder. This is the static version of the blog and the one we will deploy to our domain.
+
+```{r blogSetup}
+# new_site(theme = "nanxstats/hugo-tanka", force = TRUE)  
+# FEATUREs of Hugo Tanka at https://awesomeopensource.com/project/nanxstats/hugo-tanka
+
+# try URL 'https://github.com/wowchemy/wowchemy-hugo-modules/archive/25e0b0627f09.tar.gz'
+# Content type 'application/x-gzip' length unknown
+# downloaded 491 KB
+
+# blogdown::stop_server() or restart the R session.  To stop it, call 
+
+```
+
+# Blog URL and URLs of Posts
+https://themesfromart.com/
+
+## Medium article posted March 7th
+https://medium.com/@rees_32356/posts-on-four-genre-of-creative-arts-that-share-a-theme-b3a18536f799   
+http://bit.ly/3sRXopI
+
+No space between [underlined text](and the parenthetical URL)
+
+On April 23rd, 2021, I changed all the long URLs to /post/ from /blog/  The bitly's are wrong!!
+
+## Alcohol 1 fixed URLs on May 7  All four tweeted on March 7, 2021: 
+https://themesfromart.com/post/2021-02-03-alcohol-woolf-nichols/alcoholwoolfnichols/
+https://themesfromart.com/post/2021-02-03-alcohol-absinthe-degas/alcoholabsinthedegas/
+https://themesfromart.com/post/2021-02-01-alcohol-margaritaville-buffet/alcoholmargarita/
+https://themesfromart.com/post/2021-01-24-alcohol-flood-frost/alcohol/
+https://themesfromart.com/post/2021-02-03-alcohol-wide-view/alcohol-wide-angle/
+
+## Decisions 2  All tweeted on March 8
+https://themesfromart.com/post/2021-02-08-decisions-the-card-players-a-painting-by-paul-cezanne/decisionscardplayerscezanne/  http://bit.ly/38mqdCV
+https://themesfromart.com/post/2021-02-08-decisions-from-the-road-not-taken-a-poem-by-robert-frost/decisionsroadfrost/  http://bit.ly/3ekY031
+https://themesfromart.com/post/2021-02-08-decisions-sophie-s-choice-with-meryl-streep/decisionssophies/  http://bit.ly/3v4iDqj
+https://themesfromart.com/post/2021-02-08-decisions-from-do-you-believe-in-magic-a-song-by-the-lovin-spoonful/decisionsmagicspoonful/  http://bit.ly/2OyvcJP
+https://themesfromart.com/post/2021-02-10-decisions-a-wider-angle-view/decisionswiderangle/
+
+## Destruction 3 put up Feb. 18, 2021  All tweeted on March 9
+https://themesfromart.com/post/2021-02-18-destruction-from-my-hometown-a-rock-ballad-by-bruce-springsteen/destructhometown/   http://bit.ly/3kUpga5
+https://themesfromart.com/post/2021-02-18-destruction-from-flood-at-port-marly-a-painting-by-alfred-sisley/destructionflood/  http://bit.ly/3t2LjhM
+https://themesfromart.com/post/2021-02-18-destruction-saving-private-ryan-a-movie-by-steven-spielberg/destructionsaving/    http://bit.ly/38l5uzq
+https://themesfromart.com/post/2021-02-18-destruction-ozymandias-a-poem-by-percy-bysshe-shelley/destructoz/     http://bit.ly/30nAOcr
+https://themesfromart.com/post/2021-02-18-destruction-a-wider-angle/destructionwide/
+
+## Work 4 put up Feb. 28, 2021
+https://themesfromart.com/post/2021-02-26-worksnowy/worksnowy/      http://bit.ly/30qi0tc
+https://themesfromart.com/post/2021-02-26-workscrapers/workscrapers/  http://bit.ly/30qjsLT
+https://themesfromart.com/post/2021-02-26-workproud/workproud/    http://bit.ly/3elYC8K
+https://themesfromart.com/post/2021-02-26-workkane/workkane/   http://bit.ly/3rrEaXG
+https://themesfromart.com/post/2021-02-26-workadditional/workperspective/
+
+## Time 5 put up March 9 but finished on March 11 with URLs   BITLYs are wrong
+https://themesfromart.com/post/2021-03-08-time-to-his-coy-mistress-by-andrew-marvell/timecoy/  http://bit.ly/3rDgShS
+https://themesfromart.com/post/2021-03-08-time-from-the-bellili-family-by-edgar-degas/timebellili/   http://bit.ly/38qQZdn
+https://themesfromart.com/post/2021-03-08-time-from-turn-turn-turn-by-the-byrds/timeturnturn/  http://bit.ly/3v3zhq9
+https://themesfromart.com/post/2021-03-08-time-from-groundhog-day-starring-bill-murray/timegroundhog/
+http://bit.ly/2OGjCfq
+https://themesfromart.com/post/2021-03-09-time-additional/timeadditional/   http://bit.ly/30p2yxi
+
+## Chance 6  put up 3/20-22
+https://themesfromart.com/post/2021-03-14-chancewinner/chancewinner/  https://bit.ly/3cCGVAu
+https://themesfromart.com/post/2021-03-14-chancechurch/chancechurch/ 
+https://themesfromart.com/post/2021-03-14-chancedeerhunter/chancedeer/ https://bit.ly/2O9QXje
+https://themesfromart.com/post/2021-03-14-chancehap/chancehap/
+https://themesfromart.com/post/2021-03-14-chanceadditional/chanceaddl/   https://bit.ly/3sCJTKW
+
+## Silence 7  All tweeted April 10 
+https://themesfromart.com/post/silenceavril/    https://bit.ly/2Q2vxVM
+https://themesfromart.com/post/2021-04-08-silencedonne/silencedonne/  https://bit.ly/3fRk4mT
+https://themesfromart.com/post/silencenorthwest/  https://bit.ly/31UeUyl
+https://themesfromart.com/post/2021-04-08-silencesounds/silencesounds/ https://bit.ly/31V92oz
+https://themesfromart.com/post/silenceadditional/
+
+## Beauty  8 posted April 21
+https://themesfromart.com/post/2021-04-21-beauty-garden-at-sainte-adresse-from-a-painting-by-claude-monet/beautysainteadress/  
+https://bit.ly/3dDvI3g
+https://themesfromart.com/post/2021-04-21-beauty-taxi-driver-a-movie-with-robert-de-niro-and-cybill-shepherd/beautytaxi/       
+https://bit.ly/3er5yzI
+https://themesfromart.com/post/2021-04-21-beauty-she-walks-in-beauty-a-poem-by-lord-byron/beautybyron/ 
+https://bit.ly/3sB967G  # I had a duplicate bitley with flack
+https://themesfromart.com/post/2021-04-21-beautyflack/beautyflack/
+
+https://themesfromart.com/post/2021-04-21-beauty-additional-subthemes/beautyaddl/  https://bit.ly/2QpiEp9
+
+## Death Death 9  tweeted on May 4, 2021
+https://themesfromart.com/post/2021-05-03-death-from-bonnie-clyde-a-movie-starring-warren-beatty-and-faye-dunaway/deathbonnie/  https://bit.ly/3vEXLW3
+https://themesfromart.com/post/2021-05-03-death-from-death-be-not-proud-a-poem-by-john-donne/deathdonne/ https://bit.ly/3xEen1Y
+https://themesfromart.com/post/2021-05-03-death-from-honey-sung-by-bobby-goldsboro/deathhoney/ https://bit.ly/2Sf7Pqj
+https://themesfromart.com/post/2021-05-03-death-from-house-of-the-hanged-man-a-painting-by-paul-cezanne/deathhanged/  https://bit.ly/2QQD62s
+https://themesfromart.com/post/2021-05-03-death-additional/deathaddl/
+
+## Trains  10 all tweeted on May 12 2021
+https://themesfromart.com/post/2021-05-10-trainsorleans/trainsorleans/   https://bit.ly/3fguVVm
+https://themesfromart.com/post/2021-05-10-trainslazare/trainslazare/     https://bit.ly/3hy8C0r
+https://themesfromart.com/post/2021-05-10-trains-from-murder-on-the-orient-express-a-movie-directed-by-sidney-lumet/trainsorient/        https://bit.ly/3w1U1OI
+https://themesfromart.com/post/2021-05-10-trains-from-the-railway-train-a-poem-by-emily-dickineson/trainsdickinson/          https://bit.ly/33EyMGl
+https://themesfromart.com/post/2021-05-10-trains-additional-subthemes/trainsaddl/
+
+## Churches  11  posted May 21, 2021 and tweeted the same day
+https://themesfromart.com/post/2021-05-21-churches-from-california-dreamin-a-song-by-the-mamas-the-papas/churchescalifornia/  https://bit.ly/345EsJK
+https://themesfromart.com/post/2021-05-21-churches-from-dover-beach-a-poem-by-matthew-arnold/churchesarnold/  https://bit.ly/3u9xBcI
+https://themesfromart.com/post/2021-05-21-churches-from-on-the-waterfront-a-movie-with-marlon-brando/churcheswaterfront/   https://bit.ly/3wm2hZW
+https://themesfromart.com/post/2021-05-21-churches-from-the-church-at-essoyes-a-painting-by-pierre-auguste-renoir/churchesrenoir/  https://bit.ly/3yw1l7i
+https://themesfromart.com/post/2021-05-21-churches-additional/churchesaddl/  https://bit.ly/3fDcJFO
+
+## Birds 12 posted 6/14 after struggle with Ode and Addl, redoing them as New Posts.  Tweets 6/14
+https://themesfromart.com/post/2021-06-14-birds-ode-to-a-nightingale-a-poem-by-john-keats/birdskeats/ https://bit.ly/3cFF4un
+https://themesfromart.com/post/2021-06-07-birds-free-bird-a-song-by-lynyrd-skynyrd/birdsfreebird/  https://bit.ly/3cYdkS3
+https://themesfromart.com/post/2021-06-07-birds-the-birds-a-movie-directed-by-alfred-hitchcock/birdsthebirds/ https://bit.ly/3gzuplV
+https://themesfromart.com/post/2021-06-07-birds-the-magpie-a-painting-by-claude-monet/birdsmagpie/  https://bit.ly/3iIJdS2
+https://themesfromart.com/post/2021-06-14-birds-additional-sub-themes/birdsadditional/  https://bit.ly/3gulNNH
+
+## Friends 13 posted June 20, 2021 and tweeted
+https://themesfromart.com/post/2021-06-20-friends-alone-a-poem-by-maya-angelou/friendsalone/  https://bit.ly/3cVCUXG
+https://themesfromart.com/post/2021-06-20-friends-luncheon-on-the-grass-a-painting-by-edouard-manet/friendsluncheon/
+https://bit.ly/3zFvj9g
+https://themesfromart.com/post/2021-06-20-friends-the-big-chill-a-movied-directed-by-lawrence-kasdan/friendschill/  https://bit.ly/3xzB9XZ
+https://themesfromart.com/post/2021-06-20-friends-you-ve-got-a-friend-a-song-by-carol-king-sung-by-james-taylor/friendstaylor/  https://bit.ly/2TNDsZ5
+https://themesfromart.com/post/2021-06-20-friends-additional-subthemes/friendsaddl/
+https://bit.ly/3vKdzX4
+
+## Sailing Ships 14 posted June 27, 2021 and tweeted the same day
+https://themesfromart.com/post/2021-06-27-sailingships-from-sloop-john-b-a-rock-song-by-the-beach-boys/sailingshipsjohnb/  https://bit.ly/3x10cn2
+https://themesfromart.com/post/2021-06-26-sailing-ships-harbour-at-honfleur-a-painting-by-georges-seurat/sailinghonfleur/  https://bit.ly/2U4td2G
+https://themesfromart.com/post/2021-06-26-sailing-ships-mutiny-on-the-bounty-a-movie-with/sailingshipsmutiny/  https://bit.ly/3qsgTW3
+https://themesfromart.com/post/2021-06-26-sailing-ships-from-old-ironsides-a-poem-by-oliver-wendell-holmes/sailingshipsironsides/  https://bit.ly/3qxFlW6
+https://themesfromart.com/post/2021-06-27-sailing-ships-additional-subthemes/sailingships-addl/  https://bit.ly/3vZm5BK
+
+## Sports 15 posted on July 13 (I skipped during Nantucket), tweeted same day
+https://themesfromart.com/post/2021-07-12-sports-from-chariots-of-fire-a-movie-about-the-1924-olypics/sportschariots/  https://bit.ly/3yVSlYe
+https://themesfromart.com/post/2021-07-12-sports-from-racers-before-the-stands-a-painting-by-edgar-degas/sportsdegas/   https://bit.ly/3efqudJ
+https://themesfromart.com/post/2021-07-12-sports-from-the-boxer-a-song-by-simon-garfunkel/sportsboxer/   https://bit.ly/3kfxTxI
+https://themesfromart.com/post/2021-07-12-sports-from-to-an-athlete-dying-young-by-a-e-housman/sportsathlete/  https://bit.ly/3i2McTz
+https://themesfromart.com/post/2021-07-12-sports-additional-subthemes/sportsaddl/  https://bit.ly/3eeE3dw
+
+# Bridges 16 posts July 26 -Tweets Aug 4
+https://themesfromart.com/post/2021-07-26-bridges-the-concord-hymn-a-poem-by-ralph-waldo-emerson/bridgesconcord/  https://bit.ly/3BL3MEm
+https://themesfromart.com/post/2021-07-26-bridges-from-bridge-over-troubled-waters-a-song-by-simon-garfunkel/bridgestroubled/   https://bit.ly/3kUPdYX
+https://themesfromart.com/post/2021-07-26-bridges-from-the-bridge-over-the-river-kwai-a-movie-by-david-lean/bridgeskwai/        https://bit.ly/3x5OO8C
+https://themesfromart.com/post/2021-07-26-bridges-from-the-railway-bridge-at-argenteuill-a-painting-by-claude-monet/bridgesmonet/  https://bit.ly/2WbEyif
+https://themesfromart.com/post/2021-07-26-bridges-additional-subthemes/bridgesaddl/  https://bit.ly/370jDRk
+
+# Soldiers 17 posted Aug 2, having done much work on the Themes Analysis since Bridges TWEETED 1/15/22 but on Rees Morrison!
+https://themesfromart.com/post/2021-08-02-soldiers-from-forrest-gump-a-movie-starring-tom-hanks/soldiersgump/  https://bit.ly/3CdecNB
+https://themesfromart.com/post/2021-08-02-soldiers-from-the-charge-of-the-light-brigade-by-alfred-lord-tennyson/soldierscharge/  
+https://bit.ly/3ls0Kzu
+https://themesfromart.com/post/2021-08-02-soldiers-the-execution-of-maximilian-a-painting-by-edouard-manet/soldiersmanet/  
+https://bit.ly/3C8gBJf
+https://themesfromart.com/post/2021-08-02-soldiers-from-travellin-soldier-a-song-by-the-chicks/soldierschicks/  https://bit.ly/2Vw5TeA
+https://themesfromart.com/post/2021-08-02-soldiers-additional-subthemes/soldiersaddl/  
+https://bit.ly/3yqcO82
+
+## Wind 18 posted 8/12 and tweeted, but forgot to put bitly code in first 3
+https://themesfromart.com/post/2021-08-12-wind-from-blowin-in-the-wind-a-song-by-bob-dylan/windblowin/  https://bit.ly/37AY9uX
+https://themesfromart.com/post/2021-08-12-wind-from-ode-to-the-west-wind-by-percy-bysshe-shelley/windode/  https://bit.ly/3m2Jf90
+https://themesfromart.com/post/2021-08-12-wind-from-the-man-at-the-helm-a-painting-by-theo-van-rysselberghe/windhelm/   https://bit.ly/2VMOtLc
+https://themesfromart.com/post/2021-08-12-wind-from-the-wizard-of-oz-a-movie-with-judy-garland/windoz/  https://bit.ly/3AE6SJ7
+https://themesfromart.com/post/2021-08-11-wind-additional-subthemes/windaddl/
+
+# Clothes 19 posted Aug. 31 after Timberlock without power and four days of BC; Tweets on 8/31
+https://themesfromart.com/post/2021-08-30-clothes-from-upon-julia-s-clothes-a-poem-by-robert-herrick/clothesjulia/      https://bit.ly/3yyZ3D7
+https://themesfromart.com/post/2021-08-30-clothes-from-play-with-fire-a-song-by-the-rolling-stones/clothesfire/     https://bit.ly/38qSlEz
+https://themesfromart.com/post/2021-08-30-clothes-from-my-fair-lady-a-movie-starring-audrey-hepburn/clothesfair/   https://bit.ly/3Dx4ENZ
+https://themesfromart.com/post/2021-08-30-clothes-from-bathers-at-asnieres-a-painting-by-georges-seurat/clothesbathers/   https://bit.ly/3Brz7ep
+https://themesfromart.com/post/2021-08-30-clothes-additional-subthemes/clothesaddl/   https://bit.ly/2V0p9kD
+
+# Dancing 20 posted Sept. 9 and 10; TWEETED 1/15/22 but on Rees Morrison
+https://themesfromart.com/post/2021-09-10-dancing-from-dancing-queen-a-song-by-abba/dancingabba/
+https://bit.ly/3I6fuvH
+https://themesfromart.com/post/2021-09-10-dancing-from-my-papa-s-waltz-a-poem-by-theodore-roethke/dancingroethke/ 
+https://bit.ly/3zZGj1O
+https://themesfromart.com/post/2021-09-10-dancing-from-singin-in-the-rain-a-movie-starring-gene-kelley-and-debbie-reynolds/dancingrain/
+https://bit.ly/3Kahzc9
+https://themesfromart.com/post/2021-09-09-dancing-from-dance-at-bougival-a-painting-by-pierre-august-renoir/dancingbougival/
+https://bit.ly/3qvZhtU
+https://themesfromart.com/post/2021-09-09-dancing-additional-subthemes/dancingaddl/
+
+# Sleep 21 posted Sept. 22  TWEETED 1/15/22 and I think from Themes from Art
+https://themesfromart.com/post/2021-09-22-sleep-from-sleepless-in-seattle-a-movie-starring-tom-hanks-and-meg-ryan/sleepsleepless/
+https://bit.ly/3I995zU
+https://themesfromart.com/post/2021-09-22-sleep-from-the-lion-sleeps-tonight-a-song-by-the-tokens/sleeplion/
+https://bit.ly/3riTU0p
+https://themesfromart.com/post/2021-09-22-sleep-from-the-second-coming-a-poem-by-william-butler-yeats/sleepsecond/
+https://bit.ly/3Kc0iix
+https://themesfromart.com/post/2021-09-22-sleep-from-the-siesta-a-painting-by-vincent-van-gogh/sleepsiesta/
+https://bit.ly/3Kc0iix
+https://themesfromart.com/post/2021-09-22-sleep-additional-subthemes/sleepaddl/
+
+# Rivers 22 posted 10/2 and 10/3  TWEETED 1/15/22
+https://themesfromart.com/post/2021-10-03-rivers-from-the-seine-and-the-louvre-a-painting-by-camille-pissarro/riversseine/
+https://bit.ly/3ntcKkt
+https://themesfromart.com/post/2021-10-02-rivers-from-a-river-runs-through-it-a-movie-by-robert-redford-starring-brad-pitt/riversruns/
+https://bit.ly/3tvB74v
+https://themesfromart.com/post/2021-10-02-rivers-from-ferry-cross-the-mersey-a-song-by-gerry-the-pacemakers/riversferry/
+https://bit.ly/3rlM8Tp
+https://themesfromart.com/post/2021-10-02-rivers-from-kubla-khan-a-poem-by-samuel-taylor-coleridge/riverskhan/
+https://bit.ly/3frY9RL
+https://themesfromart.com/post/2021-10-03-rivers-additional-subthemes/riversaddl/
+
+## Money 23 posted 10/15  TWEETED 1/15/22
+https://themesfromart.com/post/2021-10-15-money-from-wall-street-a-movie-starring-michael-douglas-and-michael-sheen/moneywall/
+https://bit.ly/3ftAoIY
+https://themesfromart.com/post/2021-10-15-money-from-the-pork-butcher-a-painting-by-camille-pissarro/moneypork/
+https://bit.ly/3tvFbSv
+https://themesfromart.com/post/2021-10-15-money-from-poor-side-of-town-a-song-by-johnny-rivers/moneypoor/
+https://bit.ly/3Icse4f
+https://themesfromart.com/post/2021-10-15-money-from-money-o-a-poem-by-w-h-davies/moneymoneyo/
+https://bit.ly/3foaoPn
+https://themesfromart.com/post/2021-10-15-money-additional-subthemes/moneyaddl/
+
+## Night 24 posted 11/5 (was in Boston, then Portland)  TWEETED 1/15/22
+https://themesfromart.com/post/2021-11-05-night-from-invictus-a-poem-by-william-ernest-henley/nightinvictus/
+https://bit.ly/3fqw7pA
+https://themesfromart.com/post/2021-11-05-night-from-it-happened-one-night-a-movie-starring-clark-gable-and-claudette-colbert/nighthappened/
+https://bit.ly/3ntQzKP
+https://themesfromart.com/post/2021-11-05-night-from-stand-by-me-a-song-sung-by-ben-e-king/nightstand/
+https://bit.ly/3GJ4G6o
+https://themesfromart.com/post/2021-11-05-night-from-the-starry-night-a-painting-by-vincent-van-gogh/nightstarry/
+https://bit.ly/3AfWmJj
+https://themesfromart.com/post/2021-11-05-night-additional-subthemes/nightaddl/
+
+## Thinking 25 posted 11/22 (blocked out vision and fire, swapped epistle for Raven)  TWEETED 1/15
+https://themesfromart.com/post/2021-11-22-thinking-from-a-beautiful-mind-a-movie-starring-russell-crowe/thinkingmind/
+https://bit.ly/3qxyD3G
+https://themesfromart.com/post/2021-11-22-thinking-from-an-essay-on-man-epistle-ii-a-poem-by-alexander-pope/thinkingPope/
+https://bit.ly/3tvBEU3
+https://themesfromart.com/post/2021-11-22-thinking-from-interior-at-aracharon-a-painting-by-edourd-manet/thinkinginterior/
+https://bit.ly/3rEMkNZ
+https://themesfromart.com/post/2021-11-22-thinking-what-a-wonderful-world-a-song-sung-by-sam-cooke/thinkingwonderful/
+https://bit.ly/3KeoQHP
+https://themesfromart.com/post/2021-11-22-thinking-additional-subthemes/thinkingaddl/
+
+## Vision 26 posted 12/3 while adding poems, Bing, dropping some metrics, writing other, starting Fire etc. TWEETED 1/16/22
+https://themesfromart.com/post/2021-12-03-vision-from-at-the-opera-a-painting-by-mary-cassatt/visionopera/
+https://bit.ly/3A3cM7v
+https://themesfromart.com/post/2021-12-03-vision-from-i-ll-be-watching-you-a-song-by-the-police/visionwatching/
+https://bit.ly/3rl58kZ
+https://themesfromart.com/post/2021-12-03-vision-from-rear-window-by-alfred-hitchcock-with-jimmy-stewart-and-grace-kelly/visionrear/
+https://bit.ly/3Kexm9K
+https://themesfromart.com/post/2021-12-03-vision-from-sonnet-xix-on-his-blindness-a-poem-by-john-milton/visionmilton/
+https://bit.ly/33IjXpO
+https://themesfromart.com/post/2021-12-03-thinking-additional-subthemes/visionaddl/
+
+## Fire 27 Dec. 17th had done much work on the first five analytic posts  TWEETED 1/16/22
+https://themesfromart.com/post/2021-12-17-fire-from-light-my-fire-a-song-by-the-doors/firedoors/
+https://bit.ly/3I7v3Dp
+https://themesfromart.com/post/2021-12-17-fire-from-the-flood-banks-of-the-seine-bougival-a-painting-by-alfred-sisley/fireflood/
+https://bit.ly/3FskWr7
+https://themesfromart.com/post/2021-12-17-fire-from-the-towering-inferno-a-film-with-paul-newman-steve-mcqueen-fred-astaire-and-faye-dunaway/firetowering/
+https://bit.ly/3qvPaoZ
+https://themesfromart.com/post/2021-12-17-fire-from-when-you-are-old-a-poem-by-william-butler-yeats/fireold/
+https://bit.ly/320E022
+https://themesfromart.com/post/2021-12-17-fire-additional-subthemes/fireaddl/
+
+## Books 28 Jan 1 and 2, 2022 TWEETED on 1/16/22
+https://themesfromart.com/post/2022-01-01-books-from-the-author-to-her-book-a-poem-by-anne-bradstreet/booksbradstreet/
+https://bit.ly/3A250uG
+https://themesfromart.com/post/2022-01-02-books-from-still-life-with-books-a-painting-by-vincent-van-gogh/booksstill/
+https://bit.ly/3nutfwu
+https://themesfromart.com/post/2022-01-02-books-from-paperback-rider-by-the-beatles/bookspaperback/
+https://bit.ly/3ftY9k4
+https://themesfromart.com/post/2022-01-02-books-from-good-will-hunting-a-movie-with-matt-damon-robin-williams-and-ben-afleck/bookshunting/
+https://bit.ly/3fr8VYn
+https://themesfromart.com/post/2022-01-02-books-additional-subthemes/booksaddl/
+
+## Dogs 29 Jan 14, 2020, during 3 days at Mt Gore and finished first analytic series  TWEETED 1/16/22
+https://themesfromart.com/post/2022-01-14-dogs-from-mr-bojangles-by-nitty-gritty-dirt-band/dogsjangles/
+https://bit.ly/3nuxtnH
+https://themesfromart.com/post/2022-01-14-dogs-from-la-pont-de-l-europe-by-gustave-caillebotte/dogsbridge/
+https://bit.ly/3A1GbyU
+https://themesfromart.com/post/2022-01-14-dogs-from-epitaph-to-a-dog-a-poem-by-george-gordon-lord-byron/dogsbyron/
+https://bit.ly/3A1EXUo
+https://themesfromart.com/post/2022-01-14-dogs-from-cool-hand-luke-a-movie-with-paul-newman/dogscool/
+https://bit.ly/3qtKwYr
+https://themesfromart.com/post/2022-01-14-dogs-additional-subthemes/dogsaddl/
+
+## Sun 30 posted Feb 1/2 2022  Tweeted 2/2 getting ready for LeanPub on QM2 Feb. 15th
+https://themesfromart.com/post/2022-02-02-sun-from-lawrence-of-arabia-a-movie-with-peter-o-toole-omar-sharif-and-others/sunarabia/
+https://bit.ly/3L2uld4
+https://themesfromart.com/post/2022-02-02-sun-from-tequila-sunrise-by-the-eagles/suntequila/
+https://bit.ly/3rlvYL9
+https://themesfromart.com/post/2022-02-01-sun-from-oive-trees-a-painting-by-van-gogh/sunolive/
+https://bit.ly/3KWZIWi
+https://themesfromart.com/post/2022-02-01-sun-from-the-sun-rising-a-poem-by-john-donne/sundonne/
+https://bit.ly/3L3NcV7
+https://themesfromart.com/post/2022-02-02-sun-additional-subthemes/sunaddl/
+
+## Analytics Part I - Part V, posted Feb. 6, '22 after Julien Barnier help on reinert Tweeted
+
+https://themesfromart.com/post/2022-02-04-part-1-concepts-quantitatively-compared-and-explored/part-i-themes/
+https://bit.ly/3rwFvyX  this is the only one I tweeted
+https://themesfromart.com/post/2022-01-26-part-ii-metrics-that-suggest-centrality-or-complexity-of-a-concept/partiimetrics/
+https://themesfromart.com/post/2022-02-04-part-iii-find-similar-themes-with-k-means-clustering/part-iii-kmeans/
+https://themesfromart.com/post/2022-02-04-part-iv-cluster-themes-with-agglomerative-hierarchical-clustering/part-iv-hiearch/
+https://themesfromart.com/post/2022-02-04-cluster-themes-with-reinert-textual-data-clustering/part-v-reinert/
+https://bit.ly/3BbiDIv
+
+<!-- My initial 5 posts on quantifying centrality and complexity of concepts, using 20 metrics variables https://bit.ly/3rwFvyX  Part V outlines upcoming posts https://bit.ly/3BbiDIv -->
+
+<!-- k-means, hierarchical, and Reinert clustering methods -->
+
+<!-- #NLProc #clustering #Reinert -->
+
+Start on my ArtThemes1 account:  https://twitter.com/artThemes1  go lower left, click on three vertical dots, Add Account
+artthemes is username; will....tw1 is password;  rees+art@reesmorrison.com is my email
+
+Subthemes of Sun from a painting, poem, song, and movie.  Enjoy my post on 's “” https://bit.ly/3qtKwYr
+
+More on Themes from Art http://bit.ly/3sRXopI or its themes, https://themesfromart.com/themes/.
+#POEMS #poem #poetrylovers #Poetry_Planet #PoetsTwitter #poem
+#impressionism #paintings #artworks #artists #art #artwork
+#rock #rockmusic #popmusic #rocknroll
+#movietime #Cinema #Oscars #movies #films
+
+Themes/subthemesComboMajors.xlsx I gathers the URLS, removes Bitley codes, fixed Chance, Churches, and matched URLS to subthemes.
+
+
+## Twitter how to's
+
+delete a tweet and redo? to Profile, pick tweet, click on ... upper right and "Delete"
+
+themes.md has all the above with the name of the art and no Bitly
+
+# in art.rmd I organized them alphabetically Movies, Painting, Poem and Rock, took out the Bitly code and kept the Additionals separate.  in df so I can concatenate them into URLS.
+
+## Tags (SEO)
+Poem: Name, Poet, poetry, rhyme, ART, THEME terms
+PopRock: Name, Singer, ART, Rock, Rock & Roll, Pop-Rock, Folk Rock, Band,  sixties, seventies, Eighties, THEME terms
+Movie: Name, Director, Stars, ART,  movie, cinema, Oscars, THEME terms
+Painting: painting, impressionism, museum, full name of Salon, pointillism
+
+
+# Tables of Art and artists
+
+```{r artArtists}
+rep <- 29
+
+paintings <- data.frame(Art = c("The Absinthe", "The Card Players", "The Flood at Port-Marley", "The Floor Scrapers", "The Bellili Family", "The Quai Saint-Michel and Notre-Dame", "Jane Avril Leaving the Moulin Rouge", "Garden at Sainte Adresse", "The House of the Hanged Man", "La Gare St. Lazare", "The Church at Essoyes", "The Magpie", "Luncheon on the Grass", "Harbour at Honfleur", "Racers before the Stands", "The Execution of Maximilien", "The Man at the Helm", "Bathers at Asnieres", "Dance at Bougival", "The Siesta", "The Seine and the Louvre", "The Pork Butcher", "The Railway Bridge at Argenteuill", "The Starry Night", "Interior at Aracharon", "At the Opera", "The Flood Banks of the Seine Bougival", "Still Life with Books", "La Pont de l'Europe"),
+                        Artist = c("Edgar Degas", "Paul Cezanne", "Alfred Sisley", "Gustave Caillebotte", "Edgar Degas", "Luce Maximilien", "Henri de Toulouse-Lautrec", "Claude Monet", "Paul Cezanne", "Claude Monet", "Pierre-Auguste Renoir", "Claude Monet", "Edouard Manet", "Georges Seurat", "Edgar Degas", "Edouard Manet", "Theo van Rasselberghe", "Georges Seurat",  "Pierre-Auguste Renoir", "Vincent van Gogh", "Camille Pissarro", "Camille Pissarro", "Claude Monet", "Vincent Van Gogh", "Edouard Manet", "Mary Cassatt", "Alfred Sisley", "Vincent van Gogh", "Gustave Caillebotte"), 
+                        Genre = rep("Painting", rep), 
+                        Theme = c("Alcohol", "Decisions", "Destruction", "Work", "Time", "Chance", "Silence", "Beauty", "Death", "Trains", "Churches", "Birds", "Friends", "SailShips", "Sports", "Soldiers", "Wind", "Clothes", "Dancing", "Sleep", "Rivers", "Money", "Bridges", "Night", "Thinking", "Vision", "Fire", "Books", "Dogs"))
+
+movies <- data.frame(Art = c("Who's Afraid of Virginia Woolf", "Sophie's Choice", "Saving Private Ryan", "Citizen Kane", "Groundhog Day", "The Deerhunter", "North by Northwest", "Taxi Driver", "Bonnie & Clyde", "Murder on the Orient Express", "On the Waterfront", "The Birds", "The Big Chill", "Mutiny on the Bounty", "Chariots of Fire", "Forrest Gump", "The Wizard of Oz", "My Fair Lady", "Singin' in the Rain", "Sleepless in Seattle", "A River Runs Through It", "Wall Street", "The Bridge Over the River Kwai", "It Happened Once Night", "A Beautiful Mind", "Rear Window", "The Towering Inferno", "Good Will Hunting", "Cool Hand Luke"),
+                     Artist = c("Elizabeth Taylor and Richard Burton", "Meryl Streep and Kevin Kline", "Tom Hanks, Matt Damon, Stephen Spielberg", "Orson Welles", "Bill Murray", "Robert De Niro, Christopher Walken, Meryl Streep", "Alfred Hitchcock", "Robert De Niro and Cybill Shepherd", "Warren Beatty and Faye Dunaway", "Sidney Lumet", "Marlon Brando", "Alfred Hitchcock", "Kevin Kline, Glenn Close, William Hurt", "Marlon Brando", "1924 Olympics", "Tom Hanks, Sally Fields, Gary Sinise", "Judy Garland", "Audrey Hepburn and Rex Harrison", "Gene Kelley and Debbie Reynolds", "Tom Hanks and Meg Ryan", "Robert Redford and Brad Pitt", "Michael Douglas and Charlie Sheen", "David Lean", "Clark Gable and Claudette Colbert", "Russell Crowe", "Jimmy Stewart and Grace Kelly", "Paul Newman, Faye Dunaway, Fred Astaire, Steve McQueen", "Matt Damon, Robin Williams, Ben Afleck", "Paul Newman"),
+                    Genre = rep("Movie", rep), 
+                    Theme = c("Alcohol", "Decisions", "Destruction", "Work", "Time", "Chance", "Silence", "Beauty", "Death", "Trains", "Churches", "Birds", "Friends", "SailShips", "Sports", "Soldiers", "Wind", "Clothes", "Dancing", "Sleep", "Rivers", "Money", "Bridges", "Night", "Thinking", "Vision", "Fire", "Books", "Dogs"))
+
+poems <- data.frame(Art = c("Mr. Flood's Party", "The Road Not Taken", "Ozymandias", "Stopping by Woods on a Snowy Evening", "To His Coy Mistress", "Hap", "For Whom the Bell Tolls", "She Walks in Beauty", "Death, Be Not Proud", "The Railway Train", "Dover Beach", "Ode to a Nightingale", "Alone", "Old Ironsides", "To An Athlete Dying Young", "The Charge of the Light Brigade", "Ode to the West Wind", "Upon Julia's Clothes", "My Papa's Waltz", "The Second Coming", "Kubla Khan", "Money 0!", "The Concord Hymn", "Invictus", "An Essay on Man", "On His Blindness", "When You Are Old", "From the Author to Her Book", "Epitaph to a Dog"), 
+                    Artist = c("Edwin Arlington Robinson", "Robert Frost", "Percy Bysshe Shelley", "Robert Frost", "Andrew Marvell", "Thomas Hardy", "John Donne", "Lord Byron", "John Donne", "Emily Dickinson", "Matthew Arnold", "John Keats", "Maya Angelou", "Oliver Wendell Holmes", "A. E. Housman", "Alfred, Lord Tennyson", "Percy Bysshe Shelley", "Robert Herrick", "Theodore Roethke", "William Butler Yeats", "Samuel Taylor Coleridge", "W. H. Davies", "Ralph Waldo Emerson", "William Ernest Healy", "Alexander Pope", "John Milton", "William Butler Yeats", "Anne Bradstreet", "Lord Byron"),
+                    Genre = rep("Poem", rep), 
+                    Theme = c("Alcohol", "Decisions", "Destruction", "Work", "Time", "Chance", "Silence", "Beauty", "Death", "Trains", "Churches", "Birds", "Friends", "SailShips", "Sports", "Soldiers", "Wind", "Clothes", "Dancing", "Sleep", "Rivers", "Money", "Bridges", "Night", "Thinking", "Vision", "Fire", "Books", "Dogs"))
+  
+songs <- data.frame(Art = c("Margaritaville", "Do You Believe in Magic?", "My Hometown", "Proud Mary", "Turn, Turn, Turn", "The Winner Takes It All", "The Sounds of Silence", "The First Time Ever I Saw Your Face", "Honey", "City of New Orleans", "California Dreamin'", "Free Bird", "You've Got a Friend", "Sloop John B", "The Boxer", "Travellin' Soldier", "Blowin' in the Wind", "Play with Fire", "Dancing Queen", "The Lion Sleeps Tonight", "Ferry Cross the Mersey", "Poor Side of Town", "Bridge Over Troubled Waters", "Stand by Me", "What a Wonderful World", "I'll Be Watching You", "Light My Fire", "Paperback Writer", "Mr Bojangles"), 
+                    Artist = c("Jimmy Buffet", "Lovin' Spoonfuls", "Bruce Springsteen", "Credence Clearwater Revival", "The Byrds", "ABBA", "Simon & Garfunkel", "Roberta Flack", "Bobby Goldsboro", "Willie Nelson", "The Mamas & Papas", "Lynryd Skynyrd", "James Taylor", "The Beach Boys", "Simon & Garfunkel", "The Chicks", "Bob Dylan", "The Rolling Stones", "ABBA", "The Tokens", "Gerry & the Pacemakers", "Johnny Rivers", "Simon & Garfunkel", "Ben E King", "Sam Cooke", "The Police", "The Doors", "The Beatles", "Nitty Gritty Dirt Band"),
+                    Genre = rep("RocknRoll", rep), 
+                    Theme = c("Alcohol", "Decisions", "Destruction", "Work", "Time", "Chance", "Silence", "Beauty", "Death", "Trains", "Churches", "Birds", "Friends", "SailShips", "Sports", "Soldiers", "Wind", "Clothes", "Dancing", "Sleep", "Rivers", "Money", "Bridges", "Night", "Thinking","Vision", "Fire", "Books", "Dogs"))
+
+# should I change all directors to leading actors?  Hitchcock, tippi Hendron  Sidney Lumet
+
+art <- dplyr::bind_rows(movies, paintings, poems, songs) %>% 
+  arrange(Genre, Theme)   # 116 obs = 4 X 29 themes
+
+# save to Excel so that I can read it in for the tab, "Art" in art.Rmd of BlogThemes1
+# writexl::write_xlsx(x = art, path = "Art and Artists.xlsx")
+
+# library(formattable)
+# library(kableExtra)
+
+artArtists.tbl <- kableExtra::kable(art) 
+
+# To put this on GitHub, commit the .xlsx, to GitHub, click on the file and right click "Download Copy Link".  When I put that in a blog post, and people click on it, they can open the file in Excel
+
+# Could create a Shiny app
+
+```
+
+## Subthemes, tracking and creating a table -- see subthemes.rmd for creating the online NavBar and the collection of subthemes, but on Aug 7th I could not find all the code.  CODE BELOW to extract tags did not work
+
+```{r findTags, eval=FALSE}
+# from https://www.garrickadenbuie.com/blog/find-blogdown-tags/
+
+# subthemes <- blogdown:::collect_yaml(fields = blogdown_content_path)
+# blogdown::find_tags("Time to Develop", open = TRUE)
+
+library(tidyverse)
+# blogdown_content_path <- here::here("content")
+# "C:/Users/Rees Morrison/Documents/R/Projects/CLIENTS/Themes/content"
+
+# Scan yaml of all posts (run at root of blogdown project)  RWM my .mds are inside content
+# Subtheme.df <- blogdown:::scan_yaml("C:/Users/Rees Morrison/Documents/R/Projects/CLIENTS/Themes/BlogThemes1/content/post")
+#   
+# Subtheme.df <- blogdown:::scan_yaml(blogdown_content_path) 
+# 
+# Subtheme.df <- blogdown:::scan_yaml()   
+
+  # Pull out the tags
+  # map("tags") %>% 
+  # # Drop results without any tags
+  # discard(is.null) %>% 
+  # # Turn into a nice tibble (can stop here if you want tags + files)
+  # map_df(~ tibble::data_frame(tag = .), .id = "file") %>% 
+  # # Summarize (group and count)
+  # group_by(tag) %>%
+  # count(sort = TRUE) %>%
+  # # Starts with uppercase?
+  # mutate(starts_upper = substr(tag, 1, 1) %in% LETTERS)
+
+```
+
+
+# How to create individual posts
+
+Start RStudio; Open BlogThemes1 project and load packages; call blogdown::serve_site() 
+
+Click on New Post dropdown from Addins, a Shiny interface that runs this code in your console: blogdown:::new_post_addin(). https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/
+
+  Name the post: Theme, from "work of art," a [art genre] by artist/star etc 
+  Pick the category
+  Tags = subthemes. subthemes, with comma after, and comma between quoted strings, including at the end.  
+  Ignore archetype?? a template for Markdown content. A template means html layout. 
+  With the radio button at the bottom keep Format: Markdown, the default
+  Rename [ThemeCatchy word] and save the new .md.
+  Draft - delete "yes" when I want to publish, after I have created all five posts and URLS
+
+  Copy and paste in the Word file with More and with &nbsp;  and end of lyrics and start of Expressions
+  
+  Make changes on my laptop in the .md file  Useful site https://www.spanishdict.com/answers/152876/line-breaks-pictures-links-and-other-formatting-tricks-#Single
+
+blogdown creates a file structure in BlogThemes1/ that includes these folders:
+
+  content (where blog is)
+  layouts (css and js)
+  R [haven't used]
+  resources [haven't used]
+  static (media)
+
+  Check that each post cross-refs to the other three posts in the Theme
+  Check for bold of subthemes, using **...**
+  Add two spaces after single-spaced lines such as poems or song lyrics, but not line before an empty line
+  Check for italics or quotes for and from the art
+  Insert URLs as [underlined text](URL)   NB no space
+      <!-- Insert my images and pictures from the static/media subfolder using ![](/media/picture_vacations.png)  or .jpg -->
+  {width=50%, height=20%} didn't work in .md files but does in .Rmd.  Note that there is no space.  Opened image in Paint and resized to 70.  So I right clicked on the image and chose "Edit" and resized.  With the Absinthe painting the original was about 650px by 850.  I reduced it to 60% and saved, but no difference when I ran the post. 
+  No quotes on file path, no need for directories above BlogThemes1.  The alt text in blue helps visually impaired people.  The underline turns blue when I do correct syntax.  
+  
+      'Page Bundles' organize content files. you can put resource files associated with the post (such as images and data files) inside the same directory as the post itself. This means you no longer have to put them under the static/ directory. 
+
+    Run Check Spelling… in RStudio (under Edit menu)
+    Run xfun::optipng() on the directory where the post’s images are stored (including plots output by R) for lossless reduction of the size of .png images  [RWM for jpg?]
+    Run W3C Link Checker on the post preview to make sure all links are valid.
+    Check YAML metadata is filled out, including title, description, categories, tags, etc.
+    Check images have alt text. A web accessibility evaluation tool can help.  [https://www.w3.org/WAI/ER/tools/]
+
+  Save the .md file and check that the changes took (then commit to GitHub).  With blogdown::serve_site() you can immediately view changes with every save using LiveReload and your .html file is properly output. Changes are local.  Viewer shows what a user would see on the site. 
+
+  Save the URL of each post on the Blog by right clicking on the title and "Copy link location"; save the long URL in this file
+  Get the Bitly short form and add it after the full URL (on Bitly, click "Create" orange tab, then "Link".  Paste in long form and click "copy" to save short form; save below long form)
+  
+  Go back to each post and fill in the long URLs (not Bitly short form as I can't proof work)
+  
+  Write tweets for Twitter (often drop "impressionist"; even spaces count against 140 limit)
+    
+    check my site:  blogdown::check_site(), will run all check_*() functions at once. For people familiar with GitHub, Netlify, and Hugo, you may want to just check everything with blogdown::check_site().
+    
+### Learn about HUGO
+https://ropensci.org/blog/2019/01/09/hugo/
+
+with the yaml package you can edit hundreds of Markdown files at once, granted you check the edits carefully. 
+
+    
+### Blog color scheme colorBrewer palette Dark2https://www.w3schools.com/css/tryit.asp?filename=trycss3_flexbox_justify-content_space-around   Try out your code
+
+.customBlogTitle in index.css  h1   and header.html
+navbarLink in common.css       h2   and header.html and header.html, I changed to "center"
+.customPostTitle in index.css  h3
+subthemes in common.css        h4
+
+add extra line
+To add an extra line of space between paragraphs, add the HTML &nbsp; code, followed by two extra spaces (e.g. &nbsp.., replacing the periods with spaces).
+
+I used this: https://colorbrewer2.org/#type=qualitative&scheme=Dark2&n=3
+
+27,158,119  dark green for Blog Title  
+217,95,2    orangy-red for tabs ()
+117,112,179 purplish for blog titles   
+            subthemes link
+            
+### Blog text font size, color and css cascading style sheets
+Note: If you do not specify a font size, the default size for normal text, like paragraphs, is 16px (16px=1em).
+
+BlogTitle
+Navbar
+PostTitle
+
+### Tabs at top of blog (Navbar): About, Art and Artists, Themes, Subthemes, 
+
+about.md to modify the About tab. 
+
+subthemes.Rmd to update and modify subthemes
+
+art.Rmd for the artists, works of art, themes 
+
+themes?
+
+# Sidebar to list Themes or related blogs
+https://discourse.gohugo.io/t/how-would-i-create-a-sidebar-with-page-specific-related-links/9037/4
+
+
+### create a form
+I used Formspree to make a contact form, which is an online service (managed on GitHub) that allows you to add an HTML form to your static site. No registration, just use the form and confirm your email address once. I added the following code into my contact widget: 
+https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/
+
+## Create box for icons
+config.toml has in it the elements below the blog title, such as About, Art, Themes, and Subthemes.  They have weights that determine their order.
+
+I created an Icon element to practice boxes and made it weight 5
+
+In BlogThemes1/content I created icon.Rmd
+
+## Pushing changes to GitHub 
+
+Connect to GH by clicking on "Git" above Pane 3, and then the "Commit" button
+
+Stage files listed on the left pane by checking, which is usually all of them to either add or delete [D].  Ctrl-A picks all and then click one
+
+Fill in Comment of what has been done
+
+[click on box under "Staged" in Git at top right], Commit to GH, 
+
+Push to GH [still "branch is one commit ahead of main"].  "Stop"
+
+Then click "Close"
+
+## Netlify
+
+NetLify [Net Liff Fy] builds and hosts the site.  I created the website ThemesforArt.com and directed NetLify to use that site and my name (not the NetLify prefix). I don't have to go to NetLify when I make changes in an .md file and push them to GitHub
+
+## Disqus (not a single comment as of June 29th)
+Add comment counts to articles - Direct your readers to where discussions are happening or just getting started.
+Remove friction - Add Trusted Users and curate your Restricted Words list so readers can comment more easily.
+Moderate your community - Choose a moderation profile to make sure your comments section remains a safe and civil space for your audience.
+Teach readers how to comment - Provide a tutorial on the basics of commenting to establish the right tone for your community from the very beginning.
+
+## One-time steps for GH, NetLify etc.  
+
+Created GH repository ("BlogThemes"), joined NetLify and linked GH to it, installed blogdown package, picked the HugoTanka theme (and modified it, later switched from that blog theme)
+
+https://alison.rbind.io/post/new-year-new-blogdown/   [Has three other posts and is excellent!]  She wrote the following before:  https://alison.rbind.io/post/2020-12-27-blogdown-checks/
+
+    I am strongly in favour of never using .Rmd in a blogdown site because its output is an html file, not a .markdown/.md file. from  [RWM but what about inline code?] https://masalmon.eu/2020/02/29/hugo-maintenance/
+ 
+    use .md so Hugo converts to html, but need to edit profile  https://drmowinckels.io/blog/2020-05-25-changing-you-blogdown-workflow/  also need to add archetype to YAML
+    Third post Alison cites is too complicated https://clauswilke.com/blog/2020/09/08/a-blogdown-post-for-the-ages/
+
+
+### Google Analytics
+
+https://statsandr.com/blog/track-blog-performance-in-r/   Antoine!
+
+What R package handles Google analytics data?  This one lists several others!  do a comparison?
+https://code.markedmondson.me/googleAnalyticsR/
+
+Account Id
+188088269 (which is different from the User Authorization code)
+
+```{r googleAnalytics}
+library(googleAnalyticsR)
+
+# https://www.rubenvezzoli.online/googleanalyticsr-beginners-guide/
+
+# Connect R and Google Analytics: I chose Allow across all of them
+# ga_auth()
+
+# Generate a list of all the Google Analytics accounts you have access to
+# Account Id
+# 188088269
+# Account Name
+# BlogThemes
+
+# ga_accounts <- ga_account_list()   This picked up Juris Datoris but not Netlify
+# > ga_account_list()
+# Auto-refreshing stale OAuth token
+
+# VIEW ID ga_id contains the View ID that you want to query
+ga_id <- 188088269
+
+
+# PROPERTY ID  in Admin/Property Settings, which I searched for after online research
+# 268288914
+# ga_id <- 268288914
+
+# above didn't work so I search for Profile ID on GA site
+# ga_id <- "G-WPRZXLGMHX"
+# Error: API returned: Invalid value 'ga:G-WPRZXLGMHX' for viewId parameter.
+
+# fourth effort, based on this SO Question
+# https://stackoverflow.com/questions/14525565/not-sufficient-permissions-google-analytics-api-service-account
+# Same issue. Solved it by using the VIEW id instead of the account Id (UA-XXXXX-1).
+# 
+# Analytics Console > Admin -> View (Profile) -> View Settings -> View ID
+# 
+# Make sure that you add the service account to your list of users in the Google Analytics Console. Simply setting it up in the Credentials, API and Permissions section of the developer console will still not grant it access to your analytics.
+# 
+# Analytics Console > Admin -> Account -> User Management -> "Add permissions for:"  RWM what is the service account I need to add?
+
+# Download the data and store them in a dataframe
+# ga_results1 <-google_analytics(viewId = ga_id,
+#                                date_range = c("2020-05-01", "2020-05-12"),
+#                                metrics = c("users","sessions"),
+#                                dimensions = "date")
+# Request Status Code: 403
+# Error: API returned: User does not have sufficient permissions for this profile. when I tried YTD, and May
+
+```
+
+Google Analytics Export Data and Analyze
+
+```{r GAReports, echo=FALSE, eval=FALSE}
+# Pick the custom date range, starting April 11, 2021.  Upper right, click on Share this report (middle icon) and export CSV, but save it as XLSX in BlogThemes1
+
+GAData <- readxl::read_xlsx(path = "C:/Users/Rees Morrison/Documents/R/Projects/CLIENTS/Themes/BlogThemes1/GoogleAnalyticsExport.xlsx")
+
+# I think all the numbers are New Users
+GAData <- GAData[18:107, 1:4]
+colnames(GAData) <- c("Day", "none", "referral", "organic")
+GAData$none <- as.numeric(GAData$none)
+GAData$referral <- as.numeric(GAData$referral)
+GAData$organic <- as.numeric(GAData$organic)
+GAData$NewUsers <- GAData$none + GAData$referral + GAData$organic
+
+PostDates <- data.frame(Theme = c("Alcohol", "Decisions", "Destruction", "Work", "Time", "Chance", "Silence", "Beauty", "Death", "Trains", "Churches", "Birds"), Date = c("Feb. 2", "Feb. 8", "Feb. 18", "Feb. 26", "March 8", "March 14", "April 8", "April 21", "May 7", "May 10", "May 21", "June 14"), DayOfYear = c(33, 29, 49, 57, 67, 73, 98, 111, 127, 130, 141, 165))
+
+GAData$Day <- GAData$Day + 77     # since April 11, the first day in the set, was the 101st day;  but the data exported goes back 90 days so subtract it from the day of the year I am running this.  E.g., today is June 16, the 167th day of the year.  90 days before was 77
+
+ggplot(GAData, aes(x = Day, y = NewUsers)) +
+  geom_point(color = ifelse(GAData$NewUsers > 0, "forestgreen", "white"), size = 1) +
+  labs(x = "Day in 2021", y = "New Visitors", title = "New Visitors to Themes from Art", subtitle = "Dates of Posts are Dotted Vertical Lines, with Theme") +
+  geom_vline(xintercept = c(111, 127, 130, 141, 165), linetype = "longdash", color = "grey60", size = 1) +
+  annotate("text", x = c(111, 127, 130, 141, 165), y = c(5, 4, 3, 2, 1), label = c("Beauty", "Death", "Trains", "Churches", "Birds"), size = 4, color = "red") +
+  theme_tufte()
+
+
+# ggplot(GAData, aes(x = Day, y = PctNewUsers)) +
+#   geom_line(group = 1, color = "blue", size = 1.5) +
+#   labs(x = "Days from April 11, 2021", y = "Pct. New Visitors", title = "Visitors to Themes from Art", subtitle = "Percentage of Total Visitors Who Are New") +
+#   theme_tufte()
+```
+
+
+
+
+## analyze Bitly data with r
+
+```{r bitly}
+# library(urlshorteneR)  # this shortens URLs, but doesn't help with bitly
+# bitly_auth()
+
+# https://stackoverflow.com/questions/11493425/accessing-the-bitly-oauth2-api-from-r   maybe overkill for me
+
+bitlyAll<- read_xlsx("C:/Users/Rees Morrison/Documents/R/Projects/CLIENTS/Themes/Bitly data.xlsx", sheet = "transpose2")
+
+# colnames(bitlyAll) <- rep(c("Date", "Post", "URL", "Clicks"), 124)  # I named in Excel, which autonumbered
+# bitlyAll <- bitlyAll %>% filter(seq(1,496,4), seq(3,496,4))
+
+bitlyAll <- bitlyAll[1, -c(seq(1,496,4), seq(3,496,4))]  # remove bitly URL and date
+
+# bitly <- pivot_longer(data = bitlyAll, names_to = "name", values_to = "value",
+#                       cols = seq(1,248))
+
+bitlyDF <- data.frame(Posts = t(bitlyAll[1, seq(1, 248, 2)]), Clicks = t(bitlyAll[1, seq(2, 248, 2)]))
+
+```
+
+# EMAIL notices emayili
+
+https://mvaugoyeau.netlify.app/post/presentation-off-women-international-day/#sending-the-support-with-the-package-sendmailr
+
+https://bensstats.wordpress.com/2020/07/23/robservations-2-mail-merging-email-blasting-with-r/ with emayili
+
+A web browser uses HTTP (Hypertext Transfer Protocol) to communicate with a web server. Similarly, an email client (like Outlook or Thunderbird) uses SMTP (Simple Mail Transfer Protocol) as the communication protocol to send emails.
+
+```{r email, eval=FALSE}
+# emayili sending email with minimal dependencies. https://datawookie.github.io/emayili/
+library(emayili)
+
+# First create a message object.  Start here and delete the existing email, or it will repeat text
+email <- envelope()
+
+# Add addresses for the sender and recipient.
+email <- email %>%
+  from("rees@reesmorrison.com") %>%
+  to("rees@reesmorrison.com", "iamwillmorrison@gmail.com")
+
+# There are also bcc() and reply() functions for setting the Bcc and Reply-To fields.
+
+# Add a subject.
+email <- email %>% subject("Sending to Two!")
+
+# Add a text body. You can use html() to add an HTML body.
+email <- email %>% text("The latest topic covers Time.  It draws on a poem by Andrew Marvell, a movie with Bill Murray, a painting by Degas, and a song by The Byrds.  Please let me know your thoughts and observations.")
+
+# Add an attachment.
+# email <- email %>% attachment("image.jpg")  # excel file?
+
+# Create a SMTP (Simple Mail Transfer Protocol) server object and send the message.
+# How do I get the password and is my gmail address my user name
+# More information about this service can be found at https://www.smtpbucket.com/.
+# Google's server listens for secure connections on ports 465 and 587.
+
+email
+
+smtp <- server(host = "smtp.gmail.com",
+               port = 465,  # the SSL port
+               username = "rees@reesmorrison.com",
+               password = "vlmaxexlnnfpjtkn")   # we set up 2FA (factor authentication with my gmail account and it generated this random password)
+
+# If you are using SSL, the port number is usually 465 and for TLS the port is usually 587. Even so, it's very easy to get hung up on the server details… Especially, when you try both and it doesn't work. This is most common with the major webmail services (e.g, Gmail, Yahoo, etc), because they use a different protocol by default, STARTTLS. 
+
+smtp(msg = email)  # error  Login denied
+# 535-5.7.8 Username and Password not accepted. Learn more at
+# 535 5.7.8  https://support.google.com/mail/?p=BadCredentials i5sm17373653qkg.32 - gsmtp
+
+# Simply printing a message displays the header information.
+email
+
+# qp_encode(c(Rees, Will))
+
+# You can identify emails which have been sent using {emayili} by the presence of an X-Mailer header which includes both the package name and version.
+# 
+# To see the guts of the message as passed to the SMTP server:
+#   print(email, details = TRUE)
+# 
+# Using STARTTLS
+# 
+# If you're trying to send email with a host that uses the STARTTLS security protocol (like Google Mail), then it will most probably be blocked due to insufficient security. In order to circumvent this, you can grant access to less secure apps. See the links below for specifics:
+#   
+#   Google (details)
+# 
+ 
+# other R packages which also send emails:
+  
+# blastula
+# blatr (Windows)
+# gmailr
+# mail
+# mailR
+# sendmailR
+# ponyexpress
+```
+
+
+```{r packagegmailr, eval=FALSE}
+# Sending Messages With Gmailr"
+
+library(gmailr)
+
+## Constructing a MIME message
+## Text First we will construct a simple text only message
+
+text_msg <- gm_mime() %>%
+  gm_to("rees@reesmorrison.com") %>%
+  gm_from("rees@reesmorrison.com") %>%
+  gm_text_body("Gmailr is a very handy package!")
+
+# You can convert the message to a properly formatted MIME message using `as.character()`.
+# Multipurpose Internet Mail Extensions (MIME) is an Internet standard that extends the format of email messages to support text in character sets other than ASCII, as well as attachments of audio, video, images, and application programs.
+# 
+# ```{r sending_messages_simple_print}
+# strwrap(as.character(text_msg))
+# ```
+
+### HTML
+
+# You can also construct html messages.  It is customary to provide a text only message along with the html message, but with modern email clients this is not strictly necessary.
+
+# html_msg <- gm_mime() %>%
+#   gm_to("james.f.hester@gmail.com") %>%
+#   gm_from("me@somewhere.com") %>%
+#   gm_html_body("<b>Gmailr</b> is a <i>very</i> handy package!")
+
+
+### Attachments
+
+# You can add attachments to your message in two ways.
+# 
+# 1. If the data is in a file, use `gm_attach_file()`.  The mime type is automatically guessed by `mime::guess_type`, or you can specify it yourself with the `type` parameter.
+
+# write.csv(file = "iris.csv", iris)
+# 
+# msg <- html_msg %>%
+#   gm_subject("Here are some flowers") %>%
+#   gm_attach_file("iris.csv")
+
+
+# 2. If the data are already loaded into R, you can use `gm_attach_part()` to attach the binary data to your file.
+# sending_messages_attachments_1}
+# <!-- msg <- html_msg %>% -->
+# <!--   gm_attach_part(part = charToRaw("attach me!"), name = "please") -->
+
+
+# <!-- ### Including images -->
+
+# <!-- You can also add use attached images in HTML by setting the Content ID feature of mime emails. This can be done by referencing the image via a `<img -->
+# <!-- src=cid:xyz>` tag using the `id` argument of `send_file()`. The tag value can by any unique identifier. E.g. here is an example of including a ggplot2 image -->
+
+# First create a plot to send, and save it to mtcars.png
+# mtcars$gear <- as.factor(mtcars$gear)
+# 
+# png("mtcars.png", width = 400, height = 400, pointsize = 12)
+# with(mtcars,
+#      plot(hp,
+#           mpg,
+#           col = as.factor(gear),
+#           pch = 19,
+#           xlab = "Horsepower",
+#           ylab = "Miles / gallon"
+#      )
+# )
+# legend("topright", title = "# gears",
+#        pch = 19,
+#        col = seq_along(levels(mtcars$gear)),
+#        legend = levels(mtcars$gear)
+# )
+# dev.off()
+
+# Next create an HTML email that references the plot as 'foobar'
+# email <- gm_mime() %>%
+#   gm_to('someaddress@somewhere.com') %>%
+#   gm_from("someaddress@somewhere.com") %>%
+#   gm_subject("Cars report") %>%
+#   gm_html_body(
+#     '<h1>A plot of <b>MotorTrend</b> data <i>(1974)</i></h1>
+#     <br><img src="cid:foobar">') %>%
+#   gm_attach_file("mtcars.png", id = "foobar")
+
+# unlink("mtcars.png")
+
+## Uploading
+### Create Draft
+
+# You can upload any mime message into your gmail drafts using `gm_create_draft()`.  Be sure to give yourself at least `compose` permissions first.
+
+#sending_messages_create_draft, eval=FALSE}
+# gm_create_draft(file_attachment)
+
+### Insert
+
+# This inserts the message directly into your mailbox, bypassing gmail's default scanning and classification algorithms.
+
+# gm_insert_message(file_attachment)
+
+### Import
+
+# This imports the email as though it was a normal message, with the same scanning and classification as normal email.
+
+```{r sendingfileattachment, eval=FALSE}
+# gm_insert_message(file_attachment)
+```
+
+```{r sendmailr, eval=FALSE}
+library(sendmailR)
+
+from <- sprintf("rees@reesmorrison.com","Rees Morrison") # the sender’s name is an optional value
+to <- sprintf("iamwillmorrison@gmail.com")
+subject <- "Test email subject"
+body <- "Test email body"
+
+sendmail(from,to,subject,body,control=list(smtpServer="smtp.gmail.com"))
+# Error in if (code == lcode) { : argument is of length zero
+
+```
+
+```{r mailr}
+#library(mailR)  # requires Java
+```
+
+## Sending Message
+
+You can also send an email message directly from a `mime` object using `gm_send_message()`.
+
+gm_auth_configure()
+gm_send_message(text_msg)
+
+
+```{r sending_messages_clenup, include=FALSE}
+unlink("iris.csv")
+```
+
+# Metrics Analysis  - on July 21 I moved all the quantifications of themes to ThemeAnalysis.Rmd in Themes
+
