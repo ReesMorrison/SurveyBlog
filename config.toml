@@ -13,7 +13,7 @@ languageCode = "en"                # content language
 paginate = 5                       # number of posts each page
 rssLimit = 10                      # maximum items in rss feeds
 theme = "hugo-theme-texify"        # theme directory name
-title = "Savvy Survey"                   # website title
+title = "Savvy Surveys for Lawyers"                   # website title
 
 [author]
 email = "rees@reesmorrison.com" # your email
@@ -26,13 +26,6 @@ defaultMarkdownHandler = "goldmark"
 unsafe = true # enable html in markdown
 [markup.highlight]
 style = "emacs" # syntax highlight style, see https://xyproto.github.io/splash/docs/
-
-# https://gohugo.io/content-management/menus/
-[[menu.main]] # sections in the website header
-identifier = "post" # section id
-name = "Posts"       # section display title
-url = "/"           # path to the section
-weight = 1          # order of sections
 
 # https://gohugo.io/content-management/taxonomies#configure-taxonomies
 [taxonomies]
