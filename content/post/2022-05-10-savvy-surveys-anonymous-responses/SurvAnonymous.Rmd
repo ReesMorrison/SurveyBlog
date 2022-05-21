@@ -1,0 +1,52 @@
+---
+title: 'Savvy Surveys: Anonymous responses'
+author: Rees Morrison
+date: '2022-05-10'
+slug: []
+categories:
+  - Surveys
+draft: no
+---
+
+When you release an online survey to your law firm, law department, or legal service providers (outside counsel, vendors, consultants), what are the drawbacks if the responses you get back are **anonymous**?  By “anonymous” I mean you cannot identify which member of your firm,  department, or law-related vendor you invited to take part submitted which response.  You did not ask them for their name, their email address, their organization, or another piece of identifying information, so the response is incognito.
+
+So, what’s the problem?
+
+<!--more-->
+
+•	You are unable to write or call a respondent with a question about an answer that is probably a **typo**, or a crucial missing answer, or an obvious misinterpretation.  As an example of the latter, what if they ranked as most important a selection that no one else came close to ranking so high; the person who filled out the survey probably reversed the ranking order.
+
+•	You are unable to thank them, send them a report, move on with a **follow-up survey**, or host them on a **videoconference** to discuss the findings.
+
+•	You increase the risk that answers are not in **good faith**.  Respondents hiding behind the curtain can gin up nonsense or deliberately try to distort your findings, which is worse.  Notoriously, self-reported hours worked and compensation come to mind.  Spam bedevils surveys.  By spam, we mean deliberately wrong and misleading answers.  Like anonymous trolls on the internet, being hidden let’s bad behavior metastasize.
+
+•	You face more difficulty when you strive to weed out **duplicate** entries if you lack a unique key field.
+
+•	You can’t attest confidently to the **representativeness** of your response set.  You can’t be precise about the number of paralegals in it, for example.
+
+These are weighty considerations that discourage sponsors from permitting anonymous responses.  In fact, you should feel your hackles rise if someone refuses to disclose who they are.  **Required fields** are the normal antidote.
+
+Questions that pierce anonymity share issues with required questions.  Even if you insist on a unique identifier, such as a cell phone number, respondents can fake it and proceed to the rest of the questions.  This is possibly an insoluble problem.  True, you could confirm that an email address or phone number is valid, but that confirmation does not assure that you know who is the respondent (info@ibm.com might be valid, as is 555-1212).  It is also a more elaborate precaution than survey **host software** affords.
+
+Anonymity is not wholly bad; of course, **trade-offs** crop up.  
+
+-	If you require respondents to say who they are or who they represent, you may undermine the candor that you seek.  They may not want to deliver bad news, contrarian commentary, or the truth about their attitudes.  For example, what if a question on a compensation survey asks “On a scale of 1 to 7, how satisfied are you with your total compensation package?”
+
+-	You may end up with fewer surveys in your data set.  If some people are unwilling to put their name to their response and therefore bag the whole thing.  Worse, the disaffected may disproportionately shun the survey; **response bias** and skew rear their heads!  Sponsors cannot tell what is a sensitive, **trigger question** for respondents.  One person might object to providing their age, whereas a young person doesn’t think twice.  One person doesn’t mind gender classification, but another person objects mightily or cannot find the selection that they believe accurately applies to them.  More generally, every topic that is important enough to survey is sensitive to someone.
+
+You may be able to circumvent the direct question that identifies the respondent by collecting enough other data that you can figure out who is who.  We address this in “required questions.”
+
+It will always be the case that workers mistrust disclosing their views, for the intractable reason that they cannot be completely sure that those views won’t leak, and possibly be used against them.  In a surveillance culture, who trusts that cameras aren’t recording or bad guys are rummaging through personal data?
+
+Unwilling to accept the tradeoffs of anonymity, some sponsors may insert a secret code in the response that lets them link a person or organization to that response.  This is like putting a unique number on a paper questionnaire where you keep a list that matches each number to a specific invitee.  As a step in this direction, Constant Contact can tell you who has clicked on the **survey link** you sent, but not whether they went on to complete the survey (let alone match survey to person).  
+
+Or you might try a two-step method.  The respondent does not enter information that identifies her, but in a second step she notifies a **third party** that she has submitted her responses.  If someone were concerned about being discovered, they could wait a couple of days before sending the notification in hopes that several people responded during that time and the sponsor could not be sure which was which.  This double move disconnects the answers from the answerer.
+
+But a deeper confounder troubles the two-step method:  How would the third-party confirm that she had indeed completed the survey?  With hosting software that I know about you can’t sneak in an identifier some way (such as a unique link to the survey), but you might ask a question that would require the person to have read the entire survey to be able to answer, e.g., “About how many questions involved ranking?”.  It could be a question along the lines of “Click on the following question that was asked on the survey.” and give three choices.  This smacks of overthinking.  This gap, and surveys abandoned in mid-flight constitutes **drop-off**.
+
+A related issue is that you must scrupulously protect the individual information of those who respond.  An egregious violation would be if the Chief Information Officer of your law firm writes in a **text comment** that “as CIO, I hate our bring your own device policy.”  If that comment makes it into the report **verbatim**, all readers know the CIO’s views.  Or, on a **scatterplot** that identifies points with a text label, the highest paid partner might be generally suspected and his or her actual pay could then be spotted.
+
+Because controversy swirls around the right to be anonymous or not, you should state your policy, its importance, and the reasons for it in your **invitation email**.  Going a step further, you should address it more fulsomely in a **FAQ** and be ready to explain and defend your position.
+
+<!-- Book: 2 Questions -->
+<!-- Source: TVPI -->

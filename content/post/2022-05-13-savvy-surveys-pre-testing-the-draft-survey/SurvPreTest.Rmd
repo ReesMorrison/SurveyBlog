@@ -1,0 +1,46 @@
+---
+title: 'Savvy Surveys: Pre-testing the Draft Survey'
+author: "Rees Morrison"
+date: '2022-05-13'
+output: pdf_document
+categories: Surveys
+draft: no
+slug: []
+---
+
+Before you unleash your survey into the wild, delay long enough to allow at least one thoughtful person to attack the draft survey, as if he or she were an idiot.  More specifically, ask a lawyer (or someone from the group to be surveyed) to review your survey work who is a peer or above so that they are not reluctant to criticize, ask tough questions, disagree, or find fault.  Push them to answer all the questions as if they were dumb, unmindful, or a saboteur.  Their intent should be to create edge cases, weird input, to test the parameters and operations of the questions.  
+
+For sure you do not want the first few respondents to be your guinea pigs; mistakes uncovered by your users bodes ill; challenge and reward your pre-test takers to serve as beefeaters. The whole purpose of the stress test is to poke holes in the online survey and shine lights into dark and murky cracks.  
+
+You, as the sponsor or designer of the survey, can also join the pinata exercise.  As you and they pummel and pressure the hapless survey, adopt the persona of a busy, impatient, careless, and reluctant respondent.  They skim across the questions and refuse to read with comprehension, especially instructions.  Worse, they may be inept with and afraid of software.
+
+It is a good practice to give the reviewer a checklist of pain points to keep in mind.  You will probably add to that checklist once they are done (and every time you put a a survey through its paces)!  Here are a few suggestions for how to poke and prod the most common types of questions
+
+•	**Multiple choice questions**: Check more than one on a single-check-mark, multiple-choice question
+
+•	**Percentage allocations**:  See what happens if the percentages are supposed to total 100, but you only put in 90; or you slap in a total of 140  
+
+•	**Ratings**:  See if the slider acts as advertised, or if you can slip in an “11” on 10-point scale
+
+•	**Rankings**: Put in duplicate ranks, or decimals, or text, and see whether smoke rises
+
+•	**Text boxes**: Enter 5000 characters into the text box to see if it overloads or truncates
+
+•	**Required questions**:  Ignore a required question
+
+•	**Numeric values**:   Enter an absurd number, such as 1,000,000 for a bonus or 3 for revenue.  While you are torturing the survey’s quantitative questions, sprinkle in dollar signs, periods or text  
+
+•	**Logic questions**: check that they redirect to the appropriate **conditional question**
+
+You get the point; you and they should stress the survey and rattle its bars as much as possible.  You are awarded a smiley face each time you uncover a weakness.
+
+But the same rampaging idiot should then morph into a gentle genius.  They should read carefully and think painstakingly to root out ambiguities, insufficient explanations, illogical or poorly-written selections, typos, and other imperfections.  
+
+They should critique the **section instructions**, the **headers** of pages, and **text elements**.  They might suggest additional selections on multiple-choice questions or reworking existing lists to put them in **parallel form**.  [Selections on a drop-down menu or on the screen ought to be in parallel form and alphabetical order: if they are “bird,” “cat,” “dog”,– not if they are “Animal of feline attributes,” “Snoopyish”, “One of those avians that flies.”  In other words, each selection has a similar grammar and syntax.]  The best reviewers pay attention to the order in which questions are asked.  They also emulate a confused or sloppy computer user, who can’t copy and paste a link into a browser, or find the “Save until later” tab.   Like proofreading, stress testing an online survey is an art form where you keep learning the ropes.
+
+You should make it a practice to interview your dogged pre-testers so that you can glean observations that they didn’t remember or bother to write down.  Subjective feelings, like “How did it feel to move through the survey?” are fair game, as are “What would you suggest to improve the survey?”
+
+Any artificial data entered into the survey by a tester should be downloaded from the **hosting software** and subjected to **exploratory data analysis** to confirm that the data renders correctly and to spot other problems (Never forget to delete the faux data from the final data set.).  Does the spreadsheet reflect the desired format and structure?  
+
+<!-- Book: 1 Development early -->
+<!-- Source: TVPi -->
