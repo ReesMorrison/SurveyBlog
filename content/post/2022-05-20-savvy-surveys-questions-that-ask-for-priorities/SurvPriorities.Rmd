@@ -1,11 +1,10 @@
 ---
-title: 'Savvy Surveys: Questions that Ask For Priorities'
+title: 'Appreciated Questions Designed for Priorities'
 author: Rees Morrison
 date: '2022-05-20'
-slug: []
 categories:
   - Surveys
-draft: yes
+draft: no
 ---
 
 A popular format on online surveys requests respondents to consider a list and assign priorities.  “Consider the following challenges of work from home as compared to at the law firm:” could be the format of one such question; the list that follows has “inadequate software, interruptions, noise, pets, social isolation, work-life balance, Other.” [Note that the selections are in alphabetical order, with “Other” at the end.]  The instructions say to assign those list items one of several kinds of priorities.
