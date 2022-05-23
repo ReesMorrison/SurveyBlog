@@ -1,5 +1,5 @@
 ---
-title: 'Savvy Surveys: Anonymous responses'
+title: 'Try to Cure Anonymous Responses'
 author: Rees Morrison
 date: '2022-05-10'
 slug: []

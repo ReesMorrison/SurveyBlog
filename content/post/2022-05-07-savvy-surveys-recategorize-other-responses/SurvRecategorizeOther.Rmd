@@ -1,5 +1,5 @@
 ---
-title: 'Savvy Surveys: Recategorize Other Responses'
+title: 'Standardize the Categories of "Other" Responses'
 author: "Rees Morrison"
 date: '2022-05-07'
 output: pdf_document
