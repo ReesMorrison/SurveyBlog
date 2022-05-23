@@ -1,5 +1,5 @@
 ---
-title: 'Savvy Surveys: Categorical Variables'
+title: 'Binify Numbers into Categorical Variables'
 author: Rees Morrison
 date: '2022-05-17'
 slug: []

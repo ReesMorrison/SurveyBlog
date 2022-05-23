@@ -1,11 +1,11 @@
 ---
-title: 'Savvy Surveys: Instructions for Respondents'
+title: 'Instruct Respondents How to Answer Questions'
 author: Rees Morrison
 date: '2022-05-19'
 slug: []
 categories:
   - Surveys
-draft:
+draft: no
 ---
 
 Let’s turn our attention now to various places where a survey project can help respondents answer questions.  Artful instructions will also make the analyst’s job easier when it comes to cleaning, standardizing, and aggregating answers.  If people can willy-nilly fill in as they see fit, the analyst will have a fit (yes, a willful pun) and the quality of the information collected will degrade.  We will review these **instruction** methods by starting with the broadest scope and proceeding to the most targetted.
