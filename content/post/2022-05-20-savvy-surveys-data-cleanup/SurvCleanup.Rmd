@@ -1,5 +1,5 @@
 ---
-title: 'Savvy Surveys: Data Cleanup'
+title: 'Take Time to Clean Your Response Data'
 author: Rees Morrison
 date: '2022-05-20'
 slug: []

@@ -1,5 +1,5 @@
 ---
-title: 'Surveys for Lawyers: Currency Conversion'
+title: 'Decide How to Convert Currencies Conversion'
 author: Rees Morrison
 date: '2022-04-30'
 slug: []

@@ -1,4 +1,12 @@
-## Ask for Email Addresses"
+---
+title: 'Ask for a Business Email Address'
+author: Rees Morrison
+date: '2022-05-20'
+slug: []
+categories:
+  - Surveys
+draft: no 
+---
 
 You should ask for the **email address** of the person responding to your survey on behalf of a law firm, law department or legal vendor.  As to the order of that question, place it as one of the first questions because otherwise people who spend time slogging through the questionnaire might not want to find at the end that you want them to identify themselves, that they are not **anonymous**.   [Whether you make the question a **required** question raises other issues beyond the scope of this section.]
 
