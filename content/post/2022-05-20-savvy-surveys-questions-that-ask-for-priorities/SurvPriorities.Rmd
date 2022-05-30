@@ -1,5 +1,5 @@
 ---
-title: 'Appreciated Questions Designed for Priorities'
+title: 'Be Sensitive to Priorities Questions'
 author: Rees Morrison
 date: '2022-05-20'
 categories:
