@@ -1,0 +1,38 @@
+---
+title: Unleash Natural Language Processsing on Survey Comments
+author: Rees Morrison
+date: '2022-05-31'
+categories:
+  - Surveys
+draft: no
+---
+
+
+
+<p>Law firms and law departments periodically conduct surveys of their members or clients to learn about a topic, e.g., engagement, work-from-home policies, client satisfaction, or use of AI software. Questions on the survey may invite respondents to write as much as they want for an answer. For example, “How have you encountered and dealt with supply-chain obstructions?” I will call them “text questions.”</p>
+<p>The old-fashioned way to identify and classify ideas from free-text responses to text questions has been to read and code them by hand. This is why you benefit from Natural Language Processing (NLP) tools. Defensible and reproducible coding of text is hard to do well because the coder may be biased or inattentive, the codes keep evolving, concepts are entangled, the amount to process is large, or it is monotonous, sucks up time and has no definitive stopping point. In short, coding text by hand is rife with challenges.</p>
+<p>Today, the technology-savvy firm or department will complement manual coding of text comments with analyzing them through NLP algorithms (also known as “text analysis” or “text mining”). Of course, questions seeking a written response should be clear and neutral in tone; they should also be read by someone to purge them of anything that would identify the writer, because some or all of the responses might be included in a report.</p>
+<p>In this first part of a series of articles, we will describe the preparatory steps for any NLP project. Its focus is the steps to transform your tousled, bed-head comments into coiffed statistical form. Part II will explain four common NLP analyses that your firm or department can then carry out:</p>
+<ol style="list-style-type: decimal">
+<li>A word cloud that displays the most-commonly used significant words;</li>
+<li>A sentiment classification of the comments;</li>
+<li>A network graph of frequently paired words in the comments; and</li>
+<li>Clustering the comments by similarity of words used.</li>
+</ol>
+<p>Part III will cover ways that NLP software can tease out topics in the comments, even across questions, that coders might miss or mishandle: so-called latent topic models.</p>
+<p>Survey analysts of law firms and law departments can turn to the free, open-source R or Python programming languages to take advantage of NLP methods (other tools include MonkeyLearn and Power BI). Both programming languages start by reading the text in from a spreadsheet that has stored each respondents’ comments on a row with the question in one column and whatever was written in another column.</p>
+<p>At the starting point for unleashing NLP algorithms is <strong>tokenization</strong> (I have bold-faced technical terms), which refers to the way you define and identify the unit of analysis. For making sense of survey comments, our tokens will be words. Once all comments are tokenized, the software deletes typical non-significant words (such as “the”, “is”, “of”, called <strong>stop words</strong> as they add no informational value). You combine hyphenated words such as “write-offs” and “post-decision” because otherwise they would be treated as separate words after the hyphen is removed. Your software also removes numbers, punctuation and special characters (like /, @ and $) while it converts all words to lower case (a computer regards “Invoice” as a different token than “invoice”). This leaves a cleaned <strong>corpus</strong> – NLP jargon for a group of documents, as each free-text question here would be considered a document and each word a term.</p>
+<p>Next, the analyst typically has the software complete several of the following preparatory steps:</p>
+<p>• Remove additional words that were used so often that they convey little information (domain-specific stop words, such as “lawyer” or “law department”).</p>
+<p>• Correct misspelled words or non-ASCII characters.</p>
+<p>• Convert variants of a word into one form, so that “origination,” “originates,” “originated”, and “originator” all became “originat” (called <strong>stemming</strong>).</p>
+<p>• Standardize forms of a verb into one form, called <strong>lemmatization</strong>, so that “running”, “ran,” and “runs” become “run” and “invoices” becomes “invoice.”</p>
+<p>• Treat compound words as one word, such as “outside counsel” changes to “outsideCounsel” or “general counsel” becomes “generalCounsel.”</p>
+<p>• Expand contractions and slang into proper words (“doesn’t” to “does not” and “BS” to “nonsense.”</p>
+<p>These text standardizing and scrubbing actions might trigger another cull of stop words. In fact, the whole process sounds more cumbersome than it is. Once your text question entries can be read into your <strong>programming script</strong> – the code that does the heavy lifting – the text cleaning described above takes the software seconds to complete, although the analyst will take more iterative steps as he or she scrutinizes the results and makes revisions.</p>
+<p>What happens to the words? It is common in NLP analyses to rely on a <strong>bag-of-words (BoW)</strong> breakdown of the corpus, which means the software counts how many times each word appears in each comment but disregards the grammatical role of the word (its part of speech as in subject, object, verb) as well as the words order in the comment. Basic NLP preserves no context nor semantics.</p>
+<p>At this point, the software creates a virtual spreadsheet (in the computer’s memory) of one row for each entry to a text question, and a column for each different word in all the entries. In a large survey, say with 100 partners responding, you can have several thousand unique words in the text comments to a question. If so, the software’s object would have 100 rows by several thousand columns.</p>
+<p>This format is called a <strong>document-term matrix (DTM) </strong>. The cells of DTM contain the number of times each word appears in that comment. For survey text-mining, the “documents” are comments to a text question, and the terms are scrubbed “words.” A <strong>matrix</strong> is a rows-by-columns collection of numbers; hence, a DTM is a document-term matrix. Since many of the cells are empty – many of the words only once in the set of comments to a particular question – it is likely to be a so-called <strong>sparse matrix</strong>.</p>
+<p>More sophisticated NLP techniques incorporate the order of words, parts of speech and external data, but BoW document-term matrices support ample analytical power, since a raft of statistical and mathematical calculations can come from them. Also, we should note one variation of the DTM described above.</p>
+<p><strong>Term Frequency-Inverse Document Frequency (TF-IDF) </strong> is a matrix that differs from simply counting words to find the most popular words in the document. It is used in more advanced NLP tasks. TF-IDF weights the count of words (the “term frequency”) by how often that word appears across all comments (the “inverse document frequency”). If a word shows up in most text question response, the term frequency is large and the document frequency is large, so the inverse document frequency (one divided by the document frequency) is small – which gives that word a reduced value. If a term is popular in one document but not others, the document frequency is small and so the relative document frequency is large, giving a large value in the rare document in which it appears. A TF-IDF matrix spot and “upvotes” words that are rare across documents or uncommonly frequent within documents.</p>
+<p>Now, you are ready to mine text with NLP!</p>
