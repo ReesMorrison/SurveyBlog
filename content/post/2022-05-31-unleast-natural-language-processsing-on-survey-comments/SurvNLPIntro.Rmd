@@ -4,7 +4,7 @@ author: Rees Morrison
 date: '2022-05-31'
 categories:
   - Surveys
-draft: no
+draft: nost
 ---
 
 Law firms and law departments periodically conduct surveys of their members or clients to learn about a topic, e.g., engagement, work-from-home policies, client satisfaction, or use of AI software.  Questions on the survey may invite respondents to write as much as they want for an answer.  For example, “How have you encountered and dealt with supply-chain obstructions?”  I will call them “text questions.”
