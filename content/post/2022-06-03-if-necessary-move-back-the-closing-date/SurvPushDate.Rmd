@@ -1,0 +1,19 @@
+---
+title: If Necessary, Move Back the Closing Date
+author: Rees Morrison
+categories:
+  - Surveys
+draft: no
+---
+
+When a law firm or a law department launches a survey, the **invitation email** should include a projected **closing date**.  “We urge you to take the survey on or before May 31st.”    For internal surveys by firms and legal teams, two to three weeks should be sufficient to accommodate holidays as well as employee vacations, illnesses, procrastination, or stretches of high-pressure workloads.
+
+The psychology of setting a date motivates people to put it on their to-do list.  Quite a few will still defer opening the survey until the last day, but others will appreciate the flexibility of choosing when to complete the survey.  Under circumstances of much uncertainty about how long it will take to collect sufficient responses, you might choose not to publish the due date, but the better practice is to set the timer running.  You certainly want to remind invitees of the due date when you send out **reminder emails**.
+
+You want to allow enough time so that you obtain questionnaires from a **representative** portion of the population you invite.  Don’t expect fully completed surveys from 100% of the population you reached out to, but you do want reasonably balanced participation among various **demographic** groups.  For example, in a large corporate legal department, you might want at least 70% of all Senior Counsel, Counsel and paralegals in your final data set.  As a vendor soliciting survey responses from general counsel, you want to hear from at least a respectable number of participants, such as more than 100.  Accordingly, the law department and the service provider may need to extend the survey’s original deadline.  As the day for shutting down collection of survey draws near, you might want to call people who have not yet taken part or visit their offices to prod them.  You might even couple that with sending out a **second salvo** of new invitations if you realize that your overall numbers or your participation among certain groups projects to be inadequate.
+
+If the deadline arrives and you are still busily cleaning and sending emails to respondents to obtain correct information, slipping past the original closing date won’t adversely affect the survey.  Usually, a few laggards will do their part after the official closing time. 
+
+Another reason to keep a survey open is that you may have to fix a question or two.   Respondents will let you know if there is an ambiguity or question impossible to answer adequately.  Also, as you **review the early returns**, you may spot elements of the survey that need revision.  Either situation may justify pushing back the survey close date.
+
+If you are working with a **consultant** on the **survey project**, your statement of work may or may not address an extension of the deadline.  Unless payment of a portion of the fee hinges on that deadline, the additional time is unlikely to matter to the consultant.
