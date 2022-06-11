@@ -67,4 +67,4 @@ kable(ratings2, caption = "Five Ratings of Survey Software (1 cite)", align = c(
 
 ```
 
-These posts can serve as a start point for a vendor selection process.  I won't venture into trying to evaluate the dozens of survey software options now available on the market.  I will, however, end with two observations from the posts.  Legal-related surveyors probably won't want Surveybot for Facebook surveys, YesInsights with its single question format, or SurveySparrow's chatbot surveys.  I also noted that SaaS makes clear that the companies it includes pays them for inclusion.
+These posts can serve as a starting point for a vendor selection process.  I won't venture into trying to evaluate the dozens of survey software options now available on the market.  I will, however, end with two observations from the posts.  Legal-related surveyors probably won't want Surveybot for Facebook surveys, YesInsights with its single question format, or SurveySparrow's chatbot surveys.  I also noted that SaaS makes clear that the companies it includes pays them for inclusion.
