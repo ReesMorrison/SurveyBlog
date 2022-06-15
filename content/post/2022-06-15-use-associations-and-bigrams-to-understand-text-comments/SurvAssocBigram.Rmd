@@ -7,7 +7,7 @@ categories:
 draft: no
 ---
 
-We continue here to discuss NLP techniques for extracting meaning from free-form text comments.  The first post in the series is [here](https://surveyjds.onrender.com/post/2022-05-31-unleast-natural-language-processsing-on-survey-comments/survnlpintro/) while the second post is [here](    ).
+We continue here to discuss NLP techniques for extracting meaning from free-form text comments.  The first post in the series is [here](https://surveyjds.onrender.com/post/2022-05-31-unleast-natural-language-processsing-on-survey-comments/survnlpintro/) while the second post is [here](https://surveyjds.onrender.com/post/2022-06-15-use-word-clouds-and-sentiment-to-understand-text-comments/survwordcloud/).
 
 Calculate Word Associations
 
