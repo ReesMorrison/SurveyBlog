@@ -13,14 +13,12 @@ Create a Word Cloud of Common Words
 
 From the document-term matrix, software can total how many times each word appears in the corpus as a whole (all of the text questions combined text).  A **bar chart** with the most frequent words can depict the totals.  As in the bar chart below, which shows the frequently-used significant words in the first 25 posts from this blog, this simple effort makes clear the thrust of the writing.  The word “survey” leads the way with almost 250 appearances.  At the bottom end, “people” appears about 40 times.  Note that the words have not been **lemmatized**.
 
-![Bar chart](C:/Users/Rees Morrison/Documents/R/Projects/LAWYER Hornbooks/5Surveys/LTNBarplot.png)
-
-![Bar chart media](~/static/media/LTNBarplot.png)
-
+<!-- https://lcolladotor.github.io/2018/03/07/blogdown-insert-image-addin/ -->
+![](/post/2022-06-15-use-word-clouds-and-sentiment-to-understand-text-comments/SurvWordCloud_files/LTNBarplot.png)
 
 A more visually compelling way to convey a similar finding relies on a **word cloud** plot.  Below is a word cloud of the seventy-five most frequent words used in the same blog.  The location of a word in the cloud has no meaning, but the font size and color, which you can pick, corresponds to its relative frequency.  Thus, “survey” and “question” appear most often.  
 
-![word cloud](C:/Users/Rees Morrison/Documents/R/Projects/LAWYER Hornbooks/5Surveys/LTNWordcloud.png)
+![](/post/2022-06-15-use-word-clouds-and-sentiment-to-understand-text-comments/SurvWordCloud_files/LTNWordCloud.png)
  
 The layout of the cloud varies each time you run the software, unless you set a **seed** to force the software to reproduce the layout each time.  You can specify how many words to include and can even custom shape the “cloud.”  I could create a question mark symbol, for example, and fill it with the word cloud words.
 

@@ -12,19 +12,10 @@ categories: Surveys
 <p>The <a href="https://surveyjds.onrender.com/post/2022-05-31-unleast-natural-language-processsing-on-survey-comments/survnlpintro/">first part of this series</a> explains typical steps that a survey analyst takes to prepare free-text comments for Natural Language Processing (NLP). In this part, we describe four methods by which a cleaned and standardized corpus lets NLP reveal insights.</p>
 <p>Create a Word Cloud of Common Words</p>
 <p>From the document-term matrix, software can total how many times each word appears in the corpus as a whole (all of the text questions combined text). A <strong>bar chart</strong> with the most frequent words can depict the totals. As in the bar chart below, which shows the frequently-used significant words in the first 25 posts from this blog, this simple effort makes clear the thrust of the writing. The word “survey” leads the way with almost 250 appearances. At the bottom end, “people” appears about 40 times. Note that the words have not been <strong>lemmatized</strong>.</p>
-<div class="figure">
-<img src="C:/Users/Rees%20Morrison/Documents/R/Projects/LAWYER%20Hornbooks/5Surveys/LTNBarplot.png" alt="" />
-<p class="caption">Bar chart</p>
-</div>
-<div class="figure">
-<img src="~/static/media/LTNBarplot.png" alt="" />
-<p class="caption">Bar chart media</p>
-</div>
+<!-- https://lcolladotor.github.io/2018/03/07/blogdown-insert-image-addin/ -->
+<p><img src="/post/2022-06-15-use-word-clouds-and-sentiment-to-understand-text-comments/SurvWordCloud_files/LTNBarplot.png" /></p>
 <p>A more visually compelling way to convey a similar finding relies on a <strong>word cloud</strong> plot. Below is a word cloud of the seventy-five most frequent words used in the same blog. The location of a word in the cloud has no meaning, but the font size and color, which you can pick, corresponds to its relative frequency. Thus, “survey” and “question” appear most often.</p>
-<div class="figure">
-<img src="C:/Users/Rees%20Morrison/Documents/R/Projects/LAWYER%20Hornbooks/5Surveys/LTNWordCloud.png" alt="" />
-<p class="caption">word cloud</p>
-</div>
+<p><img src="/post/2022-06-15-use-word-clouds-and-sentiment-to-understand-text-comments/SurvWordCloud_files/LTNWordCloud.png" /></p>
 <p>The layout of the cloud varies each time you run the software, unless you set a <strong>seed</strong> to force the software to reproduce the layout each time. You can specify how many words to include and can even custom shape the “cloud.” I could create a question mark symbol, for example, and fill it with the word cloud words.</p>
 <p>A person can spend much time refining the terms that form the word cloud. For example, “choose” should be in the supplemental stop-word list; “law” should be enjambed with “firm”; and it is not clear that “don’t” adds value. On the positive side, we can be sure that the major topic of the 2,928 unique terms in 25 posts is “surveys,” and much discussion centers around questions on those surveys. For a Bag-of-Words representation, a word cloud conveys many insights.</p>
 <p>Determine the Sentiment of Comments</p>
