@@ -7,6 +7,7 @@ categories:
 draft: no
 ---
 
+
 Every survey sponsor wants as many participants as possible to take their survey.  Law firms want oodles of employees to take part or swathes of invited corporations; law departments want every internal client to weigh in or every paralegal and lawyer on the rolls.  However, with survey data, quality outranks quantity, and respondents need to be both acceptable and to provide qualified answers to the online questionnaire for their answers to count.  One of the harder tasks, therefore, of an analyst is to cull responses that should not make their way into the survey sample, which we will refer to collectively as disqualified responses.
 
 The analyst should screen out disqualified responses before the effort begins to clean up the survey data (which includes disqualification, by the way) and to prepare the subsequent analytics.  

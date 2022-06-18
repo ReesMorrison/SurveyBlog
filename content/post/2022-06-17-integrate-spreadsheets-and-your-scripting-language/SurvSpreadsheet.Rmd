@@ -1,10 +1,10 @@
 ---
-title: Integrate Spreadsheets and Your Scripting Language
-author: Rees Morrison
+title: "Integrate Spreadsheets and Your Scripting Language"
+author: "Rees Morrison"
 date: '2022-06-17'
-categories:
-  - Surveys
+output: pdf_document
 draft: no
+categories: Surveys
 ---
 
 Ideally, once you export to a spreadsheet the data that has been collected by your **hosting software**, you will read it into the **scripting language** of your choice and carry out every step of **cleaning the data**.  You will remove **disqualified responses**, **standardize titles** and **educational levels** or other **demographic questions** that have an option for “**Other**,” correct incorrect answers (such as a compensation figure obviously missing a zero), and perhaps add **calculated variables** such as total compensation when you’ve asked for base and bonus or convert foreign currencies to a standard currency.  
@@ -16,3 +16,4 @@ Programmers ruefully grimace at the old chestnut, “Better to spend five hours 
 This is where the capabilities of Excel (or other **spreadsheet packages**, such as Tableau) may step in to help.  With Excel you can see everything on the screen, and you can quickly sort the data by a key variable, such as “Title,” and then standardize its entries.  The order of the responses will change from the original order as you sort, but that doesn’t matter to your programming language.  You can whisk away an incomplete submission.  Whenever I resort to Excel, I copy the original exported data into a new worksheet (called “revisions”) and highlight any changes I make with background yellow.  By those two steps, I create a partial **audit trail** of my work which lets me undo a step by restoring the original data.  There may be ways to add comments to changes in Excel, but I use a third worksheet (cleverly called “notes”) to record my notes to that purpose.
 
 I do not favor carrying out calculations in Excel, because the R programming language in my toolchest excels, so to speak, at calculations.  Whenever an entire variable needs to be manipulated, such as splitting one into multiple variables, transforming data into factors or date format, extracting information with a **regular expression**, or changing the levels of **factors**, I do those transformations in R.
+
