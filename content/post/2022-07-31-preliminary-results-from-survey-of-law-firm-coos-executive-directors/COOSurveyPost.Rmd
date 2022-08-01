@@ -8,14 +8,14 @@ categories:
 draft: no
 ---
 
-The Table of Contents below shows the current draft of the Report that we will send to all participants (who provide compensation data) during the **last week of August.**  We plan to send a second report, updated with data from those who respond between late August and mid-October shortly after that closing data.
+Here is the Table of Contents of the draft Report that we plan to send to all participants.  The send date will be during the **last week of August.**  We plan to publish an updated report, with data from respondents between late August and mid-October, shortly after the October closing date.
 
 ![](/media/COOSurveyReportToC.png)
 
-From the **129 respondents to date** (with more expected in the next few weeks), here are quartile figures for their total cash compensation.
+From the **129 respondents to date** (with considerably more expected in the next few weeks), here are quartile figures for their total base and bonus compensation.
 
 ![](/media/COOSurveyTotalcomp.png)
 
-Finally, the next table displays the distribution of respondents by the number of lawyers in their firm.
+The final table gives the distribution of respondents by the number of lawyers in their firm.
 
 ![](/media/COOSurveyLawyers.png)
