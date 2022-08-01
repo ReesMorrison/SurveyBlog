@@ -1,0 +1,21 @@
+---
+title: Preliminary Results from Survey of Law Firm COOs/EDs
+author: Rees Morrison
+date: '2022-07-31'
+slug: []
+categories:
+  - Surveys
+draft: no
+---
+
+The Table of Contents below shows the current draft of the Report that we will send to all participants (who provide compensation data) during the **last week of August.**  We plan to send a second report, updated with data from those who respond between late August and mid-October shortly after that closing data.
+
+![](/media/COOSurveyReportToC.png)
+
+From the **129 respondents to date** (with more expected in the next few weeks), here are quartile figures for their total cash compensation.
+
+![](/media/COOSurveyTotalcomp.png)
+
+Finally, the next table displays the distribution of respondents by the number of lawyers in their firm.
+
+![](/media/COOSurveyLawyers.png)
