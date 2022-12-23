@@ -6,7 +6,7 @@ slug: []
 categories:
   - Surveys
 
-draft: no
+draft: 
 ---
 
 One of the methodological risks that a compensation survey particularly confronts is that respondents don’t enter correct information. It is possible, for example, that a Chief Operating Officer deliberately enters inflated values where the survey asks for salary or bonus. They may nurture a hope that if they and others put in numbers that are higher than what is true, the resulting averages and medians in the report will be too high.  Those inflated findings will be beneficial when they negotiate raises (or bonuses).  
