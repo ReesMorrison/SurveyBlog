@@ -1,5 +1,5 @@
 ---
-title: 'Why COOs might Pass on a Free Compensation Survey '
+title: 'Why COOs might Pass on a Free Compensation Survey'
 author: Rees Morrison
 date: '2022-12-23'
 slug: []
