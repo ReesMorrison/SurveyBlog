@@ -3,7 +3,7 @@ title: 'Change the Question Set, but Cautiously'
 author: Rees Morrison
 date: '2022-12-23'
 categories: Surveys
-draft: yes
+draft: no
 ---
 
 You want as many people as possible to complete your survey.  For that reason, as you decide on the first version of the questionnaire, you inevitably drop questions that would stretch the survey discouragingly long – who will trudge through 55 questions?  Or you’d love to know about the law department’s square footage, but that inquiry takes research to answer.  Perhaps you admit that you can’t phrase the question or its selections in an unambiguous, answerable way.  Even so, such candidate questions stay on your waiting list, so to speak.  
