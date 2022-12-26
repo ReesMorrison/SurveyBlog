@@ -5,7 +5,7 @@ date: '2022-12-26'
 slug: []
 categories:
   - Surveys
-draft: yes
+draft: 
 ---
 
 **Categorical variables** (aka “factors”) are limited text choices as answers, such as “Male” or “Female,”  a state in the United States, or a title.  For example, a recent survey I completed produced the following simplified table of data for 94 leaders in law firms.  A categorical variable for title included “Chief”, “Director” and “Manager.”  The size of the firm created a second categorical, in the AmLaw 100 or not in the AmLaw100.  Of this survey group, therefore, 28 Directors work at AmLaw 100 law firms (the second value of the second column).
