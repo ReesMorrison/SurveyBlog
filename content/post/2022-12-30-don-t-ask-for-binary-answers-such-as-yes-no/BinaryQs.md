@@ -26,6 +26,6 @@ Lazy:  Such questions also suggest intellectual wooliness or sloth: the sponsor 
 
 Demands Precision:  You must word the question sharply to hope that a binary question covers everything: “Are you satisfied or not with the firm’s vacation policy if you are an associate with more than four years at the firm?” might be defensible because it zeroes in on a particular, well-defined situation.  The elaborate question might provide sufficient context.
 
-Sparse Graphics:  The analytic value of the results is minimal.  You can present the breakdown in a text summary, or a table, but you can’t show more from the table.  You might do crosstabs (see prior). Charts that display binary results are simplistic, such as a two-slice pie.
+Sparse Graphics:  The analytic value of the results is minimal and there are few ways to present either/or answers compellingly.  You can present the breakdown in a text summary, or a table, but you can’t show more from the table.  You might do crosstabs (see prior). Charts that display binary results are simplistic, such as a two-slice pie.
 
 Other than those quibbles, binary questions are fine.
