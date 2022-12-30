@@ -20,7 +20,7 @@ Free Text:  Binary questions cry out for write-in additions.  If you allow **wri
 
 Respondent Discontent: Crude binary questions force someone who sees multiple sides to a question and falls on 55% of the answer to pick it one or the other.  It can cause backlash to the rest of survey if they are irritated by the straitjacket.
 
-Bullying:  To me, binary questions suggest that the survey sponsor wants a certain answer, probably Yes.  They have a quality of leading the witness and presuming the likely (or desired) answer.  
+Bullying:  To me, binary questions suggest that the survey sponsor wants a certain answer, probably Yes.  They have a quality of leading the witness, presuming the likely (or desired) answer, and pushing the person taking the survey toward it.  
 
 Lazy:  Such questions also suggest intellectual wooliness or sloth: the sponsor couldn’t or wouldn’t think harder about a question that more accurately captures the messiness of real life and multiple opinions.
 
