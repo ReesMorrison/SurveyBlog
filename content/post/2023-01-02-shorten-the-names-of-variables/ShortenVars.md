@@ -5,7 +5,7 @@ date: '2023-01-02'
 slug: []
 categories:
   - Surveys
-draft: 
+draft: no
 ---
 
 When a **survey analyst** sits down to corral and curry the data from a survey, one of the first steps would typically be to rename some or all of the variables.   You do that so that they are intelligible and so that they are short.  Assuming you use the variable in your code or graphics, you want it to be called “Title”, not “Please pick from the drop-down below the title that is most equivalent to yours.”  Not only is it verbose, it has empty spaces, which give software conniptions.

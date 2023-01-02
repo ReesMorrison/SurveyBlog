@@ -5,7 +5,7 @@ date: '2023-01-02'
 slug: []
 categories:
   - Surveys
-draft: 
+draft: no
 ---
 
 We can cite several advantages to using online surveys for data collection:
