@@ -89,3 +89,5 @@ Infographics take another step of sophistication.  They extract what is importan
 For example, an infographic might put bags of money in proportion to the differential between General Counsel compensation and deputy general counsel compensation and then have  text woven around it that explains the reasons for the gap or changes over time.  As compared to the other four methods described above, however, infographics demand special software and a designer’s sensibility.  Infographics go beyond simply regurgitating numbers; done well, they require experience, imagination, and capable software tools. 
 
 So, a picture (graph) is worth a thousand words, and an infographic even more, but words, lists, and tables play their roles when you offer data to the legal industry.
+
+<!-- End of post -->
