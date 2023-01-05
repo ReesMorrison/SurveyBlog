@@ -1,5 +1,5 @@
 ---
-title: 'Decide When it’s Time to End Data Collection'
+title: 'Decide When it’s Time to End Data Collection:'
 author: Rees Morrison
 date: '2023-01-05'
 slug: []
@@ -27,3 +27,5 @@ Money:  You might be forced to terminate because you have run out of funding, as
 Aged data:  Survey Information beyond its warranty date, so to speak, may go stale, as for example if a compensation survey begins late in the calendar year.  It is too late for respondents to act on the report’s findings.   If the timing is off, recognize the futility of waiting for what won’t come.
 
 Seasonality: Fewer people will have the time or inclination to take a survey in December and in August.  Why keep it open during a dry spell?
+
+<!-- End of post -->
