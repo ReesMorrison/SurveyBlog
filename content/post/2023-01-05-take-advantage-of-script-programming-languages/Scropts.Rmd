@@ -5,7 +5,7 @@ date: '2023-01-05'
 slug: []
 categories:
   - Surveys
-draft: yes
+draft: no
 ---
 
 A “script” is the term I will use for the programming an analyst does to turn raw survey responses into groomed output, such as tables, plots, or complete reports.  Scripts have huge advantages over spreadsheet manipulations.
@@ -18,9 +18,9 @@ Comments:  Good programmers write comments to explain what their code does.  In 
 
 Searchable:  Programmers use integrated development environments (IDEs) to make life much easier than command line programming.   Below is what I see when programming in R, where I make heavy use of the RStudio (now Posit) IDE.  Of inestimable value to me is the ability to have the IDE search in my past scripts for an example of code.  So, if I forget how to change the position of the legend on a plot, I can search for a previous time when I did exactly that.
 
-```{r}
+```{r, echo = FALSE}
 # ![RStudio](paste0(figpath, "RStudio Screenshot Scripts Post.png")) 
-# 
+ 
 # !["RStudio"]("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/RStudio Screenshot Scripts Post.png")
 
 knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/RStudio Screenshot Scripts Post.png")
