@@ -1,5 +1,5 @@
 ---
-title: Send Email Invitations in Waves
+title: Send Email Invitations in Waves:
 author: Rees Morrison
 date: '2023-01-09'
 slug: []
