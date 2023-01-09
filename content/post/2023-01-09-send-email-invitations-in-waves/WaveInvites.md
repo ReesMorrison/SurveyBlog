@@ -1,0 +1,29 @@
+---
+title: Send Email Invitations in Waves
+author: Rees Morrison
+date: '2023-01-09'
+slug: []
+categories:
+  - Surveys
+draft: no
+---
+
+Assume you have a few hundred e-mail addresses of potential participants in your survey. Rather than blast them out in one large volley, you might send them in three waves of one-third each.  Assuming you have adequate time to do so, experience has shown many benefits follow from a staged emailing campaign.  What I have summarized below as the steps to take at the stages all aim to create a bandwagon effect.
+
+Add facts.   Compelling facts, such as the number of respondents to date, or the percentage of respondents of an impressive type (e.g., Fortune 500 companies, Managing Partners, or countries) will encourage more people to join.  Your second and third email invitations can give context and strengthen your persuasion.   
+
+Post a blog with more details.  During a recent survey campaign, I chose not to bulk up the later **e-mail invitations** with facts nor to struggle with the technical challenges of inserting images.  Instead, I created a post on my blog, Savvy Surveys for Lawyers, and included the link to it in the e-mail invitation. There I explained the additional information that was available on the blog post, such as the distribution of respondents by size of law firm.
+
+Polish the language.  I favor paring subsequent versions of the invitation. Keep what will entice recipients to take your survey and drop the surplus text. Additionally, give thought to highlighting key terms, such as “free” or when the report will come to them. You can use font styles, color or bold to emphasize those enticements.
+
+Estimate completion time.  If your **hosting software** tracks how long participants spend responding to the survey, then you can share the median minutes.  Tell the second and third wave invitees how long peers devoted to the survey. Additionally, I like to tell how many questions are on the survey.  With some survey designs, an interested invitee cannot see what effort lies ahead if they plunge in.  Yes, information on typical time and survey length might dissuade a few people but on balance I feel that honest disclosure will encourage many more people to step in.
+
+Revise questions.  I have written previously about revisions to the questions or selections while a survey campaign is ongoing. Once you have received a fair number of responses, you can think critically and empirically about how to improve the next version.  If you tweak the survey for the second wave, for example, you might explain those improvements and also create a new URL for them so that you know how many take the revised survey. 
+
+Publicity underway.  Each wave of invitations might share with the subsequent tranches of invitees what additional steps you have taken to boost participation numbers. You might refer to an article about the topic that will be forthcoming (or attach it or a link to it). You might have written a white paper. A group, whether formal or informal, might have agreed to endorse your survey and circulate the invitation among its members. All of this goes toward the credibility of your survey, the likelihood of it gaining enough participants to support a muscular analysis, and the fillip to wavering invitees to cast their lot with the survey.
+
+New distribution methods:  It may also be sensible to deploy a different bulk mail service for later waves. After all, the first service you used might be blocked by some number of targeted of people. A different service might enjoy more favorable treatment and thus more penetration.
+
+**A/B tests**:  Finally, when you send out waves of invitations to your survey, you can try in a scientific manner any of these variations on incentives, facts provided, additional resources cited, formats, subject lines, and other variables to learn what makes a more effective combination.  True A/B tests don’t vary multiple factors, but you get the idea.   Always remember that if you conduct the same survey in the following year, you will have a stronger campaign based on what you learn this year from honing invitations to tweaking survey content.
+
+<!-- End of post -->
