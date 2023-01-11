@@ -8,7 +8,7 @@ categories:
 draft: no
 ---
 
-As soon as you have accumulated a few responses to your survey of law firms or law departments, you should download them and scrutinize them.  It is far better to find and fix a problem early, or make a change that facilitates your analysis, than to proceed deep into the survey project.   After all, we know what an ounce of prevention is worth.  Here are several jagged edges to avoid.
+As soon as you have accumulated a few responses to your survey of law firms or law departments, you should download them and scrutinize them.  It is far better to find and fix a problem early, or make a change that facilitates your analysis, than to proceed deep into the survey project. After all, we know what an ounce of prevention is worth.  Here are several jagged edges to avoid.
 
 Variable names:  You can realize that selections are not mutually exclusive, they are ambiguous, or that a likely candidate was overlooked.  See what people write in the “**Other**” box and guide yourself accordingly.  Or absorb email feedback when you send a **thank you email**.
 
