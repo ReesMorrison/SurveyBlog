@@ -14,7 +14,7 @@ If you present survey-takers with only a few choices, you might spread them hori
 
 The screen shot below illustrates these format alternatives.
 
-![vertical](C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/HorizandVerticalMC.png)
+![](C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/HorizandVerticalMC.png)
 
 <!-- "C:\Users\rees\Documents\R\Projects\LAWYER Hornbooks\5Surveys\SavSurvBlog\SurveyBlog\static\media\HorizandVerticalMC.png" -->
 
