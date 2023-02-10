@@ -12,7 +12,7 @@ My enthusiasm for vivid graphics that convey a survey’s finding knows no bound
 
 With that ideology made clear, let’s critique the plot below, which comes from the 2023 Annual Litigation Trends Survey Report by Norton Rose Fulbright (pg. 15).  You are encouraged to study the entire excellent report, which is available for download at (https://www.nortonrosefulbright.com/en-us/knowledge/publications/52bd21a0/2023-annual-litigation-trends-survey).
 
-![litigation plot](media/Norton2023Lit.png)
+![litigation plot](/media/Norton2023Lit.png)
 
 The plot is gorged with so much information that it overwhelms all but the most patient and committed interpreter.  It takes concentration to parse it and I couldn’t spot an explication in the text.  Accordingly, it contributes little to the overall endeavor of the survey – to collect, distill, and interpret litigation data.  
 
