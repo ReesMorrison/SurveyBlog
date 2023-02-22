@@ -18,7 +18,7 @@ When you get right down to it, whatever has value in the invitation email could 
 
 In my mind, the difference is that you can format the introduction in ways that emails, which are often viewed on cell phones, might not handle.   The psychological tone also differs because the person has clicked on the link, which evidences interest, and you can pull them forward. 
 
-In other words, craft the introductory text to make people as comfortable as possible about the unknowns of the survey ahead.  This is another tool to keep them going through your survey to the end; it should reduce **attrition**.  That said, a **trade-off** lurks:  too long an introduction and a busy respondent might stop reading and call it a day.
+In other words, craft the introductory text to make people as comfortable as possible about the unknowns of the survey ahead.  This is another tool to keep them going through your survey to the end; it should reduce **attrition**.  That said, a **trade-off** lurks: too long an introduction and a busy respondent might stop reading and call it a day.
 
 One final observation.  A well-crafted introduction might be recycled in articles about the survey report or in thumbnail descriptions of the project for journalists.
 
