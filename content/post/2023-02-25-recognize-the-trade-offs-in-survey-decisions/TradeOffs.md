@@ -30,6 +30,6 @@ Required questions:  Sponsors of surveys often have an understandable desire to 
 
 Time periods:  Perhaps it does not matter to control the length of look back in a question: “How often have you been dissatisfied with HR?”.  You still collect a rating, and an open **time frame** gives flexibility to respondents.  Or you may feel that any period designated by you is arbitrary and could err in either direction (too short or too long).  It’s a trade-off, but I strongly favor the known period (“over the past 18 months”) over a shapeless past. 
 
-Rather than cataloguing more instances, let’s summarize.  The more sensitive you become to trade-offs inherent in survey projects, the more you realize their ubiquity.  Every decision you make raises trade-offs, whether you are aware of them or not.  The more you are sensitive to trade-offs, they better you can weigh the various considerations.
+Rather than cataloging more instances, let’s summarize.  The more sensitive you become to trade-offs inherent in survey projects, the more you realize their ubiquity.  Every decision you make raises trade-offs, whether you are aware of them or not.  The more you are sensitive to trade-offs, they better you can weigh the various considerations.
 
 <!-- End of post -->
