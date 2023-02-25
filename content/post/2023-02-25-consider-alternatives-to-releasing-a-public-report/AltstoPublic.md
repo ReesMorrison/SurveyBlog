@@ -12,7 +12,7 @@ No law firm, department, or vendor leaks its **internal survey** to the outside 
 
 Infographic: Every now and then a sponsor prepares an **infographic** that summarizes the key discoveries from the survey.  An infographic takes time and effort to prepare, but it takes less of each than a full-scale report.  Below is an illustrative image of an infographic about e-discovery produced by Exterro’s survey in 2015.
 
-![infographic](C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/Old Survey Design Book images/Exterroinfographtop.png)
+![](/post/2023-02-25-consider-alternatives-to-releasing-a-public-report/AltstoPublic_files/Exterroinfographtop.png)
 
 Reporter’s article:  Sometimes the sponsor shares the results of a survey with a publication, and one of its reporters writes an article, or a series of articles, around the findings.  Articles may include quotes by senior lawyers or executives of the sponsor that serve as expert commentary on the findings.  
 
