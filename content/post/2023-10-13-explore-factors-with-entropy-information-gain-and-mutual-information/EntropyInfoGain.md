@@ -9,41 +9,6 @@ draft: no
 ---
 
 
-```
-## Warning: package 'ggplot2' was built under R version 4.3.2
-```
-
-```
-## Warning: package 'purrr' was built under R version 4.3.1
-```
-
-```
-## Warning: package 'dplyr' was built under R version 4.3.2
-```
-
-```
-## Warning: package 'stringr' was built under R version 4.3.2
-```
-
-```
-## Warning: package 'blogdown' was built under R version 4.3.1
-```
-
-```
-## Warning: package 'knitr' was built under R version 4.3.2
-```
-
-```
-## Warning: package 'Hmisc' was built under R version 4.3.2
-```
-
-```
-## Warning: package 'ggrepel' was built under R version 4.3.2
-```
-
-```
-## Warning: package 'readxl' was built under R version 4.3.1
-```
 
 
 ```r
