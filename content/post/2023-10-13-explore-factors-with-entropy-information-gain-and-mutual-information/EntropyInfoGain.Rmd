@@ -1,6 +1,6 @@
 ---
 title: Explore Factors with Entropy, Information Gain, and Mutual Information
-author: Morrison
+author: Rees Morrison
 date: '2023-11-22'
 slug: []
 categories:
