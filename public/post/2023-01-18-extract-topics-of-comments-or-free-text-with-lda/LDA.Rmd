@@ -1,0 +1,40 @@
+---
+title: 'Extract Topics of Comments or Free Text with LDA'
+author: Rees Morrison
+date: '2023-01-18'
+slug: []
+categories:
+  - Surveys
+draft: no
+---
+
+How can you gain insights from written answers or comments in surveys?  Among the many tools, let’s focus on a popular one to ferret out elusive themes in text, called **topic modeling**.
+
+Latent Dirichlet Allocation (LDA) is an unsupervised^[This term means that no pre-existing classifications exist; the software does all the work.]   **machine learning** algorithm for topic modeling: identifying sets of words that characterize topics that might not be obvious – they are “latent”.  The algorithm uses a probability distribution, the Dirichlet distribution, to allocate comments to topics and words to topics: thus, Latent Dirichlet Allocation.   Under the hood, LDA unleashes complex mathematics which uses **linear algebra** extensively.  It saves analysts from coding written responses by hand, a laborious undertaking that introduces bias and often overlooks subtle signals of the text.
+
+Here’s how it works.  After the combined text comments have been tidied into a document-term matrix (DTM), the analyst picks how many topics LDA should extract.  Programming languages have tools to help an analyst decide the optimal number of topics, e.g., by  calculating **topic coherence scores** over a range of topic numbers. 
+
+When fed the number of topics to uncover, LDA assumes that the comments to each question contain a probabilistic mixture of topics and that all topics consist of a probabilistic mixture of words.  Basically, what LDA boils down to is this: comments with similar topics have a higher probability of using similar groups of words.  LDA takes the matrix of comments by words (the DTM) and iterates repeatedly to tease out the chosen number of topics with the highest probability words in them until the algorithm cannot improve the result.  
+
+One question on survey for law firm COOs asked them to identify the challenges they foresaw in the coming few years.   The graphic below shows four topics and the terms with the highest probability of being in them.  Given the small number of comments (approximately 100) and their brevity, the model’s output does not lend itself to clear interpretation, but you can see the promise in this NLP tool.
+
+![](C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/LDAPlot.png)
+
+Beta, the percentages on the horizontal axis, represents topic-word density - with a high beta, topics are made up of more of the words in the corpus, and with a low beta they consist of fewer of those words.  In general, higher beta values means topics contain more similar words. 
+
+LDA software cannot take the final step and summarize the essence of a topic.  That is what humans do quickly and well, especially **subject matter experts**.  Simply reading the key words of a topic usually suggests a preliminary interpretation of the topic.   People call that “comprehensibility”; whether an idea, subject or activity clearly emerges from a topic list.  The interpretation may be loose, as it is based on scanning the most probable words in each topic and attempting to condense their collective meaning into a short paraphrase.  
+
+Try your hand at distilling the topics.  Topic 1 appears to address technology concerns I would venture to say.  With topic models, remember that they cannot guarantee that the words in each topic will be related to one another conceptually — only that they frequently occur together in your data for some reason.  
+
+Various methods let analysts assess the quality of an LDA model.   As mentioned above, topic coherence is widely used.  Each topic has a list of words so you can calculate the average pairwise similarity scores of those words.  The higher the coherence score for a topic, the more related the words are in that topic, so the topic will likely make more sense.  In simple words, coherence tell us how closely associated the words are in a topic. 
+Coherence is a value between 0 and 1 and you would like to be above 0.65. 
+
+Prevalence and relevance values also evaluate an LDA model.  Prevalence is the probability of a topic’s distribution across all topics.  Relevance balances a term's frequency in a particular topic against the term's frequency across all the comments.   In other words, with a term that's quite popular in a topic, relevance gauges how much of its popularity is due to it being very specific to that topic and how much of it is due to it just being a word that appears everywhere.  
+
+Here is a collection of evaluations for another model I created, based on the first 35 posts on my blog.  Topic coherence is in the middle plot.  Explaining the rest of the diagnostics is beyond the scope of this introductory article. 
+
+![](C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/LDAEvaluation.png)
+
+A scanty collection of text comments will falter on diagnostic tests, such as coherence and exclusivity.   Comments on surveys are known as short-form text, which is harder for NLP topic-modeling tools to handle.  But another technique, known as ensemble LDA, deploys more than one algorithm and then synthesizes the topics that they each extract.   As of this writing, more than 10 different topic-modeling methods exist, with Latent Dirichlet Allocation being the best known. 
+
+<!-- End of post -->

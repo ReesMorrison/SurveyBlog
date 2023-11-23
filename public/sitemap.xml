@@ -1,43 +1,558 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
   <url>
-    <loc>https://savvysurveyjd.com/tags/alcohol/</loc>
-    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/post/2021-01-24-alcohol-flood-frost/alcoholflood/</loc>
-    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/tags/drinking/</loc>
-    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/tags/edwin-arlington-robinson/</loc>
-    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/tags/jug/</loc>
-    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/tags/mr.-floods-party/</loc>
-    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/post/</loc>
-    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/</loc>
-    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/tags/spoon-river-anthology/</loc>
-    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/tags/</loc>
-    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/tags/toast/</loc>
-    <lastmod>2021-01-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/about/</loc>
-    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://savvysurveyjd.com/series/</loc>
+    <loc>https://surveyjds.onrender.com/post/2023-03-01-be-aware-of-panel-providers-for-surveys/panels/</loc>
+    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
   </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-03-01-issue-a-press-release-about-the-survey-and-the-report/pressrelease/</loc>
+    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/</loc>
+    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/</loc>
+    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-03-01-stay-alert-to-try-new-ideas-and-resources/misci/</loc>
+    <lastmod>2023-03-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-25-consider-alternatives-to-releasing-a-public-report/altstopublic/</loc>
+    <lastmod>2023-02-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-25-optimize-the-return-on-your-investment-with-publicity/publicity/</loc>
+    <lastmod>2023-02-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-25-recognize-the-trade-offs-in-survey-decisions/tradeoffs/</loc>
+    <lastmod>2023-02-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-25-spot-duplicate-submissions-of-individuals-and-decide-what-to-keep/duplicates/</loc>
+    <lastmod>2023-02-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-22-deal-with-range-questions-or-don-t-ask-them/ranges/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-22-detail-the-reliability-of-changes-in-metrics-over-time/changestime/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-22-introduce-the-questionnaire-at-the-top/introduction/</loc>
+    <lastmod>2023-02-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-15-answer-invitees-who-ask-questions-about-the-survey/answerqs/</loc>
+    <lastmod>2023-02-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-15-collect-revenue-from-a-survey-project/revenue/</loc>
+    <lastmod>2023-02-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-15-know-what-s-different-about-internal-surveys/internals/</loc>
+    <lastmod>2023-02-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-15-share-email-lists-but-cautiously/shareemails/</loc>
+    <lastmod>2023-02-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-13-allow-adequate-time-to-complete-the-project/time/</loc>
+    <lastmod>2023-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-13-appreciate-the-levels-of-sophistication-in-a-report/levels/</loc>
+    <lastmod>2023-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-13-drop-attrition-of-respondents-who-start-your-survey/attrition/</loc>
+    <lastmod>2023-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-13-open-up-canned-emails/canned/</loc>
+    <lastmod>2023-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-13-send-periodic-cumulative-reports/cumulative/</loc>
+    <lastmod>2023-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-10-encourage-respondents-to-finish-the-survey/finishsurvey/</loc>
+    <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-10-make-no-mistakes-about-error-messages/errormssgs/</loc>
+    <lastmod>2023-02-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-06-offer-incentives-for-invitees-to-take-the-survey/incentives/</loc>
+    <lastmod>2023-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-06-protect-your-report-from-wrongful-distribution/protect/</loc>
+    <lastmod>2023-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-05-make-sure-graphics-can-be-readily-understood/graphicsclear/</loc>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-05-mix-negative-and-positive-versions-of-selections-or-questions/negativepos/</loc>
+    <lastmod>2023-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-03-deliberately-order-the-questions/orderquestions/</loc>
+    <lastmod>2023-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-03-draw-insights-from-gaps-between-ratings/ratinggaps/</loc>
+    <lastmod>2023-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-03-reproduce-the-questions-and-instructions-in-the-appendix/reproduceqs/</loc>
+    <lastmod>2023-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-03-think-carefully-whether-to-disclose-participating-firms-or-departments/listparticipants/</loc>
+    <lastmod>2023-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-01-follow-your-survey-with-a-second-drill-down-effort/twostep/</loc>
+    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-01-offer-a-webinar-to-discuss-the-results/webinar/</loc>
+    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-02-01-weigh-considerations-about-adding-a-consultant-to-the-team/consultants/</loc>
+    <lastmod>2023-02-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-27-be-wary-of-the-echo-chamber-of-multi-year-surveys/echochamber/</loc>
+    <lastmod>2023-01-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-27-state-respondents-per-question-with-n/nequals/</loc>
+    <lastmod>2023-01-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-19-weight-response-data-to-better-match-the-population/weighting/</loc>
+    <lastmod>2023-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-18-create-drop-down-selection-lists/dropdowns/</loc>
+    <lastmod>2023-01-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-18-extract-topics-of-comments-or-free-text-with-lda/lda/</loc>
+    <lastmod>2023-01-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-18-validate-answers-with-your-hosting-software/validate/</loc>
+    <lastmod>2023-01-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-12-calculate-the-median-absolute-deviation-mad/mad/</loc>
+    <lastmod>2023-01-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-12-preserve-proprietary-advantages-of-a-survey-but-narrowly/proprietary/</loc>
+    <lastmod>2023-01-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-12-qualify-participants-who-complete-the-survey/qualify/</loc>
+    <lastmod>2023-01-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-11-assess-whether-a-response-is-genuine/genuine/</loc>
+    <lastmod>2023-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-11-export-early-responses-or-pre-test-data-and-review/earlyresponses/</loc>
+    <lastmod>2023-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-11-when-done-critique-your-methodology-analysis-and-scope/postmortem/</loc>
+    <lastmod>2023-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-09-foresee-issues-to-resolve-if-you-collaborate-on-a-survey/collaborate/</loc>
+    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-09-send-email-invitations-in-waves/waveinvites/</loc>
+    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-09-understand-the-importance-of-margin-of-error/marginerror/</loc>
+    <lastmod>2023-01-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-05-decide-when-it-s-time-to-end-data-collection/enddatacollection/</loc>
+    <lastmod>2023-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-05-impute-missing-data/impute/</loc>
+    <lastmod>2023-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-05-take-advantage-of-script-programming-languages/scropts/</loc>
+    <lastmod>2023-01-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-02-choose-among-text-lists-tables-charts-and-infographics/texttablellist/</loc>
+    <lastmod>2023-01-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-02-know-the-advantages-and-disadvantages-of-online-surveys/advantdisadvant/</loc>
+    <lastmod>2023-01-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2023-01-02-shorten-the-names-of-variables/shortenvars/</loc>
+    <lastmod>2023-01-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-30-ask-respondents-to-send-completion-emails/completionemail/</loc>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-30-consider-collaborating-with-consulting-firms-or-vendors/collaboration/</loc>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-30-don-t-ask-for-binary-answers-such-as-yes-no/binaryqs/</loc>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-30-identify-gender-of-respondents/gender/</loc>
+    <lastmod>2022-12-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-26-analyze-interactions-of-categorical-variables-with-chi-square-tests/chi-square/</loc>
+    <lastmod>2022-12-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-26-handle-questions-with-numerous-selection-choices/manyselections/</loc>
+    <lastmod>2022-12-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-26-take-advantage-of-bulk-email-apps/bulkemail/</loc>
+    <lastmod>2022-12-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-26-track-methods-and-sources-of-responses/methodssources/</loc>
+    <lastmod>2022-12-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-23-change-the-question-set-but-cautiously/changequestionset/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-23-deal-with-the-clean-up-challenges-of-changing-the-question-set/dealwithquestionchanges/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-23-identify-possibly-erroneous-responses-outlier-detection/outliers/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-12-23-why-coos-might-pass-on-a-free-compensation-survey/notcompletecompsurvey/</loc>
+    <lastmod>2022-12-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-07-31-preliminary-results-from-survey-of-law-firm-coos-executive-directors/coosurveypost/</loc>
+    <lastmod>2022-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-27-learn-to-like-likert-questions/</loc>
+    <lastmod>2022-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-23-report-the-full-methodology-of-your-project/survmethodology/</loc>
+    <lastmod>2022-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-21-recognize-the-planets-of-knowledge-orbiting-the-solar-survey/survplanets/</loc>
+    <lastmod>2022-06-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-21-wrestle-with-not-applicable-and-don-t-know/survdontknow/</loc>
+    <lastmod>2022-06-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-18-publish-blog-posts-about-your-survey-results/survblog/</loc>
+    <lastmod>2022-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-17-avoid-and-and-or-questions-or-items-to-select/survavoidands/</loc>
+    <lastmod>2022-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-17-integrate-spreadsheets-and-your-scripting-language/survspreadsheet/</loc>
+    <lastmod>2022-06-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-15-use-associations-and-bigrams-to-understand-text-comments/survassocbigram/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-15-use-word-clouds-and-sentiment-to-understand-text-comments/survwordcloud/</loc>
+    <lastmod>2022-06-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-10-choose-your-survey-hosting-software/survsurveysw/</loc>
+    <lastmod>2022-06-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-10-add-an-acknowledgement-section-to-your-report/survacknowledgement/</loc>
+    <lastmod>2022-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-10-disqualify-unacceptable-responses/survdisqualify/</loc>
+    <lastmod>2022-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-10-relegate-additional-material-to-the-appendix/survappendix/</loc>
+    <lastmod>2022-06-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-07-build-in-skip-logic-with-conditional-questions/survconditionalq/</loc>
+    <lastmod>2022-06-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-04-extract-ideas-from-text-responses-manual-coding/survtextextract/</loc>
+    <lastmod>2022-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-03-if-necessary-move-back-the-closing-date/survpushdate/</loc>
+    <lastmod>2022-06-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-03-supplement-your-data-with-external-data/survsupplement/</loc>
+    <lastmod>2022-06-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-01-choose-a-complementary-team-for-the-survey-project/survteam/</loc>
+    <lastmod>2022-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-06-01-construct-index-variables-but-carefully/survindexvars/</loc>
+    <lastmod>2022-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-31-unleast-natural-language-processsing-on-survey-comments/survnlpintro/</loc>
+    <lastmod>2022-05-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-30-avoid-bias-in-the-order-of-items-for-multiple-choice-questions/survorderitems/</loc>
+    <lastmod>2022-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-30-be-wary-how-long-a-survey-takes/survtimetakes/</loc>
+    <lastmod>2022-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-30-enlist-a-subject-matter-expert-sme/survsme/</loc>
+    <lastmod>2022-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-30-set-time-frames-for-questions/survtimeframes/</loc>
+    <lastmod>2022-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-03-surveysaskemailaddresses/survaskemail/</loc>
+    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-20-savvy-surveys-questions-that-ask-for-priorities/survpriorities/</loc>
+    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-20-savvy-surveys-data-cleanup/survcleanup/</loc>
+    <lastmod>2022-05-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-19-savvy-surveys-instructions-for-respondents/survinstructions/</loc>
+    <lastmod>2022-05-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-17-savvy-surveys-categorical-variables/survcategorical/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-17-savvy-surveys-methods-to-increase-participation/survincreasepart/</loc>
+    <lastmod>2022-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-13-savvy-surveys-pre-testing-the-draft-survey/survpretest/</loc>
+    <lastmod>2022-05-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-12-savvy-surveys-demographic-demons/survdemogs/</loc>
+    <lastmod>2022-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-11-savvy-surveys-the-invitational-email/survinviteemail/</loc>
+    <lastmod>2022-05-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-10-savvy-surveys-anonymous-responses/survanonymous/</loc>
+    <lastmod>2022-05-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-09-savvy-surveys-questions-required-to-be-answered/survrequired/</loc>
+    <lastmod>2022-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-07-savvy-surveys-recategorize-other-responses/survrecategorizeother/</loc>
+    <lastmod>2022-05-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-06-savvy-surveys-first-email-reminder/survreminderemail/</loc>
+    <lastmod>2022-05-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-05-04-savvy-surveys-partial-responses/surveyspartialresponses/</loc>
+    <lastmod>2022-05-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/post/2022-04-30-surveys-online-surveys-for-lawyers-currency-conversion/surveyscurrencyconversion/</loc>
+    <lastmod>2022-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/about/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/services/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/series/</loc>
+  </url>
+  
+  <url>
+    <loc>https://surveyjds.onrender.com/tags/</loc>
+  </url>
+  
 </urlset>

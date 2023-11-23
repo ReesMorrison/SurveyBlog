@@ -1,0 +1,27 @@
+---
+title: 'Decide How to Convert Currencies'
+author: Rees Morrison
+date: '2022-04-30'
+categories:
+  - Surveys
+draft: no
+---
+
+Some online surveys by law firms or law departments collect data that is in a currency other than US dollars.  When a survey question asks for monetary data, as did the recent survey I conducted for a group of law firm professionals that asked for base and bonus data, the **instructions** to the question should specify that the data be entered in dollars.  More specifically, the instructions should clearly explain the conversion factor and how the respondent should apply it, such as “Convert Canadian dollars at a rate of 1.3 per US dollar.  Therefore, divide the Canadian amount by 1.3.”  Each respondent then has the responsibility to enter the correct, recalculated US dollar amount. 
+
+<!--more-->
+
+Is there a method by which **survey software** can confirm that the currency conversion has taken place?  That question arises because when you **export or download** the survey responses, you have no way of knowing whether the figure in your spreadsheet is in Canadian dollars or US dollars as properly converted.  To address the unknown, you could have added to the questionnaire a follow-up, such as “If you are replying with a non-US dollar figure, did you convert it with the proper calculation before you entered it?”  Such a **confirmatory step** resembles the prompt that may be needed when respondents **rank selections**: did they give a 1 to the best selection – as they were instructed to, or to the worst ranking – if they misread or reversed the instructions?  Alternatively, if a prior answer on the survey resulted in an answer of a country other than the United States, as when a question asks about the home office of the law firm, **conditional logic** in the questionnaire’s design might bring up a confirmatory question regarding the currency.  Perhaps there is also a way to have a checkbox for the question: “Check here if you used US dollars” to nudge respondents.
+
+Then again the format of the question might be a table, where one column asks the respondent to select the currency that applies from a **drop-down menu**.  A table has the advantage of keeping all the data in one spot.
+
+In the **future**, or perhaps with extant, sophisticated survey software, a foreign-currency figure might be converted immediately upon it being entered.  The respondent would see a pop-up saying “Does this look like the US dollar value of what you just entered?”  I am not aware of commercially available software that has this capability for **immediate feedback**.
+
+Alternatively, if the onus of responsibility for converting currencies is not on the respondent, the question needs to ask the respondent to identify the original currency from a drop-down menu (if it is not the **default** currency).  For example, the respondent might be using Euro-denominated values and would make that selection.  The survey analyst must convert those Euro amounts to the common currency, presumably US dollars (and explain the conversion rate in the **methodology** section).
+
+Currency conversion also has a temporal complexity.  If the data spans a calendar year, for example law firm fees collected during the past year, and the non-US dollar currency rose and fell during the year, what number should you use to recalculate the given currency figure into US dollars?  When I was collecting benchmark data from law departments, I asked for the revenue of the corporation, and foreign companies were permitted to use their national currency.  To convert the figure, I chose a number that fairly represented the typical exchange rate of the currency during the year against the US dollar.  If, however, you are asking for base salary of paralegals as of December 31, 2021, you might quite reasonably choose the exchange rate for the currency on that date.
+
+These steps to convert currencies into a common currency are best done with a **programming language script** so that there is an **audit trail** of what exactly were the calculations.  If you do this conversion in a **spreadsheet** you should create a new column, or you will lose the underlying data.
+
+<!-- Book: 4 ResponseData from Survey Posts Plan.xlsx -->
+<!-- Source: TVPI22 -->

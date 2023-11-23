@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://savvysurveyjd.com/sitemap.xml
+Sitemap: https://surveyjds.onrender.com/sitemap.xml

@@ -1,0 +1,40 @@
+---
+title: 'Standardize the Categories of "Other" Responses'
+author: "Rees Morrison"
+date: '2022-05-07'
+output: pdf_document
+categories: Surveys
+draft: no
+slug: []
+---
+
+Whenever your online survey has a **multiple-choice question**, you should include in your **selections** an “Other.”   Customarily, it occupies the last selection in the otherwise **alphabetized selections**.  Furthermore, whenever a law department, law firm or legal vendor sponsors a survey that has a question with an “Other” option, the question should be followed immediately by a **text box** that asks the respondent to elaborate on what they mean by “Other” (otherwise, the answer offers no information).
+
+<!--more-->
+
+Whether the multiple-choice selections are arrayed on the screen or live in a **drop-down menu** (that design choice is beyond the scope of this section) the theoretically best question would end up with no one selecting “Other,” because the options have comprehensively covered all potential answers.  But a goal to craft **MECE** selections (Mutually Exclusive, Collectively Exhaustive) is impractical.  First, you spend much time thinking, crafting, and **pre-testing** the choices.  Realistically, you will never think of everything!
+
+So, “Other” responses don’t fit the selection set, according to the respondents.  However, for various reasons you may want to **recategorize** those responses into an existing selection. 
+
+Consider an illustration.  One multiple-choice question on your technology adoption survey asks lawyers “Why do you feel you are not adept with the software?”  Following are selections that could reasonably account for the feeling: “Inadequate or poorly used training time,” “Infrequent use,” “Lack of user manuals,” “I’m a troglodyte Luddite,” and “Other.”  What happens if only two or three people choose “Other”?  One of them writes in the text box, “I don’t want to waste my time learning.”  You could recategorize that answer as “Inadequate or poorly used training time.”
+
+It’s unfortunate if a respondent clicks “Other” but writes nothing in the text box.  Perhaps you can write to that person and learn what they had in mind.    But back to our illustration.  If instead the respondent writes that “The app does not behave well on my Linux operating system,” you have no reasonably applicable selection to assign to it.  It truly is a concept outside the scope of the multiple choices provided.
+
+Recategorizing explanations in an “Other” text box  into the most similar of the given selections makes sense for the benefits explained below.  The problems with a handful of “Other” responses that are not recast arise when you try to plot data, analyze it, or write about it.  
+
+•	If you have only two or three “Other” responses, plots and graphs that rely on of that question will be mostly empty and might even disclose answers of an identifiable respondent.  This issue arose for me when consulting on a compensation survey: a **scatterplot** of base and bonus by title, where only two people chose “Other,” ran the risk of outing them.  If you know your peer at another firm has the title of “Chief Poohbah” and the plot labels a point in the scatterplot with “Chief Poohbah” …
+
+•	Alternatively, if you analyze **cross tabulations** of data, for example title by practice area, if you have one or two “Others”, the cross tab row or column for “Other” will be sparse.  Chief Poohbah might be on that person’s own, solo row.
+
+•	Grouping by a category (also known as a “factor” to programmers), or **subsetting** (as programmers call creating a smaller group from a larger group) it brings out another disadvantage of having a lone “Other” or two.  That sub-group will not yield reasonable averages or medians, for example, and will complicate interpretation. 
+
+•	As you write your analysis, you can end up cluttering your text with “Aside from  the Others …” and like infelicities.  Nothing clean like “All Directors leaned toward the positive” if an “Other” title might be deemed a Director and be recategorized.
+
+If you use **scripting software** to manipulate and analyze your survey data, it is easy to convert a text “Other” response to an existing multiple-choice selection and do that recategorization repeatedly.  A simple **regex** (regular expression) statement will do.  The script also serves as a record, an **audit trail**, of the changes you made, while preserving the original data.  If, by contrast, you do the conversion (recategorization) in a spreadsheet, you should probably create a new column for conversions and you might have to repeat the process by hand each time you add more survey responses.  Or, you wait until the survey has **closed** to make all your changes at once.
+
+Ideally, every selection in a multiple-choice question would have a text box for those who want to elaborate on why they picked that selection or to make any other point.  To imagine a few, the respondent might write that the nearest selection as written doesn’t sufficiently cover what they have in mind, or that it is related to or overlaps with another selection, but they were force to  choose only one (c.f., “**Choose all that apply**”), or that they do not feel strongly or confidently about their choice.  Such a plethora of text opportunities may be a **future capability** of online survey software.
+
+Finally, it is only a good practice to categorize “Other” responses if doing so does not divulge identifying or sensitive information.  Meanwhile, quote in the report, perhaps in the appendix, what respondents wrote in text boxes so that readers can draw their own conclusions.  A diligent reader can also check on your recategorizations.
+
+<!-- Book: 2 Questions Comments -->
+<!-- Source: TVPi22 -->

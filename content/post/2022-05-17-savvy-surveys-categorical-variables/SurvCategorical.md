@@ -1,0 +1,40 @@
+---
+title: 'Binify Numbers into Categorical Variables'
+author: Rees Morrison
+date: '2022-05-17'
+slug: []
+categories:
+  - Surveys
+draft: no 
+---
+
+When your internet survey has a question that generates a string of numbers as long as the number of your respondents, such as if 100 law departments report their fees paid to outside counsel or hours committed to pro bono work, you have collected what analysts call a **continuous variable**.  “Continuous” is statistician and programmer parlance for “numbers, with or without decimals.”  The term says nothing about the order of the numbers or whether there are gaps or clusters.  The whole set of continuous variables that were the answers to a specific question make up what is what quants called a “**distribution**”.  
+
+What we are considering here is converting a distribution of a continuous variable into “bins” and labelling those bins.  Those named bins are called a **categorical** or **factor**.   Put differently, you cut the numeric values at whatever boundary intervals make sense and name those resulting bins.   You have already probably created factors in that many **demographic questions** create them.  Multiple-choice questions likewise create factor variables.
+
+Programmers refer to the named sub-sets of a categorical as “levels.”  You should choose level names neutrally so that you don’t inject bias into their interpretation and communication in reports.  Avoid “anemic” instead of “relatively low”; shun “promiscuous” instead of “relatively high.”   Favor terse labels so that they fit better on tables or plots:  “Smallish” for 60-to-100 square feet of office rather than “Fewer than 100 square feet of office space.”
+
+So, for example, if 100 surveyed respondents (lawyers in your firm or internal legal team) have estimated the total number of emails they received each day during the past six months -- 30 per day, 40 per day, 120, 75, 20, 88, and a long distribution of 94 more estimates -- you might decide to tell your **analysis software** to break the values and name them as  “low” (less than 30 emails per day), “medium” (31 to 75), and “high” (more than 75).
+
+You could pick the sizes of the three bins, with two cutoff values, so each bin holds close to a third of the responses.  Or perhaps four bins or five bins serve your purposes better, but it doesn’t matter for this discussion.  You might sort the distribution from high to low and eyeball the pattern; a pattern might suggest how many named bins you create.^[The R programming language has a function that collapses factors that have too few representatives into larger factors (fct_collapse()).] 
+
+Often, however, analysts create bins at commonly-understood breakpoints.  For example, years since passing the bar might be broken at 0-4 years, 5-7 years, 8-10 years and so on, regardless of how many lawyers fall into each bin.    
+
+Whether you create categories as balanced bins, pattern-highlighting bins, or reader-friendly bins, you have turned a stream of numbers into a chosen, labelled pools.  Generally, though, if you plan to calculate averages, medians or other **statistics** for the factor levels, you need at least five respondents in each bin.
+
+In the process, you need to understand whether your analysis software creates open (inclusive) or closed (exclusive) bins, so that you do not inadvertently leave one or more values unbinned.  If you make a bin 0 up to 30 exclusive (stops before 30), and the next bin 30 through 50 also exclusive (leaves out 30), what happens to poor, orphaned 30?  Don’t make that mistake!
+
+Why go through the trouble of creating factors and carefully naming their levels?  First, they help readers of the report grasp take-aways from the hurly-burly of the jumbled data onslaught.  If you tidy all the estimates of client contacts per month into a factor with a few levels, you are able to say “One third of our clients contact the law department less frequently than once a month.”   
+
+A second benefit from transforming numeric variables into categorical levels is that you preserve the anonymity of respondents at the extremes of a distribution.  Say you survey preferred vacation days and the respondents’ years in the law firm and plot those two values for each respondent.  If only one person has been with the firm for 32 years, they would be identified on a scatter plot.  But with a factor, you can conceal that person’s point in a “More than 30 years” bin and its calculated average.
+
+Another advantage is that you can color or shape plot objects according to your factors.  If each point were a timekeeper with a shape set by factor level, you could fill the shape with a color set according to their email traffic level.  
+
+Or with factors you can create a **cross-tabulation** (also known as a “contingency table”).   Thus, with our example, you could create a table  that shows a row for each level of timekeeper (partner, associate, paralegal) by columns for the three levels of email traffic (high, medium and low).   Each cell in the cross-tab indicates the respective value of a row-column pair.^[ A **chi-squared test** analysis looks statistically at the data in a cross-tab table.  It tells you whether there is a **statistically significant difference** between the expected frequencies and the observed frequencies in one or more categories of a **contingency table**.]
+
+<!-- See the example below -->
+
+On the downside of molding numbers into categoricals (factors), you lose a sizeable amount of detail (to be more precise, the original data lives, but the new categorical variable is now a much cruder representation of it).  For example, a **regression model** that predicts values based on categoricals lacks the level of precision of the same model that uses the underlying numeric values.  You have lumped the variegated richness of life into a glob factor.
+
+<!-- Book: -->
+<!-- Source:  -->

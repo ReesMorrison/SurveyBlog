@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  
+  <meta name="author" content="Rees Morrison">
+
+  
+  
+  <meta name="description" content="How can you gain insights from written answers or comments in surveys? Among the many tools, let’s focus on a popular one to ferret out elusive themes in text, called topic modeling.
+Latent Dirichlet Allocation (LDA) is an unsupervised1 machine learning algorithm for topic modeling: identifying sets of words that characterize topics that might not be obvious – they are “latent”. The algorithm uses a probability distribution, the Dirichlet distribution, to allocate comments to topics and words to topics: thus, Latent Dirichlet Allocation.">
+  
+
+  
+  <link rel="icon" href="https://surveyjds.onrender.com/favicon.ico">
+
+  
+  
+  <meta name="keywords" content=" hugo  latex  theme ">
+  
+
+  
+  
+
+  
+  <meta property="og:title" content="Extract Topics of Comments or Free Text with LDA" />
+<meta property="og:description" content="How can you gain insights from written answers or comments in surveys? Among the many tools, let’s focus on a popular one to ferret out elusive themes in text, called topic modeling.
+Latent Dirichlet Allocation (LDA) is an unsupervised1 machine learning algorithm for topic modeling: identifying sets of words that characterize topics that might not be obvious – they are “latent”. The algorithm uses a probability distribution, the Dirichlet distribution, to allocate comments to topics and words to topics: thus, Latent Dirichlet Allocation." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://surveyjds.onrender.com/post/2023-01-18-extract-topics-of-comments-or-free-text-with-lda/lda/" />
+<meta property="article:published_time" content="2023-01-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-01-18T00:00:00+00:00" />
+
+
+  
+  <link rel="canonical" href="https://surveyjds.onrender.com/post/2023-01-18-extract-topics-of-comments-or-free-text-with-lda/lda/">
+
+  
+  
+  <meta itemprop="name" content="Extract Topics of Comments or Free Text with LDA">
+<meta itemprop="description" content="How can you gain insights from written answers or comments in surveys? Among the many tools, let’s focus on a popular one to ferret out elusive themes in text, called topic modeling.
+Latent Dirichlet Allocation (LDA) is an unsupervised1 machine learning algorithm for topic modeling: identifying sets of words that characterize topics that might not be obvious – they are “latent”. The algorithm uses a probability distribution, the Dirichlet distribution, to allocate comments to topics and words to topics: thus, Latent Dirichlet Allocation.">
+<meta itemprop="datePublished" content="2023-01-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-01-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="823">
+
+
+
+<meta itemprop="keywords" content="" />
+
+
+  
+  <link media="screen" rel="stylesheet" href='https://surveyjds.onrender.com/css/common.css'>
+  <link media="screen" rel="stylesheet" href='https://surveyjds.onrender.com/css/content.css'>
+
+  
+  
+  <title>Extract Topics of Comments or Free Text with LDA - Savvy Surveys for Lawyers</title>
+  
+
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Extract Topics of Comments or Free Text with LDA"/>
+<meta name="twitter:description" content="How can you gain insights from written answers or comments in surveys? Among the many tools, let’s focus on a popular one to ferret out elusive themes in text, called topic modeling.
+Latent Dirichlet Allocation (LDA) is an unsupervised1 machine learning algorithm for topic modeling: identifying sets of words that characterize topics that might not be obvious – they are “latent”. The algorithm uses a probability distribution, the Dirichlet distribution, to allocate comments to topics and words to topics: thus, Latent Dirichlet Allocation."/>
+
+
+  
+<link rel="stylesheet" href='https://surveyjds.onrender.com/css/single.css'>
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <script data-goatcounter="https://savvysurveys.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<head>  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KF8MEL9SCH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-KF8MEL9SCH');
+  </script></head>
+<header id="header">
+  <h1>
+    <a href="https://surveyjds.onrender.com">Savvy Surveys for Lawyers</a>
+  </h1>
+
+  <nav>
+    
+    <span class="nav-bar-item">
+      <a class="link" href="/about/">About</a>
+    </span>
+    
+    <span class="nav-bar-item">
+      <a class="link" href="/services/">Services</a>
+    </span>
+    
+  </nav>
+</header>
+
+    
+<main id="main" class="post">
+  
+  
+  <h1>Extract Topics of Comments or Free Text with LDA</h1>
+  
+  
+  <article class="content">
+    
+    
+
+
+<p>How can you gain insights from written answers or comments in surveys? Among the many tools, let’s focus on a popular one to ferret out elusive themes in text, called <strong>topic modeling</strong>.</p>
+<p>Latent Dirichlet Allocation (LDA) is an unsupervised<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> <strong>machine learning</strong> algorithm for topic modeling: identifying sets of words that characterize topics that might not be obvious – they are “latent”. The algorithm uses a probability distribution, the Dirichlet distribution, to allocate comments to topics and words to topics: thus, Latent Dirichlet Allocation. Under the hood, LDA unleashes complex mathematics which uses <strong>linear algebra</strong> extensively. It saves analysts from coding written responses by hand, a laborious undertaking that introduces bias and often overlooks subtle signals of the text.</p>
+<p>Here’s how it works. After the combined text comments have been tidied into a document-term matrix (DTM), the analyst picks how many topics LDA should extract. Programming languages have tools to help an analyst decide the optimal number of topics, e.g., by calculating <strong>topic coherence scores</strong> over a range of topic numbers.</p>
+<p>When fed the number of topics to uncover, LDA assumes that the comments to each question contain a probabilistic mixture of topics and that all topics consist of a probabilistic mixture of words. Basically, what LDA boils down to is this: comments with similar topics have a higher probability of using similar groups of words. LDA takes the matrix of comments by words (the DTM) and iterates repeatedly to tease out the chosen number of topics with the highest probability words in them until the algorithm cannot improve the result.</p>
+<p>One question on survey for law firm COOs asked them to identify the challenges they foresaw in the coming few years. The graphic below shows four topics and the terms with the highest probability of being in them. Given the small number of comments (approximately 100) and their brevity, the model’s output does not lend itself to clear interpretation, but you can see the promise in this NLP tool.</p>
+<p><img src="C:/Users/rees/Documents/R/Projects/LAWYER%20Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/LDAPlot.png" /></p>
+<p>Beta, the percentages on the horizontal axis, represents topic-word density - with a high beta, topics are made up of more of the words in the corpus, and with a low beta they consist of fewer of those words. In general, higher beta values means topics contain more similar words.</p>
+<p>LDA software cannot take the final step and summarize the essence of a topic. That is what humans do quickly and well, especially <strong>subject matter experts</strong>. Simply reading the key words of a topic usually suggests a preliminary interpretation of the topic. People call that “comprehensibility”; whether an idea, subject or activity clearly emerges from a topic list. The interpretation may be loose, as it is based on scanning the most probable words in each topic and attempting to condense their collective meaning into a short paraphrase.</p>
+<p>Try your hand at distilling the topics. Topic 1 appears to address technology concerns I would venture to say. With topic models, remember that they cannot guarantee that the words in each topic will be related to one another conceptually — only that they frequently occur together in your data for some reason.</p>
+<p>Various methods let analysts assess the quality of an LDA model. As mentioned above, topic coherence is widely used. Each topic has a list of words so you can calculate the average pairwise similarity scores of those words. The higher the coherence score for a topic, the more related the words are in that topic, so the topic will likely make more sense. In simple words, coherence tell us how closely associated the words are in a topic.
+Coherence is a value between 0 and 1 and you would like to be above 0.65.</p>
+<p>Prevalence and relevance values also evaluate an LDA model. Prevalence is the probability of a topic’s distribution across all topics. Relevance balances a term’s frequency in a particular topic against the term’s frequency across all the comments. In other words, with a term that’s quite popular in a topic, relevance gauges how much of its popularity is due to it being very specific to that topic and how much of it is due to it just being a word that appears everywhere.</p>
+<p>Here is a collection of evaluations for another model I created, based on the first 35 posts on my blog. Topic coherence is in the middle plot. Explaining the rest of the diagnostics is beyond the scope of this introductory article.</p>
+<p><img src="C:/Users/rees/Documents/R/Projects/LAWYER%20Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/LDAEvaluation.png" /></p>
+<p>A scanty collection of text comments will falter on diagnostic tests, such as coherence and exclusivity. Comments on surveys are known as short-form text, which is harder for NLP topic-modeling tools to handle. But another technique, known as ensemble LDA, deploys more than one algorithm and then synthesizes the topics that they each extract. As of this writing, more than 10 different topic-modeling methods exist, with Latent Dirichlet Allocation being the best known.</p>
+<!-- End of post -->
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>This term means that no pre-existing classifications exist; the software does all the work.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+    
+  </article>
+  <div class="paginator">
+    
+    <a class="link" href="https://surveyjds.onrender.com/post/2023-01-18-validate-answers-with-your-hosting-software/validate/">← prev</a>
+    
+    
+    <a class="link" href="https://surveyjds.onrender.com/post/2023-01-18-create-drop-down-selection-lists/dropdowns/">next →</a>
+    
+  </div>
+  <div class="comment">
+    
+    
+    
+    
+    
+    
+  </div>
+  
+</main>
+
+    <footer id="footer">
+  <div>
+    <span>© 2022</span> - <span>2023</span>
+  </div>
+
+  <div>
+    <span>Powered by </span>
+    <a class="link" href="https://gohugo.io/">Hugo</a>
+    <span> 🍦 Theme </span>
+    <a class="link" href="https://github.com/queensferryme/hugo-theme-texify">TeXify</a>
+  </div>
+
+  <div class="footnote">
+    <span></span>
+  </div>
+</footer>
+
+  </div>
+
+  
+  
+
+  
+  
+
+  
+  
+
+</body>
+
+</html>
