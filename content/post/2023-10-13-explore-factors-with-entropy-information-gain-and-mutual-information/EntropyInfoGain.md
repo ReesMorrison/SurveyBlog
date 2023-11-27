@@ -1,14 +1,21 @@
 ---
-title: Explore Factors with Entropy, Information Gain, and Mutual Information
-author: Rees Morrison
-date: '2023-11-22'
-slug: []
-categories:
-  - Surveys
+title: "Explore Factors with Entropy, Information Gain, and Mutual Information"
+author: "Rees Morrison "
+date: "2023-11-22"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+categories: Surveys
 draft: no
+slug: []
 ---
 
-When a survey question collects data that is neither numeric nor text, it is probably a categorical, like Male/Female or Republican/Democrat/Independent.  Once that kind of data has been collected, how can you better understand those categorical variable (aka factors) findings?     
+
+
+
+
+When a survey question collects data that is neither numeric nor text, it is likely a categorical, like Male/Female or Republican/Democrat/Independent.  Once that kind of data has been collected, how can you better understand those categorical variable (aka factors) findings?     
 
 The **entropy** of a factor variable, such as COO titles, measures the amount of randomness in the distribution of the variable. Here, "distribution" simply means the string of answers the survey collects.  Higher entropy indicates greater unpredictability in the factor.  Stated differently, a factor’s entropy reflects the average uncertainty level or disorder in its various outcomes.  Variables with higher uncertainty have higher entropy. That indicates a more heterogeneous variable with more levels and the levels have different numbers of respondents, while a lower entropy signifies a more pure and homogeneous variable (fewer levels and more balanced respondents in the levels). If all COO titles in our data were the same, the entropy would be zero. If two titles dominated and had approximately equal numbers of respondents, the entropy would still be quite low. If the four standardized titles all have a decent number of respondents, but the numbers vary widely, entropy will be higher.
 
@@ -27,9 +34,13 @@ In fact, **Information gain** is the term for the pattern observed in data when 
 
 Can we improve (reduce) the entropy of the parent dataset to classify COO titles by segmenting on educational level? Information gain helps answer this question by measuring how much “information” a given level of education gives us about titles. The idea is to look at how much we can reduce the entropy of our parent node by segmenting on a given educational background.^[Information Gain is calculated by subtracting from the entropy of the parent factor, title, the sum of all the the ratios of the number of COOs in each educational level divided by all the COOS with a title and each of those multiplied by the entropy of educational level.  Whew!]
 
+<!-- Where  Hp is the entropy of the parent (the complete, unsegmented dataset), n is the number of values of our target variable (and hence the number of child segments),  pci is the probability that an observation is in child  i (the weighting), and  Hci is the entropy of child (segment)  i. -->
+
 Turn now to a third, related measure for factors.  **Mutual information** helps us understand how much information two factor variables share. The more the two have in common, the higher their mutual information value.  It captures both linear and nonlinear relationships between the two variables unlike traditional correlation coefficients which are restricted to linear relationships.
 
 Calculating the mutual information (MI) between two categorical factors, such as title and education level, can provide insights into the statistical dependence or information shared between the two variables. Mutual information measures the amount of information one variable provides about the other. It is usually measured in **nats**.^[Nats are a unit of measurement for information. The term "nat" is short for "natural unit of information" and is named after the natural logarithm, which is commonly denoted as "ln" (logarithm to the base "e," where "e" is Euler's number, approximately 2.72).  The relationship between nats (nat) and bits (bit) is that 1 nat is equal to approximately 1.4427 bits.]  It tells us how much information about a COO's title we can know if we know that COO's level of education. The magnitude of the mutual information reflects the strength of the association between the two factors. Higher MI values indicate a stronger association, while lower values suggest a weaker association.
+
+
 
 Mutual information is calculated by subtracting the entropy of the joint distribution of the two variables^[That values comes from a contingency table for the two variables, which leads to marginal probabilities, joint probabilities (for each cell in the table), and a final calculation of entropy.] from the sum of their individual entropy values.  So, if the sum of the entropy of title and the entropy of educational level is 1.65 plus 2.01, we subtract the entropy of the two variables together from the joint entropy, 3.54.  That's our (meager) mutual information!^[Keep in mind that mutual information is a non-parametric measure and does not make assumptions about the form of the relationship between variables. It is particularly useful when dealing with categorical data or when you want to capture non-linear associations between variables. However, interpreting MI values requires domain knowledge and context to understand the practical significance of the associations between factors.]
 
