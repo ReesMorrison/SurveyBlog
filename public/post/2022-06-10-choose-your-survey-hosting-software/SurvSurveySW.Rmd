@@ -23,8 +23,8 @@ Not all of the posts fully explained how many total hosting vendors they conside
 
 Table 1 shows the five blog sites, their URL, date of publication, and number of survey vendors included in their review.
 
-```{r reviewSites}
-sites <- read_excel(path = "C:/Users/Rees Morrison/Documents/R/Projects/LAWYER Hornbooks/5Surveys/Blogs about Surveys.xlsx", sheet = "sites")
+```{r reviewSites, eval=FALSE}
+sites <- read_excel(path = "C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/Blogs about SurveysTwo.xlsx")
 
 kable(sites, caption = "Five Blog Posts that Rated Survey Software", align = 'c') %>%   kable_styling(position = "center", full_width = FALSE, latex_options = "hold_position") %>%
   row_spec(0, bold = TRUE, align = "c")
@@ -34,9 +34,9 @@ kable(sites, caption = "Five Blog Posts that Rated Survey Software", align = 'c'
 The 53 vendors discuss on the five blog posts reduced to a total of 32 offerings reviewed. Only 13 made more than one compilation, of which five of them appeared three or more times.  Table 2 shows that baker’s dozen, sorted by the number of their citations but otherwise listed alphabetically.  A "0" means that the blog post did not include that particular software vendor; a "1" indicates inclusion of that vendor.
 
 ```{r ratings, echo=F, warning=F, message=F, cache=F}
-ratings <- read_excel(path = "C:/Users/Rees Morrison/Documents/R/Projects/LAWYER Hornbooks/5Surveys/Blogs about Surveys.xlsx")
+ratings <- read_excel(path = "C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/Blog ratings.xlsx")
 
-ratings <- ratings[1:13, c(1, 3:8)]
+# ratings <- ratings[1:13, c(1, 3:8)]
 
 ratings[is.na(ratings)] <- 0
 
@@ -51,20 +51,20 @@ kable(ratings, caption = "Five Ratings of Survey Software (2 or more cites)", al
 
 Table 3 shows all the remaining vendors that were only included in a single blog-post list.
 
-```{r ratings2, echo=F, warning=F, message=F, cache=F}
-ratings2 <- read_excel(path = "C:/Users/Rees Morrison/Documents/R/Projects/LAWYER Hornbooks/5Surveys/Blogs about Surveys.xlsx")
+<!-- ```{r ratings2, echo=F, warning=F, message=F, cache=F, eval=FALSE} -->
+<!-- ratings2 <- read_excel(path = "C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/Blogs about SurveysTwo.xlsx") -->
 
-ratings2 <- ratings2[14:32, c(1, 3:8)]
+<!-- ratings2 <- ratings2[14:32, c(1, 3:8)] -->
 
-ratings2[is.na(ratings2)] <- 0
+<!-- ratings2[is.na(ratings2)] <- 0 -->
 
-colnames(ratings2) <- c("Vendor", "Hubspot", "SaaSlist", "Zapier", "PCMag", "TechRadar", "Cites")
+<!-- colnames(ratings2) <- c("Vendor", "Hubspot", "SaaSlist", "Zapier", "PCMag", "TechRadar", "Cites") -->
 
-kable(ratings2, caption = "Five Ratings of Survey Software (1 cite)", align = c(rep('c', 7))) %>% 
-  column_spec(7, background = "#90ee90 ") %>% 
-  kable_styling(position = "center", full_width = FALSE, latex_options = "hold_position") %>%
-  row_spec(0, bold = TRUE, align = "c")
+<!-- kable(ratings2, caption = "Five Ratings of Survey Software (1 cite)", align = c(rep('c', 7))) %>%  -->
+<!--   column_spec(7, background = "#90ee90 ") %>%  -->
+<!--   kable_styling(position = "center", full_width = FALSE, latex_options = "hold_position") %>% -->
+<!--   row_spec(0, bold = TRUE, align = "c") -->
 
-```
+<!-- ``` -->
 
 These posts can serve as a starting point for a vendor selection process.  I won't venture into trying to evaluate the dozens of survey software options now available on the market.  I will, however, end with two observations from the posts.  Legal-related surveyors probably won't want Surveybot for Facebook surveys, YesInsights with its single question format, or SurveySparrow's chatbot surveys.  I also noted that SaaS makes clear that the companies it includes pays them for inclusion.
