@@ -1,6 +1,6 @@
 ---
 title: "Explore Factors with Entropy, Information Gain, and Mutual Information"
-author: "Rees Morrison "
+author: "Rees Warren Morrison "
 date: "2023-11-22"
 output:
   pdf_document: default
@@ -15,7 +15,7 @@ slug: []
 
 
 
-When a survey question collects data that is neither numeric nor text, it is likely a categorical, like Male/Female or Republican/Democrat/Independent.  Once that kind of data has been collected, how can you better understand those categorical variable (aka factors) findings?     
+Whenever a survey question collects data that is neither numeric nor text, it is likely a categorical, like Male/Female or Republican/Democrat/Independent.  Once that kind of data has been collected, how can you better understand those categorical variable (aka factors) findings?     
 
 The **entropy** of a factor variable, such as COO titles, measures the amount of randomness in the distribution of the variable. Here, "distribution" simply means the string of answers the survey collects.  Higher entropy indicates greater unpredictability in the factor.  Stated differently, a factor’s entropy reflects the average uncertainty level or disorder in its various outcomes.  Variables with higher uncertainty have higher entropy. That indicates a more heterogeneous variable with more levels and the levels have different numbers of respondents, while a lower entropy signifies a more pure and homogeneous variable (fewer levels and more balanced respondents in the levels). If all COO titles in our data were the same, the entropy would be zero. If two titles dominated and had approximately equal numbers of respondents, the entropy would still be quite low. If the four standardized titles all have a decent number of respondents, but the numbers vary widely, entropy will be higher.
 
