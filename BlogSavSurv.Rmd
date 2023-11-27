@@ -10,6 +10,10 @@ fig_caption: yes
 urlcolor: blue   
 ---
 
+<!-- Robert Honeyman on Medium has 21 followers, of whom several are military analysts -->
+
+11/27 I copied css directory from Themes to SurveyBlog directory to see whether render would use css styling instead of plain HTML
+
 ```{r setup, include=FALSE, echo=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message = FALSE)
 ```
@@ -100,7 +104,7 @@ turn hyperlinks in text into footnotes for PDF output, because readers will not 
 blogdown creates a file structure in XX/ that includes these folders:
 
   content (where blog is)
-  layouts (css and js)
+  layouts (css and js) # https://makewithhugo.com/minify-and-load-css-through-hugo/
   R [haven't used]
   resources [haven't used]
   static (media) .pngs and other images

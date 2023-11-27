@@ -1,0 +1,36 @@
+.customBlogTitle {
+    color: rgb(27,158,119); /* star command blue from coolors.co */
+    /* font-size: 50px; */
+}
+
+.customPostTitle {
+    color: rgb(117,112,179);
+    /* font-size: 30px; */
+}
+
+#main > .post + .post {
+    margin-top: 2rem;
+}
+
+#main > .post > h2 {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#main > .post > h2 > time {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+#main > .post > .content {
+    padding-top: 1rem;
+    font-size: 20px;
+}
+
+@media screen and (min-width: 768px) {
+    #main > .post > div {
+        margin-left: 2rem;
+    }
+}
