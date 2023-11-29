@@ -4,7 +4,7 @@ author: "Rees Morrison"
 date: "2023-11-29"
 slug: []
 categories: Russian War in Ukraine
-draft: yes
+draft: no
 ---
 <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
 <link href="/rmarkdown-libs/lightable/lightable.css" rel="stylesheet" />
@@ -29,15 +29,11 @@ The weak link to drones (UAVs) puzzle me, especially as First-Person View (FPV) 
 
 
 
-
-
 From the data set we tried to understand how Russian losses of equipment are associated with Russian losses of military personnel.  **Multiple linear regression** is a software tool that can help us learn the connections.  The regression model we created uses the predictor variables discussed above and in the table to explain the variables' relative contributions to predicting military personnel losses (Soldiers).
 
-## About the technical (software and algorithms) aspects of the analysis 
+## Under the Hood (about the software and algorithmic aspects of the analysis) 
 
 Here are the types of equipment that the model tells us have a "statistically significant" **p-value** or very near it.  Statistically significant means the probability that such a value could have occurred by chance is less than 0.05, or less than one out of twenty.  Statisticians tell us that when the p-value of a variable is this low -- each type of equipment is a "variable" in our regression model -- we can be confident that "something is going on" and the association of the destroyed equipment to losses of soldiers is far from random.  The equipment loss does not cause some number of Russian soldiers to sprout sunflowers, but the two losses are statistically associated.
-
-are t-stats more insightful than p-values, and 0.05 is not Ten Commandments https://towardsdatascience.com/why-you-should-prefer-confidence-interval-over-p-value-e32293bd174c
 
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <caption><span id="tab:broom"></span>Table 1: Linear Regression Model</caption>
@@ -65,3 +61,5 @@ Here is the formula for our model. Soldier deaths, where the first number if the
 
 
 Every type of military equipment in the table above has a p-value below the conventional threshold of statistical significance (UAV is slightly higher).  That is what we stated at the start and what stimulated thoughts on why some equipment losses move more closely in relation to killed-in-action numbers and others less so.
+
+<!-- End of post -->

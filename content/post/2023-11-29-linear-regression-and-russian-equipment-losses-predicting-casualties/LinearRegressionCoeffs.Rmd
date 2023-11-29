@@ -4,7 +4,7 @@ author: "Rees Morrison"
 date: "2023-11-29"
 slug: []
 categories: Russian War in Ukraine
-draft: yes
+draft: no
 ---
 
 Here are the findings from a software analysis called "multiple linear regression." When the Russian invaders lose armored personnel carriers ("APCs") or artillery ("Arty"), those losses most strongly and reliably predict casualties of personnel ("Soldiers").  Curiously, airplanes that crash stand out as associated with deaths of soldiers on the ground.  Next, the destruction of multiple launch rocket systems ("MLRS") also reliably predict the number of casualties, but somewhat less assuredly.  When Ukraine eliminates or captures^[We understand that the losses reported include equipment that the Ukrainian armed forces have captured.] other varieties of equipment -- anti-aircraft systems ("AA"), drones ("UAVs"), vehicles/fuel tankers ("Fuel") -- it doesn't quite as reliably predict the number of human casualties for the day. 
@@ -20,7 +20,6 @@ Blown up Russian tanks being linked to dead Russian soldiers make sense not so m
 AA batteries and fuel tankers or other vehicles are generally more active in the rear, at some distance from the actual fighting, than at the front where the bulk of the trench warfare and squad-to-squad assaults are raging.  Yes, the Ukrainian armed forces destroy anti-aircraft kit and heavy transporters of fuel, but those tallies are not as well connected to battlefield deaths. Downed helicopters ought to be related to deaths of soldiers due to proximity, but only about 40 days out of the entire span of time include them, and typically only one or two in a day, so the association between helicopter crashes and soldier deaths is weak.
 
 The weak link to drones (UAVs) puzzle me, especially as First-Person View (FPV) drones would seem likely to be closely linked to deaths of soldiers below them.  It makes sense that when Russian drones are destroyed they tend to be operating near Russian soldiers.  But those same drones often whir overhead in reconnaissance, target-spotting, or attack mode, with no Russian soldiers nearby.  In such situations, there might be no Russian personnel losses sustained even though the drones are shot down or crash. Anyway, the regression model has spoken: downing Russian drones is not sufficiently related to prediction of body bags of Russian soldiers. 
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo=F, warning=F, message=F, fig.align='center')
@@ -41,13 +40,11 @@ library(ggcorrplot)
 library(caret)
 ```
 
-
 ```{r regression}
 ukrReg <- read_xlsx(path = "C:/Users/rees/Documents//R/Projects/CLIENTS/UKRlosses/ukrAll.xlsx")
 
 library(broom)
 RegModAllVars <- lm(Soldiers ~ ., data = ukrReg[  , -1])
-# summary(RegModAllVars)
 summaryBroom <- broom::tidy(RegModAllVars)
 
 colnames(summaryBroom) <- c("Loss", "Coefficient", "StdError", "TStat", "p_value")
@@ -60,11 +57,9 @@ summaryBroom <- summaryBroom %>% dplyr::select(Loss, Coefficient, p_value) %>% a
 
 From the data set we tried to understand how Russian losses of equipment are associated with Russian losses of military personnel.  **Multiple linear regression** is a software tool that can help us learn the connections.  The regression model we created uses the predictor variables discussed above and in the table to explain the variables' relative contributions to predicting military personnel losses (Soldiers).
 
-## About the technical (software and algorithms) aspects of the analysis 
+## Under the Hood (about the software and algorithmic aspects of the analysis) 
 
 Here are the types of equipment that the model tells us have a "statistically significant" **p-value** or very near it.  Statistically significant means the probability that such a value could have occurred by chance is less than 0.05, or less than one out of twenty.  Statisticians tell us that when the p-value of a variable is this low -- each type of equipment is a "variable" in our regression model -- we can be confident that "something is going on" and the association of the destroyed equipment to losses of soldiers is far from random.  The equipment loss does not cause some number of Russian soldiers to sprout sunflowers, but the two losses are statistically associated.
-
-are t-stats more insightful than p-values, and 0.05 is not Ten Commandments https://towardsdatascience.com/why-you-should-prefer-confidence-interval-over-p-value-e32293bd174c
 
 ```{r broom}
 regrTable <- kable(subset(summaryBroom, p_value < 0.06), caption = "Linear Regression Model", row.names = FALSE) %>% 
@@ -92,3 +87,5 @@ eqn <- paste("Soldiers =", paste(round(coeffs[1],1), paste(round(coeffs[-1],1), 
 ```
 
 Every type of military equipment in the table above has a p-value below the conventional threshold of statistical significance (UAV is slightly higher).  That is what we stated at the start and what stimulated thoughts on why some equipment losses move more closely in relation to killed-in-action numbers and others less so.
+
+<!-- End of post -->
