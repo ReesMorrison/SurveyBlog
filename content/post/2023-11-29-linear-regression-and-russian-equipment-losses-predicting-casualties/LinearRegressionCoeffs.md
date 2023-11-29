@@ -98,19 +98,14 @@ Here are the types of equipment that the model tells us have a "statistically si
 </tbody>
 </table>
 
-Each **coefficient** of a regression model indicates the influence of one additional unit loss of that equipment on the casualty figure.  So, for example, under the fitted model, the average difference in casualties, comparing two days of the same equipment losses but one tank more is 4.6 more liquidated personnel than the model's average, 617 Soldiers.  Likewise, for every lost Russian tank, add 12.65 more lost personnel.^[The "e" at the end of a regression formula stands for the errors (aka "residuals"), which are the differences between the the model's predicted number of soldiers killed each day using the data on equipment lost and the actual number of soldiers killed that day.]
+Each **coefficient** of a regression model indicates the influence of one additional unit loss of that equipment on the casualty figure.  So, for example, under the fitted model, the average difference in casualties, comparing two days of the same equipment losses but one tank more is 5.47 more liquidated personnel than the model's average, 617 Soldiers.  Likewise, for every lost Russian artillery piece, subtract -3.61 lost personnel.^[The "e" at the end of a regression formula stands for the errors (aka "residuals"), which are the differences between the the model's predicted number of soldiers killed each day using the data on equipment lost and the actual number of soldiers killed that day.]
 
 One of the gifts of the regression model is that it calculates each equipment coefficient as it holds all the other equipment variables constant, which it does by assigning them zero. This means the model isolates just the effect for the loss of one unit of that particular equipment on Soldiers. Each coefficient of a regression model measures what is called "effect size".  So, effect size indicates the magnitude of what one-plus-or-one-minus loss of a particular piece of Russian equipment means for the Soldier losses.
 <!-- https://www.scribbr.com/statistics/effect-size/ very clear -->
 
-Here is the formula for our model. Soldier deaths, where the first number is the predicted average, can be predicted from 617.1+5.5timesTanks + 12.6timesAA + 4.6timesAPCs + -3.6timesArty + -1.8timesFuel + -2.8timesSpecEquip + -25.3timesHelis + 14.8timesMLRS + -1.4timesUAV + 76timesPlanes plus an error term.
+Here is the formula for our model. Soldier deaths, where the first number is the predicted average, can be predicted from this equation, 617.1+5.5 times Tanks + 12.6 times AA + 4.6 times APCs + -3.6 times Arty + -1.8 times Fuel + -2.8 times SpecEquip + -25.3 times Helis + 14.8 times MLRS + -1.4 times UAV + 76 times Planes plus an error term, when you plug in the figures for the respective equipment losses.
 
 
-```
-## y ~ 617.1 + 5.47 * Tanks + 12.65 * AA + 4.6 * APCs - 3.61 * Arty - 
-##     1.84 * Fuel - 2.8 * SpecEquip - 25.25 * Helis + 14.76 * MLRS - 
-##     1.36 * UAV + 76.01 * Planes
-```
 
 Every type of military equipment in the table above has a p-value below the conventional threshold of statistical significance (UAV is slightly higher).  That is what we stated at the start and what stimulated thoughts on why some equipment losses move more closely in relation to killed-in-action numbers and others less so.
 
