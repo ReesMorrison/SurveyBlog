@@ -22,6 +22,9 @@ name = "Rees Morrison"          # your name
 # https://gohugo.io/getting-started/configuration-markup
 [markup]
 defaultMarkdownHandler = "goldmark"
+#  goldmark:
+#    extensions:
+#      footnote: true  # from https://geekthis.net/post/hugo-footnotes-and-citations/
 [markup.goldmark.renderer]
 unsafe = true # enable html in markdown
 [markup.highlight]
