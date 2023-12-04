@@ -30,6 +30,8 @@ library(caret)
 
 ```{r regression}
 ukrAll <- read_xlsx(path = "C:/Users/rees/Documents//R/Projects/CLIENTS/UKRlosses/ukrAll.xlsx")
+
+ukrReg <- ukrAll[-c(5, 247), 1:11] # create the iconic data set, minus outlier days 
 ```
 
 
@@ -180,7 +182,7 @@ The bottom left plot shows the outliers detected by the specified quantile of th
 
 ```{r mvoutlier}
 library(mvoutlier)
-invisible(aq.plot(x = ukrNorm[ , c(1:5)])) # looks the same as the unnormalized
+invisible(aq.plot(x = ukrReg[ , c(1:5)])) # looks the same as the unnormalized
 
 # chisq.plot(ukrAll[ , 1:11], quan=1/2, ask=TRUE)
 
