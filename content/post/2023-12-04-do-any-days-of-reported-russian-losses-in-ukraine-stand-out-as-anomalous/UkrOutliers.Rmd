@@ -1,0 +1,378 @@
+---
+title: Do Any Days of Reported Russian Losses in Ukraine Stand Out as Anomalous?
+author: Rees Morrison
+date: '2023-12-04'
+slug: []
+categories:
+  - Russian War in Ukraine
+draft: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=F, warning=F, message=F, fig.align='center')
+knitr::opts_knit$set(root.dir = "C:/Users/rees/Documents/R/Projects/CLIENTS/UKRlosses/")
+
+library(tidyverse)
+library(dplyr)
+library(readxl)
+library(kableExtra)
+library(scales)  
+library(xtable)
+library(ggthemes) 
+library(ggrepel) 
+library(RColorBrewer)
+library(TSPred)
+library(GGally)
+library(ggcorrplot)
+library(caret)
+```
+
+
+```{r regression}
+ukrAll <- read_xlsx(path = "C:/Users/rees/Documents//R/Projects/CLIENTS/UKRlosses/ukrAll.xlsx")
+```
+
+
+Before relying on a regression model, it is sound practice to comb the data to detect unusual days of figures.  Spotting and evaluating whether to retain abnormal data helps make sure that the loss figures are neither mistakes in measurement, collection, data entry, or calculation nor are they unjustifiably warping the regression model. A potential outlier would be a day where, according to the regression model, equipment losses very poorly predict the Soldier value (number of military casualties).
+
+We can't peer inside to see how the Ukrainian military produces the loss figures, but we can probe their figures for three varieties of unusual data: **outlier** days, **leverage** days, and **influence** days. Let's delay an explanation of those statistical terms and get right to the days that various methods alert us to as questionable. From the statistical tests and plots explained in "Under the Hood," the table presents problematic days and their key equipment losses.  The two days in red I decided are outliers which should be dropped from regression models.
+
+```{r outlierDF}
+outliers <- data.frame(bind_rows(ukrAll[ukrAll$Day == 42, c(1:6, 8:10, 12, 15)], ukrAll[ukrAll$Day == 5, c(1:6, 8:10, 12, 15)], ukrAll[ukrAll$Day == 247, c(1:6, 8:10, 12, 15)], ukrAll[ukrAll$Day == 284, c(1:6, 8:10, 12, 15)], ukrAll[ukrAll$Day == 147, c(1:6, 8:10, 12, 15)], ukrAll[ukrAll$Day == 142, c(1:6, 8:10, 12, 15)], ukrAll[ukrAll$Day == 283, c(1:6, 8:10, 12, 15)], ukrAll[ukrAll$Day == 265, c(1:6, 8:10, 12, 15)])) %>% 
+  relocate(Tanks, APCs, AA, Arty, MLRS, Fuel, SpecEquip,  UAV, Soldiers, Date, Day)
+
+kable(outliers, caption = "Days with Anomalous Losses", row.names = FALSE) %>%
+  kable_styling(position = "center", full_width = FALSE, latex_options = "hold_position") %>% 
+  row_spec(c(1, 4), bold = TRUE, color = "red")
+  
+```
+
+What stands out is that two suspect days have modest losses of Tanks and APCs, yet staggering numbers of casualties. Day 42 (Feb. 11) is so extreme that I dropped it from the data set for the linear regression that was discussed above.  For that day, Ukraine reported 1,140 Russian deaths, but only a total of a dozen Tanks and APCs. Likewise, Day 5 (Jan. 5) has a similar imbalance (only five total Tanks and APCs for 810 deaths), but I left it in the data set because the discrepancy is not so extreme.
+
+Day 284 (Oct. 11) stands out for the reverse pattern: staggering losses of both Tanks and APCs, but "only" 820 dead. The 91 APCs reported to have been demolished that day towers so high over other APCs loss figures that I suspect it is either a typo or a reversal of 19 (the next highest day reported `r max(ukrReg$APCs)` APC losses). Or it might be that the previous day, with only three APCs reported destroyed, under-stated the true number and the remainder were put into Day 284. Furthermore, Tanks on Day 284 were sky high at 34.  So I also dropped Day 284 from the regression data set.  
+
+Day 247 (Sept. 4) stands our for its high number of vehicle and fuel tank losses as well as drones (UAV).   The highest day reported `r max(ukrReg$Fuel)` Fuel losses; the peak for UAVs was `r max(ukrReg$UAV)`, so 37 is getting up there.  Perhaps the combination of big losses for those two types of equipment resulted in that day being called out as a possible anomaly.  Even so, I left the day in.
+
+Day 147 (May 27) boasts Fuel and Artillery losses that are very high (30 Fuel where the highest daily Fuel total is `r max(ukrAll$Fuel)` and 22 units of Artillery compared to the highest daily total of `r max(ukrAll$Arty)`), yet a modest 480 dead (the fewest day of casualties totaled `r min(ukrAll$Soldiers)`); perhaps the fighting on the line was slow but Russian artillery batteries behind the lines were going up in smoke right and left. Still, I decided to leave the day in the data set.
+
+Day 142 (May 22) puzzles me for why it triggers several warnings about being an anomalous day.  Minimal losses of equipment, to my eye, and slightly above average losses of soldiers doesn't amount to much.  So, it remains in the data.  As does Day 283 (Oct. 10), which seems unexceptional and ought to stay.
+
+Finally, Day 265 (Sept. 22) might set off alarms because of the incredible destruction of Artillery, 40 batteries, where the highest day is `r max(ukrReg$Arty)`.  Unusual, but the other figures seem inconspicuous, so that day remains in the data set.
+
+```{r outlierTest}
+ukrOut <- ukrAll[  , c(1:11, 15)] # drop Date, Day of Week, Week, but keep day
+# car::outlierTest(lm(Soldiers ~ ., data = ukrOut[ , -12])) # drop Day; suggests to me that it sees 247 as the only suspect
+# ukrOut[247, ] # 9 Tanks, 3 APC, 1 AA, 0 MLRS, 19 Arty  yet 1140 soldiers
+# ukrOut[223, ] # 9 Tanks, 11 APC, 3 AA, 0 MLRS, 23 Arty yet 1060 Soldiers
+# ukrOut[5, ] # 34 Tanks, 91 APC, 18 AA, 20 FUEL but only 820 Soldiers
+# ukrOut[284, ] # 3 Tanks, 2  APC, 2 MLRS, 0 AA, 12 Arty but 810 Soldiers
+# ukrOut[42, ] # 4 Tanks, 14 APC, 2 MLRS, 1 AA, 29 Arty but only 460 Soldiers
+# ukrOut[142, ] # 0 Tanks, 14 APC, 4 MLRS, 1 AA, 29 Arty but only 480 Soldiers
+# as.Date("2023-01-01") + 246 # identify day of the year from day count
+
+```
+
+<center>
+\textcolor{blue}{Under the Hood}
+</center>
+
+Outlier Days
+
+In more technical terms, the residual for a potential outlier day -- the difference between the predicted casualties based on the regression model and the actual casualties -- is large and statistically highly unusual.  Each residual is transformed into a "studentized residual" by dividing it by an estimate of the standard deviation.  Days with absolute studentized residuals significantly greater than 1 or 2 (depending on the chosen threshold) are often flagged as potential outliers. 
+
+I didn't eyeball the data for the 288 days and spot the four days discussed above.  Two techniques can help spot outliers: statistical tests and plots.  If an outlier day is deleted, I could rerun the test to see whether other outliers are present.  It is advisable to do such iterative tests with the "Bonferroni correction," which is an adjustment to the p-value that accounts for running multiple hypothesis tests.  
+
+<!-- Certain machine learning algorithms, such as the "isolation forest" and "local outlier factor," can be utilized to detect outliers in a data set.  Many more are possible.^[https://medium.com/@venujkvenk/anomaly-detection-techniques-a-comprehensive-guide-with-supervised-and-unsupervised-learning-67671cdc9680] -->
+
+<!-- An R function plots the ordered, squared robust Mahalanobis distances of the days against the empirical distribution function of the $MD^2_i$. The distance calculations are based on the  (MCD) estimator. -->
+
+<!-- For outlier detection, two different methods are used. The first one marks observations as outliers days that exceed a certain quantile of the chi-squared distribution. The second is an adaptive procedure searching for outliers specifically in the tails of the distribution, beginning at a certain chisq-quantile. -->
+
+\newpage
+
+We can start our detective work with some straightforward plots that show unusual days or data.
+
+To highlight odd data, a violin plot, pardon us for saying, plays well.  A violin plot combines a box plot, histogram, and scatter plot. It displays the distribution, median, and interquartile range (IQR) of data like a box plot. Moreover, it plots each point, which creates the shape of the "violin" because the width of the violin at different levels indicates how many days were at that total combination of casualties and destroyed APCs.  
+
+What we care about, however, are the outliers, the red days that are above the "whisker" rising up from the box.  The whisker extends up from the third quartile figure to 1.5 times the Interquartile Range.  The IQR is simply the distance between the third quartile figure and the first quartile figure.  So, with APCs the IQR is `r IQR(ukrAll$APCs)`, which is the difference between 6 and 15, the first quartile value and the third quartile value.  The whisker extends up 1.5 times 9 from 15, so to 28.5.  Four days reported losses above that; those days are presumptive outliers.  The highest point has a red point for the APC value and a black point to its right to correspond to the 840 casualties on that day when 91 APCs were reported destroyed.
+
+```{r violinOne}
+# Calculate outlier values (e.g., values beyond 1.5 * IQR)
+outliers <- ukrOut %>%
+  mutate(outlier = ifelse(APCs < quantile(APCs, 0.25) - 1.5 * IQR(APCs) | 
+                             APCs > quantile(APCs, 0.75) + 1.5 * IQR(APCs), 
+                           APCs, NA))
+
+# Create a data frame for labels using the "Date" variable
+# label_data <- outliers %>% select(Day, outlier) %>% filter(!is.na(outlier)) 
+
+ggplot(outliers, aes(x = Soldiers, y = APCs)) +   # color = ifelse(DayOfWeek %in% c("Sat", "Sun"), "blue", "yellow")
+  geom_violin(trim = FALSE) +
+  geom_boxplot(width = 0.2, outlier.colour = "red") +
+  labs(x = "Soldier Casualties", y = "APCs Losses", title = "Violin Plot of Soldier Casualties by APC Losses; Outliers in Red") +
+  # theme(legend.position = "none") +
+  # guides(color = FALSE) +
+  # theme(axis.text.x = element_text(angle = 0)) +
+  scale_x_continuous(breaks = seq(0, 1500, 100)) +
+  scale_y_continuous(breaks = seq(0, 100, 5)) +
+  # stat_summary(fun.y=mean, geom="point", size=4, color="green") +
+  geom_jitter(shape = 16, position = position_jitter(0.1)) +
+  theme_classic() +
+  ggplot2::annotate("text", x = 640, y = max(outliers$APCs), label = "Day 5 at 91 >>")
+
+  # geom_text(data = label_data, aes(label = outlier),  nudge_x = 0.2, nudge_y = 0.2)
+# quantile(ukrAll$APCs, prob=c(.25,.5,.75), type=1)  # third quartile
+```
+
+
+\newpage
+
+As an alternative, consider a raincloud plot, which is a hybrid plot mixing a halved violin plot, a box plot, and often scattered raw data (but which we have omitted for legibility).  A raincloud plot helps visualize raw data, the distribution of the data, and key summary statistics at the same time.
+
+<!-- from https://medium.com/@amorimfranchi/raincloud-plots-for-clear-precise-and-efficient-data-communication-4c71d0a37c23 -->
+
+The raincloud plot improves upon the traditional box plot by indicating the potential existence of different groups within the data.  Unlike the box plot, which does not reveal where densities gather, the raincloud plot does precisely that!
+
+```{r raincloud}
+library(ggdist)
+library(ghibli)
+
+# remove 5 (91 APCs) and 142 (80 UAV) as they mess up the raincloud plot
+outliersLong <- outliers[-c(5, 142), ] %>% pivot_longer(., cols = c("Tanks", "APCs", "Arty", "UAV"), names_to = "Equipment", values_to = "Losses")
+
+ggplot(outliersLong, aes(x = Equipment, y = Losses, fill = Equipment)) +
+  scale_fill_ghibli_d("SpiritedMedium", direction = -1) +
+  geom_boxplot(width = 0.2, outlier.colour = "red") +
+  labs(x = NULL, y = NULL, title = "Losses per Day by Equipment", subtitle = "Excluding two outlier days (91 APCs and 80 UAVs)") +
+  theme_classic(base_size=16, base_family="serif") +
+  theme(text = element_text(size=14),
+        # axis.text.x = element_text(angle=0, hjust=.5, vjust = 0.5, color = "black"),
+        # axis.text.y = element_text(color = "black"),
+        plot.title = element_text(hjust = 0.5),   # center title of plot
+        plot.subtitle = element_text(hjust = 0.5),
+        legend.position="none")+
+  scale_y_continuous(breaks = seq(0, 65, by = 5), limits = c(0, 65), expand = c(0, 0)) +
+# Line below adds dot plots from {ggdist} package 
+#  stat_dots(side = "left", justification = 1.04, binwidth = 1.2) +
+# Line below adds half-violin from {ggdist} package
+  stat_halfeye(adjust = .2, width = .7, justification = -.2, .width = 0, point_colour = NA)
+
+```
+
+\newpage
+
+The quartet of plots below present results from looking only a data for days of Tanks, AA, APCs, Artillery, and Fuel. Because the data is more than
+two-dimensional, as it has five variables, the data are projected on the first two robust principal components.
+
+The top left plot shows the days.
+
+The top right plot shows in increasing order the squared robust "Mahalanobis distances" of the observations against the empirical distribution function of the squared Mahalanobis distance. Robust means resistant against the influence of outlying observations. The distance calculations use the Minimum Covariance Determinant (MCD) estimator. The two vertical lines correspond to the chisq-quantile specified by the analyst (default is 0.975) and the so-called adjusted quantile.
+
+This calculation takes into account the distance of a day from the centroid of the data, and the shape of the data. The shape of multivariate data is characterized by the covariance matrix, and the "Mahalanobis distance" is a well-known measure which takes it into account. The distribution of the squared Mahalanobis distance, MD2, is chi-squared with p (the dimension of the data) degrees of freedom, i.e. χ2p. Then, the adopted rule for identifying the outliers is selecting the threshold as the 0.975 quantile of the χ2p.
+
+To define a robust Mahalanobis distance measure RMD, software uses robust estimates of centrality and covariance matrix. The Minimum
+Covariance Determinant (MCD) estimator does so based on the computation of the ellipsoid with the smallest volume or with the smallest covariance determinant that would encompass at least half of the data points
+
+For outlier detection two different methods are used. The first one marks days as outliers if they exceed a certain quantile of the chi-squared distribution. The second is an adaptive procedure searching for outliers specifically in the tails of the distribution, beginning at a certain chisq-quantile.
+
+The bottom left plot shows the outliers detected by the specified quantile of the chi-square quantile distribution. The bottom right plot shows detected outliers by the adjusted quantile.
+
+
+```{r mvoutlier}
+library(mvoutlier)
+invisible(aq.plot(x = ukrNorm[ , c(1:5)])) # looks the same as the unnormalized
+
+# chisq.plot(ukrAll[ , 1:11], quan=1/2, ask=TRUE)
+
+# psych::outlier(x = ukrNorm$APCs, cex=.8, na.rm = TRUE)  # Error in D2 * x : non-conformable arrays
+```
+
+\newpage
+
+Other plots can help spot outliers. For example, the next plot shows the studentized residuals against a normal bell curve's quantiles.^[The quantiles are what would be expected if the residuals followed a standard normal distribution (normalized as "z-scores"). The quantiles are generated from the standard normal distribution's cumulative distribution function (CDF).] Here we see Day 247 is labeled at the top right and Day 5 is labeled at the bottom left as outliers.
+
+```{r QQplot, warning=FALSE}
+# car::qqPlot(lm(Soldiers ~ ., data = ukrOut), id.n = 5) # has tQuantiles
+invisible(car::qqPlot(lm(Soldiers ~ ., data = ukrOut[  , -12]), id.n = 5, distribution = "norm", ylab = "Studentized Residuals", xlab = "Normal Quantiles", main = "Studentized Residuals vs. Normal Quantiles"))
+
+# as.Date("2023-01-01") + 282 # identify day of the year from day count  
+
+# studentize residuals
+studentize_residuals <- function(model) {
+  residuals <- model$residuals
+  hat_matrix <- hatvalues(model)
+  df <- df.residual(model)
+  std_residuals <- residuals / sqrt(1 - hat_matrix) / sqrt(df)
+  return(std_residuals)
+}
+
+# tried to create the plot in ggplot so I could stop # 247 from printing.  But the invisible function does it!!
+# regr.student.residuals <- studentize_residuals(RegModAllVars)
+# 
+# fit <- broom::augment(x = RegModAllVars) # augments model with resid, hat, sigma, cooks and standardized.residuals
+# 
+# # for ggplot  https://ggplot2.tidyverse.org/reference/geom_qq.html
+# df <- data.frame(y = studentize_residuals(RegModAllVars), Day = ukrReg$Date)
+# 
+# ggplot(df, aes(sample = y)) +
+#   stat_qq() + 
+#   stat_qq_line() +
+#   labs(x = "Normal Quantiles", y = "Studentized Residuals", title = "Studentized Residuals vs. Normal Quantiles") +
+#   geom_text(aes(x = fit$.rownames, y = y, label = df$Day), size = 4, vjust = 0)
+#   # ggplot2::annotate("text")
+
+```
+
+\newpage
+
+The next plot comes from deleting one day at a time and creating regression models from the "left-one-out" data sets.  The algorithm computes the studentized residual for the day that was left out. That means it gives the model the data of the left-out day and has the model predict Soldiers for that day; it then studentizes the difference between the prediction and the actual and plots that point on the vertical, y-axis.  The horizontal red lines mark where the absolute value of the residual is two or more different than the average, which is a threshold test for outlier status. Here, too, Day 247 at the top and Day 5 on the far right (and Day 283 to its lower left) appear to be culprits. The notable losses for Day 283 in the lower right include 39 "armor" (Tanks plus APCs) and five MLRS, compared to the highest day of `r max(ukrOut$MLRS)` MLRS, yet a below average 530 Soldiers. 
+
+```{r cooksggplotOutliers}
+olsrr::ols_plot_resid_stud_fit(lm(Soldiers ~ ., data = ukrOut))  # looks really good
+# which(RegModFort$.cooksd > 0.1)  # only obs 5
+```
+
+\newpage
+
+\newpage
+
+Leverage Days
+
+Moving on from outliers, red lights also flash if the losses of a day exhibit high leverage.  High leverage indicates that a day has one or more equipment losses that are far from the average of losses for that equipment.  Here is a plot of the studentized residuals for days on the vertical axis and the day's leverage value on the horizontal axis.  Days outside of the "threshold" box are identified by their day number counting up from Jan. 1, 2023 (The normal days, in blue, all have a leverage value of the threshold or less.).  Day 5 sits extremely low and to the right, so it is both an outlier and a high leverage day -- an "influential point" -- while day 247 ranges high but is merely an outlier.  Days 142 (May 22) and 265 (Sept. 22) also draw attention on the far right as high leverage points.
+
+```{r leverage}
+olsrr::ols_plot_resid_lev(model = lm(Soldiers ~ ., data = ukrOut[  , -12]), print_plot = TRUE) 
+# as.Date("2023-01-01") + 264 # identify day of the year from day count
+
+hatValues <- hatvalues(lm(Soldiers ~ ., data = ukrOut))
+# which(hatValues == max(hatvalues(lm(Soldiers ~ ., data = ukrOut)))) # 5
+```
+
+\newpage
+
+Influence Days
+
+The days that are not only outliers (quite large residuals) but also high leverage (far from the average values of most days) are called influential points.  These days influence the regression coefficients considerably.  One measure of these distorting days is called "Cook's Distance" (Cook's D).  Cook's D shows how much the whole regression model would change if the day were removed.  The higher the Cook's D, the more the analyst needs to scrutinize that day's values because it exerts a noticeable pull.  The computation identified large value days: 5 (0.339), 283 (0.132), 142 (0.066), 2 (0.057) and 247 (0.048) lead the Cook's D pack.
+
+```{r cook}
+# Calculate Cook's D values for all observations in the 'ukrReg' model
+cooksd <- cooks.distance(lm(Soldiers ~ ., data = ukrOut))
+
+# Sort the Cook's D values in descending order and Get the seven highest Cook's D values and their corresponding observation indices
+top_5_cooksd <- head(sort(cooksd, decreasing = TRUE), 7)
+
+```
+
+The plot below depicts how strongly single days influence the regression coefficients. It highlights days with a large Cook's D that also have high leverage and thus a large effect on the regression model. The plot depicts extreme days with a bubble that is proportional to its Cook's D.  Day 5 has by far the largest value and thus bubble, followed by Day 283, Day 247 and Day 142. "Hat values" are the fitted values, the predictions of Soldiers made by the model for each day. Vertical reference lines are drawn at twice and three times the average hat value, horizontal reference lines at -2, 0, and 2 on the Studentized-residual scale. 
+
+```{r leverageHatValuesCooks, warning=FALSE}
+invisible(car::influencePlot(lm(Soldiers ~ ., data = ukrOut), id.n = 5))
+# car::influencePlot(lm(prestige ~ income + education, data=Duncan), id.n =5)[-2]  # posted SO question on 11/14 at 10:17 AM
+
+```
+<!-- We can enlist "index plots," which show each day on the x-axis from the earliest on the left to the most recent.  The days of outlier status or of leverage are numbered individually. We can round up two of the usual suspects: days 5 and 283 (Oct. 10, 2023). -->
+
+```{r leverageHatValues, eval=FALSE, warning=FALSE}
+# which.max(stats::cooks.distance(model = lm(Soldiers ~ ., data = ukrOut)))  # day 5
+car::influenceIndexPlot(lm(Soldiers ~ ., data = ukrOut), id.n = 5, vars = "Cook") # vars could be "Studentized", "Bonf" or "hat"
+```
+
+<!-- Once again, the 5th day January 5, 2023, triggers the Cook's alarm.  To a lesser degree, so does Day 142 and Day 247 (the highest point).   -->
+
+```{r assumptionsFour, eval=FALSE}
+# four plots, but I have already shown them with car functions
+plot(lm(Soldiers ~ ., data = ukrOut))[4] # days 5 and 142
+
+```
+
+
+```{r cooksggplot, eval=FALSE}
+# I already have a cooks d plot
+RegModFort <- fortify(lm(Soldiers ~ ., data = ukrOut[  , -12]))
+
+ggplot(RegModFort, aes(1:nrow(ukrOut), .cooksd, ymin=0, ymax=.cooksd)) +  
+  geom_point() + geom_linerange() +
+  scale_x_continuous("Observation Number") +
+  scale_y_continuous("Cook's distance") +
+  ggtitle("Cook's Distance")
+```
+
+\newpage
+
+**Added variable plots** can also help tease out or confirm unusual days.  They show the relationship between each predictor variable of Equipment and the response variable of Soldiers while controlling for the effects of the other predictor variables. That is, they show each kind of Russian equipment loss against Russian casualties.  The x-axis represents what are called the "partial residuals" of the predictor variable, while the y-axis represents the partial residuals of the response variable. The line represents the fitted values from a linear regression model of the partial residuals of the response variable on the partial residuals of the predictor variable.  In other words, each plot depicts a mini-regression model using one type of equipment to predict casualties.
+
+The slope of the line in each plot reflects the partial regression coefficients from the original multiple regression model.  The line-of-best-fit in the plot matches the estimated regression coefficient for that type of equipment, and the residuals match the residuals of the overall regression.  
+
+If the relationship between the equipment type and the soldier casualties is linear, the line in the plot should be approximately horizontal. If the relationship is non-linear, the line may be curved. If there is an outlier, it will be visible as a point that is far away from the other points in the plot. Both Tanks and APCs have a day on the far right that stands out.
+
+These are actually just plots of the partial correlations of each predictor (residualized on the other predictor variables) with the target, Soldiers (residualized on the other predictor variables).  
+
+Setting aside days 247 and 223 at the top of each chart, nearly all of the identified days represent the highest loss figure for that type of equipment.
+
+```{r car, eval=FALSE, warning=FALSE}
+# see https://stats.stackexchange.com/questions/125561/what-does-an-added-variable-plot-partial-regression-plot-explain-in-a-multiple  next one plots Day
+library(car)
+
+car::crPlots(lm(Soldiers ~ ., data = ukrOut[   , -c(7, 11)]), main = "Equipment Losses and Residuals", )  # take out Helis and Planes
+```
+
+```{r carAVplots}
+car::avPlots(lm(Soldiers ~ ., data = ukrOut[ , -c(7, 11, 12)]), id.n = 5, id.cex = 0.7,
+             main = "Added-Variable Plots of Equipment Losses and Residuals", marginal.scale = TRUE) 
+# when marginal.scale = F, x on APCs is -20 to 60; Tanks is -10 to 25
+# when marginal.scale = T, x on APCs is -20 to 80; Tanks is -10 to 40; Arty is -20 to 33  (T means range minus mean)
+```
+
+
+```{r ggplotAVplots, eval=FALSE, warning=FALSE}
+# using ggplot  https://stackoverflow.com/questions/59150905/is-there-a-ggplot2-analogue-to-the-avplots-function-in-r
+avPlots.invis <- function(MODEL, ...) {
+  ff <- tempfile()
+  png(filename = ff)
+  OUT <- car::avPlots(MODEL, ...)
+  dev.off()
+  unlink(ff)
+  OUT }
+
+ggAVPLOTS  <- function(MODEL, YLAB = NULL) {
+  
+  #Extract the information for AV plots
+  AVPLOTS <- avPlots.invis(MODEL)
+  K       <- length(AVPLOTS)
+  
+  #Create the added variable plots using ggplot
+  GGPLOTS <- vector('list', K)
+  for (i in 1:K) {
+  DATA         <- data.frame(AVPLOTS[[i]])
+  GGPLOTS[[i]] <- ggplot2::ggplot(aes_string(x = colnames(DATA)[1], 
+                                             y = colnames(DATA)[2]), 
+                                  data = DATA) +
+                  geom_point(colour = 'blue') + 
+                  geom_smooth(method = 'lm', se = FALSE, 
+                              color = 'red', formula = y ~ x, linetype = 'dashed') +
+                  xlab(paste0('Predictor Residual \n (', 
+                         names(DATA)[1], ' | others)')) +
+                  ylab(paste0('Response Residual \n (',
+                         ifelse(is.null(YLAB), 
+                           paste0(names(DATA)[2], ' | others'), YLAB), ')')) }
+  
+  #Return output object
+  GGPLOTS }
+
+library(gridExtra)
+PLOTS <- ggAVPLOTS(lm(Soldiers ~ ., data = ukrOut[   , -c(7, 11, 12)]))
+K     <- length(PLOTS)
+NCOL  <- ceiling(sqrt(K))
+AVPLOTS <- do.call("arrangeGrob", c(PLOTS, ncol = NCOL, top = 'Added Variable Plots'))
+plot(AVPLOTS)
+# ggsave('AV Plots - Trucking.jpg', width = 10, height = 10)
+
+```
+
+The x-axis represents the values of the particular predictor variable (the type of equipment). Each point on the x-axis corresponds to a unique value of that equipment's loss for a day.  When you look at a specific point on the x-axis, it's as if you are considering the effect of that equipment loss on Soldiers while holding all other predictor variables in the model constant at their average values or their values specified for that particular point on the x-axis.
+
+<!-- ^[Consider an added-variable plot of Y versus X given Z.  If marginal.scale = FALSE, then the limits on the horizontal axis are determined by the range of the residuals from the regression of X on Z and the limits on the vertical axis are the range of the residuals from the regression of Y on Z. If the argument is TRUE, which is the choice I made, then the limits on the horizontal axis are the range of X minus its mean, and on the vertical axis by the range of Y minus its means; adjustment is made if necessary to include outliers. This scaling allows visualization of the correlations between Y and Z and between X and Z. For example, if the X and Z are highly correlated, then the points will be concentrated on the middle of the plot.] -->
+
+Thus, statistical tests and graphs point to a handful of days where the mix of equipment losses and deaths of Russian soldiers bring to our attention such extraordinary values, compared to the data of the other days, that two of them we convicted as deserving of omission from the data set.  
+
+<!-- End of post -->

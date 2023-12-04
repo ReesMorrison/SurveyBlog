@@ -39,7 +39,7 @@ Tomaz Bratanic in slovenia, author of book on graphs, wrote about a network grap
 
 # How to create individual posts
 
-Start RStudio; Open the SurveyBlog project and load packages; call blogdown::serve_site() [Need to be in the right directory, Hornbooks/5Survey etc.  I shut down R and started afresh and the right directory followed the project]
+Start RStudio; Open the SurveyBlog project and load packages; call serve_site() [Need to be in the right directory, Hornbooks/5Survey etc.  I shut down R and started afresh and the right directory followed the project]
 
 Click on New Post dropdown from Addins, which runs this: blogdown:::new_post_addin().
 
@@ -50,19 +50,21 @@ Click on New Post dropdown from Addins, which runs this: blogdown:::new_post_add
   Tags delete 
   Ignore Slug 
   output: pdf_document   should I add this?
-  With the radio button at the bottom keep Format: Markdown (unless inline code?, which must be self sufficient, i.e., read in data for that portion)
+  With the radio button at the bottom keep Format: Markdown
   
   File/Rename [core idea, no spaces] and save the new .md.
   draft: replace "yes" with "no" -- no quote marks
 
-  Copy and paste in the text (from Word SurveyBlogPosts.docs or from another .Rmd)
+KEY delete the index file from SurveyBlog/content/post for the post to publish (use .Rmd with code)
+
+  Copy and paste in the text 
+  
+  Add packages chunk at the top
+  
+  Add data chunk to read in, for example, ukrAll
   
   Make changes on my laptop in the .md file  Useful site https://www.spanishdict.com/answers/152876/line-breaks-pictures-links-and-other-formatting-tricks-#Single
   
-KEY delete the index file from SurveyBlog/content/post for the post to publish (use .Rmd with code)
-
-insert More after first paragraph?  (not if first para is reasonable paragraph)
-
 insert at end of post <!-- End of post -->
 
 ## Pushing posts to GitHub, which then sends them to Netlify and the blog 
