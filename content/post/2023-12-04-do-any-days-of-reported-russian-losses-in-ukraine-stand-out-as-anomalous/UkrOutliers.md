@@ -177,7 +177,7 @@ I didn't eyeball the data for the 288 days and spot the four days discussed abov
 
 <!-- For outlier detection, two different methods are used. The first one marks observations as outliers days that exceed a certain quantile of the chi-squared distribution. The second is an adaptive procedure searching for outliers specifically in the tails of the distribution, beginning at a certain chisq-quantile. -->
 
-\newpage
+
 
 We can start our detective work with some straightforward plots that show unusual days or data.
 
@@ -188,7 +188,7 @@ What we care about, however, are the outliers, the red days that are above the "
 <img src="/post/2023-12-04-do-any-days-of-reported-russian-losses-in-ukraine-stand-out-as-anomalous/UkrOutliers_files/figure-html/violinOne-1.png" width="672" style="display: block; margin: auto;" />
 
 
-\newpage
+
 
 As an alternative, consider a raincloud plot, which is a hybrid plot mixing a halved violin plot, a box plot, and often scattered raw data (but which we have omitted for legibility).  A raincloud plot helps visualize raw data, the distribution of the data, and key summary statistics at the same time.
 
@@ -198,7 +198,7 @@ The raincloud plot improves upon the traditional box plot by indicating the pote
 
 <img src="/post/2023-12-04-do-any-days-of-reported-russian-losses-in-ukraine-stand-out-as-anomalous/UkrOutliers_files/figure-html/raincloud-1.png" width="672" style="display: block; margin: auto;" />
 
-\newpage
+
 
 The quartet of plots below present results from looking only a data for days of Tanks, AA, APCs, Artillery, and Fuel. Because the data is more than
 two-dimensional, as it has five variables, the data are projected on the first two robust principal components.
@@ -220,26 +220,26 @@ The bottom left plot shows the outliers detected by the specified quantile of th
 
 ```
 ## Projection to the first and second robust principal components.
-## Proportion of total variation (explained variance): 0.6626228
+## Proportion of total variation (explained variance): 0.6590537
 ```
 
 <img src="/post/2023-12-04-do-any-days-of-reported-russian-losses-in-ukraine-stand-out-as-anomalous/UkrOutliers_files/figure-html/mvoutlier-1.png" width="672" style="display: block; margin: auto;" />
 
-\newpage
+
 
 Other plots can help spot outliers. For example, the next plot shows the studentized residuals against a normal bell curve's quantiles.^[The quantiles are what would be expected if the residuals followed a standard normal distribution (normalized as "z-scores"). The quantiles are generated from the standard normal distribution's cumulative distribution function (CDF).] Here we see Day 247 is labeled at the top right and Day 5 is labeled at the bottom left as outliers.
 
 <img src="/post/2023-12-04-do-any-days-of-reported-russian-losses-in-ukraine-stand-out-as-anomalous/UkrOutliers_files/figure-html/QQplot-1.png" width="672" style="display: block; margin: auto;" />
 
-\newpage
+
 
 The next plot comes from deleting one day at a time and creating regression models from the "left-one-out" data sets.  The algorithm computes the studentized residual for the day that was left out. That means it gives the model the data of the left-out day and has the model predict Soldiers for that day; it then studentizes the difference between the prediction and the actual and plots that point on the vertical, y-axis.  The horizontal red lines mark where the absolute value of the residual is two or more different than the average, which is a threshold test for outlier status. Here, too, Day 247 at the top and Day 5 on the far right (and Day 283 to its lower left) appear to be culprits. The notable losses for Day 283 in the lower right include 39 "armor" (Tanks plus APCs) and five MLRS, compared to the highest day of 9 MLRS, yet a below average 530 Soldiers. 
 
 <img src="/post/2023-12-04-do-any-days-of-reported-russian-losses-in-ukraine-stand-out-as-anomalous/UkrOutliers_files/figure-html/cooksggplotOutliers-1.png" width="672" style="display: block; margin: auto;" />
 
-\newpage
 
-\newpage
+
+
 
 Leverage Days
 
@@ -247,7 +247,7 @@ Moving on from outliers, red lights also flash if the losses of a day exhibit hi
 
 <img src="/post/2023-12-04-do-any-days-of-reported-russian-losses-in-ukraine-stand-out-as-anomalous/UkrOutliers_files/figure-html/leverage-1.png" width="672" style="display: block; margin: auto;" />
 
-\newpage
+
 
 Influence Days
 
@@ -269,7 +269,7 @@ The plot below depicts how strongly single days influence the regression coeffic
 
 
 
-\newpage
+
 
 **Added variable plots** can also help tease out or confirm unusual days.  They show the relationship between each predictor variable of Equipment and the response variable of Soldiers while controlling for the effects of the other predictor variables. That is, they show each kind of Russian equipment loss against Russian casualties.  The x-axis represents what are called the "partial residuals" of the predictor variable, while the y-axis represents the partial residuals of the response variable. The line represents the fitted values from a linear regression model of the partial residuals of the response variable on the partial residuals of the predictor variable.  In other words, each plot depicts a mini-regression model using one type of equipment to predict casualties.
 

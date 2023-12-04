@@ -63,6 +63,8 @@ KEY delete the index file from SurveyBlog/content/post for the post to publish (
   
   Add data chunk to read in, for example, ukrAll
   
+  Remove \newpage?
+  
   Make changes on my laptop in the .md file  Useful site https://www.spanishdict.com/answers/152876/line-breaks-pictures-links-and-other-formatting-tricks-#Single
   
 insert at end of post <!-- End of post -->

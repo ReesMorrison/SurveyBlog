@@ -90,7 +90,7 @@ I didn't eyeball the data for the 288 days and spot the four days discussed abov
 
 <!-- For outlier detection, two different methods are used. The first one marks observations as outliers days that exceed a certain quantile of the chi-squared distribution. The second is an adaptive procedure searching for outliers specifically in the tails of the distribution, beginning at a certain chisq-quantile. -->
 
-\newpage
+
 
 We can start our detective work with some straightforward plots that show unusual days or data.
 
@@ -127,7 +127,7 @@ ggplot(outliers, aes(x = Soldiers, y = APCs)) +   # color = ifelse(DayOfWeek %in
 ```
 
 
-\newpage
+
 
 As an alternative, consider a raincloud plot, which is a hybrid plot mixing a halved violin plot, a box plot, and often scattered raw data (but which we have omitted for legibility).  A raincloud plot helps visualize raw data, the distribution of the data, and key summary statistics at the same time.
 
@@ -161,7 +161,7 @@ ggplot(outliersLong, aes(x = Equipment, y = Losses, fill = Equipment)) +
 
 ```
 
-\newpage
+
 
 The quartet of plots below present results from looking only a data for days of Tanks, AA, APCs, Artillery, and Fuel. Because the data is more than
 two-dimensional, as it has five variables, the data are projected on the first two robust principal components.
@@ -189,7 +189,7 @@ invisible(aq.plot(x = ukrReg[ , c(1:5)])) # looks the same as the unnormalized
 # psych::outlier(x = ukrNorm$APCs, cex=.8, na.rm = TRUE)  # Error in D2 * x : non-conformable arrays
 ```
 
-\newpage
+
 
 Other plots can help spot outliers. For example, the next plot shows the studentized residuals against a normal bell curve's quantiles.^[The quantiles are what would be expected if the residuals followed a standard normal distribution (normalized as "z-scores"). The quantiles are generated from the standard normal distribution's cumulative distribution function (CDF).] Here we see Day 247 is labeled at the top right and Day 5 is labeled at the bottom left as outliers.
 
@@ -225,7 +225,7 @@ studentize_residuals <- function(model) {
 
 ```
 
-\newpage
+
 
 The next plot comes from deleting one day at a time and creating regression models from the "left-one-out" data sets.  The algorithm computes the studentized residual for the day that was left out. That means it gives the model the data of the left-out day and has the model predict Soldiers for that day; it then studentizes the difference between the prediction and the actual and plots that point on the vertical, y-axis.  The horizontal red lines mark where the absolute value of the residual is two or more different than the average, which is a threshold test for outlier status. Here, too, Day 247 at the top and Day 5 on the far right (and Day 283 to its lower left) appear to be culprits. The notable losses for Day 283 in the lower right include 39 "armor" (Tanks plus APCs) and five MLRS, compared to the highest day of `r max(ukrOut$MLRS)` MLRS, yet a below average 530 Soldiers. 
 
@@ -234,9 +234,9 @@ olsrr::ols_plot_resid_stud_fit(lm(Soldiers ~ ., data = ukrOut))  # looks really 
 # which(RegModFort$.cooksd > 0.1)  # only obs 5
 ```
 
-\newpage
 
-\newpage
+
+
 
 Leverage Days
 
@@ -250,7 +250,7 @@ hatValues <- hatvalues(lm(Soldiers ~ ., data = ukrOut))
 # which(hatValues == max(hatvalues(lm(Soldiers ~ ., data = ukrOut)))) # 5
 ```
 
-\newpage
+
 
 Influence Days
 
@@ -299,7 +299,7 @@ ggplot(RegModFort, aes(1:nrow(ukrOut), .cooksd, ymin=0, ymax=.cooksd)) +
   ggtitle("Cook's Distance")
 ```
 
-\newpage
+
 
 **Added variable plots** can also help tease out or confirm unusual days.  They show the relationship between each predictor variable of Equipment and the response variable of Soldiers while controlling for the effects of the other predictor variables. That is, they show each kind of Russian equipment loss against Russian casualties.  The x-axis represents what are called the "partial residuals" of the predictor variable, while the y-axis represents the partial residuals of the response variable. The line represents the fitted values from a linear regression model of the partial residuals of the response variable on the partial residuals of the predictor variable.  In other words, each plot depicts a mini-regression model using one type of equipment to predict casualties.
 
