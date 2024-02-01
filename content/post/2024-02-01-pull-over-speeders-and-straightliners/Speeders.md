@@ -21,10 +21,7 @@ Some surveys are particularly vulnerable to straightlining and warrant an additi
 
 Prevention of speeding and straightlining is the best defense. Mostly, vary the style of questions.  "Red herring" questions embedded among survey questions can expose speeders or otherwise disengaged respondents.  A red herring is a way of catching respondents off-guard as they race through the survey or mindlessly plug in answers.  Here is a screen shot of an example from the Bellomy website.
 
-```{r image, echo=FALSE}
-knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/BellomyRedHerrring.png")
-                        # "C:\Users\rees\Documents\R\Projects\LAWYER Hornbooks\5Surveys\SavSurvBlog\SurveyBlog\static\media\BellomyRedHerrring.png"
-```
+<img src="../../../static/media/BellomyRedHerrring.png" width="468" />
 
 <!-- ![redherring]("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/BellomyRedHerring.png") -->
 
