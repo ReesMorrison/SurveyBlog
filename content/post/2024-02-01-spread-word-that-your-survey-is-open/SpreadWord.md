@@ -28,4 +28,4 @@ Publications:  One time, I ran across a book for chief operating officers while 
 
 Consultants and Vendors:  Consultants are another fruitful source of introductions.  They have mailing lists, and they might swap some of your findings or shareable data for them launching an outreach to their mailing lists.   They might even run forms of advertisement such as banners on periodical mailings or other ways to reach more prospects.  
 
-<!-- End of post -->
+<!-- End of post   -->
