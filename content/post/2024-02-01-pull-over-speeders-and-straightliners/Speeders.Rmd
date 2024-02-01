@@ -1,0 +1,41 @@
+---
+title: "Pull Over Speeders and Straightliners"
+author: "Rees Morrison"
+date: "2024-02-01"
+slug: []
+categories: Surveys
+draft: no
+---
+
+Distracted, unfocused, or impatient respondents undermine the quality of a survey’s research.  When you’re aware of two specific types of offenders, you can design questionnaires and analyses to discourage and spot negative behaviors. Put differently, you should take steps to label and remove respondents who don't seem to be putting thought into their answers before results are analyzed, and thereby ensure more reliable and accurate data. 
+
+Here are ideas from the blog of Bellomy^[ Maggie Whitley, June 25, 2020, https://www.bellomy.com/blog/improve-survey-response-quality] that focuses on “speeders” and “straightliners.”
+
+Speeders complete a survey in an unrealistically short amount of time.  What is too quick to be reasonable?  Most hosting applications can tell you how much time elapsed between someone starting a survey and submitting it.  Note that the average of those figures will likely be grossly high because the occasional person leaves the survey open while they take care of other business.  The median, however, serves well as a gauge of typical time investment.
+
+For instance, if the median is six minutes, someone who takes less than two minutes would raise a flag.  They might have dropped out partway through, but if they completed the survey they likely did not think sufficiently about their answers in their haste.  Importantly, a speeder threshold should be applied with objectivity to avoid “cherry picking” certain respondents to keep or remove.  “Everyone who took one-third or less of the median time will get a speeding ticket” and an analyst will decide the fine. 
+
+Straightliners are participants who choose the same answer over and over (creating a straight line of unvarying answers) or choose answers that form a pattern.  If you see 1, 2, 3, 4 repeated several times or if every evaluative question gets “Above average”, the person has very likely not paid attention to the actual question or thought about the appropriate answer.  They are passive-aggressively taking the survey without engagement or concern for quality.
+
+Some surveys are particularly vulnerable to straightlining and warrant an additional quality control check.  For example, sets of similarly phrased questions (such as on an upward evaluation survey with lots of behaviors being rated on the same Likert scale) risk straightline responses.   It takes no thought to check “3” all or nearly all the time.
+
+Prevention of speeding and straightlining is the best defense. Mostly, vary the style of questions.  "Red herring" questions embedded among survey questions can expose speeders or otherwise disengaged respondents.  A red herring is a way of catching respondents off-guard as they race through the survey or mindlessly plug in answers.  Here is a screen shot of an example from the Bellomy website.
+
+```{r image, echo=FALSE}
+knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/BellomyRedHerrring.png")
+                        # "C:\Users\rees\Documents\R\Projects\LAWYER Hornbooks\5Surveys\SavSurvBlog\SurveyBlog\static\media\BellomyRedHerrring.png"
+```
+
+<!-- ![redherring]("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/BellomyRedHerring.png") -->
+
+Of course, some respondents may have strong, positive opinions on a long list of topics. However, choosing "Excellent" when the question asks that you "select four as your response" is a signal of an unfocused, inattentive, or inauthentic respondent. Respondents who incorrectly answer a red herring question should be flagged and possibly have their responses removed or limited.
+
+Software can inspect the data for respondents who use the same scale point to answer multiple questions in a row.  If six different characteristics of a manager in sequential questions each get a 5 (or “Above standard”), that should raise suspicion.  Once a straightlining threshold is established – perhaps no more than four identical scores in a row, it should be applied across the board without discretion.  
+
+Another method to exorcise straightliners is to ask respondents to rank the importance of the behaviors or whatever is being evaluated.  It makes it less likely that a series of similar ratings is thoughtful and legitimate if the respondent ranks one or two in the series as much more important than the others.  Not impossible, but less plausible.  
+
+Speeders and straightliners share a similar profile:  someone who wants to race through a questionnaire may quickly make the same selection for questions with the same choices.  Also, both types of unwelcome participants pause only rarely to enter anything for text questions.  Blank free-text comments can confirm speeder or straightliner identification.  
+
+However, even when flagged, if the responses to free-text questions are fulsome and thoughtful or other portions of the survey appear to be worth salvaging, you may want to make an exception to the threshold initially set that would fully eliminate the response.   Notwithstanding the warnings described above, it may be that even the fastest speeder or the most rigid straightliner has still provided quantitative or qualitative data that has value.  If you can tell baby from bathwater, you might preserve what is, hopefully, accurate, and discard the artificial answers.  Finally, the methodology section of the report should explain the filters for both speeding and straightlining and how many respondents were removed.
+
+<!-- End of post -->  
