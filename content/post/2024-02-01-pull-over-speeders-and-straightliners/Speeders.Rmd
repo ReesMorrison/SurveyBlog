@@ -10,7 +10,7 @@ slug: []
 
 Distracted, unfocused, or impatient respondents undermine the quality of a survey’s research.  When you’re aware of two specific types of offenders, you can design questionnaires and analyses to discourage and spot negative behaviors. Put differently, you should take steps to label and remove respondents who don't seem to be putting thought into their answers before results are analyzed, and thereby ensure more reliable and accurate data. 
 
-Here are ideas from the blog of Bellomy [ Maggie Whitley, June 25, 2020, https://www.bellomy.com/blog/improve-survey-response-quality] that focuses on “speeders” and “straightliners.”
+Here are ideas from the blog post of Bellomy [Maggie Whitley, June 25, 2020, https://www.bellomy.com/blog/improve-survey-response-quality] that focuses on “speeders” and “straightliners.”
 
 Speeders complete a survey in an unrealistically short amount of time.  What is too quick to be reasonable?  Most hosting applications can tell you how much time elapsed between someone starting a survey and submitting it.  Note that the average of those figures will likely be grossly high because the occasional person leaves the survey open while they take care of other business.  The median, however, serves well as a gauge of typical time investment.
 
@@ -24,7 +24,7 @@ Prevention of speeding and straightlining is the best defense. Mostly, vary the 
 
 ```{r image, echo=FALSE, eval=FALSE}
 knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/BellomyRed.png")
-                        # "C:\Users\rees\Documents\R\Projects\LAWYER Hornbooks\5Surveys\SavSurvBlog\SurveyBlog\static\media\BellomyRed.png"
+
 ```
 
 ![redherringExample](C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/BellomyRed.png)
