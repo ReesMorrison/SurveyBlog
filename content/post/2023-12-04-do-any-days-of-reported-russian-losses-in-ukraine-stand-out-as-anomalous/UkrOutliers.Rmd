@@ -208,7 +208,7 @@ studentize_residuals <- function(model) {
   return(std_residuals)
 }
 
-# tried to create the plot in ggplot so I could stop # 247 from printing.  But the invisible function does it!!
+# tried to create the plot in ggplot so I could stop # 247 from printing.  invisible does it!!
 # regr.student.residuals <- studentize_residuals(RegModAllVars)
 # 
 # fit <- broom::augment(x = RegModAllVars) # augments model with resid, hat, sigma, cooks and standardized.residuals
@@ -224,7 +224,6 @@ studentize_residuals <- function(model) {
 #   # ggplot2::annotate("text")
 
 ```
-
 
 
 The next plot comes from deleting one day at a time and creating regression models from the "left-one-out" data sets.  The algorithm computes the studentized residual for the day that was left out. That means it gives the model the data of the left-out day and has the model predict Soldiers for that day; it then studentizes the difference between the prediction and the actual and plots that point on the vertical, y-axis.  The horizontal red lines mark where the absolute value of the residual is two or more different than the average, which is a threshold test for outlier status. Here, too, Day 247 at the top and Day 5 on the far right (and Day 283 to its lower left) appear to be culprits. The notable losses for Day 283 in the lower right include 39 "armor" (Tanks plus APCs) and five MLRS, compared to the highest day of `r max(ukrOut$MLRS)` MLRS, yet a below average 530 Soldiers. 

@@ -1,4 +1,12 @@
 ---
+site: blogdown:::blogdown_site
+---
+
+<!-- This file is for blogdown only. Please do not edit it. -->
+
+<!--chapter:end:index.Rmd-->
+
+---
 title: "Workflow for Blog Savvy Surveys for Lawyers"
 subtitle: "in BlogSavSurv.Rmd Hornbooks/5Surveys/LFSurveys/Survey Projects Marketing/SurveyBlog/"
 author: "Rees Morrison"
@@ -34,7 +42,7 @@ library(kableExtra)
 
 # How to create individual posts
 
-Start RStudio; Open the SurveyBlog project and load packages; call serve_site() [Need to be in the right directory, Hornbooks/5Survey etc.  I shut down R and started afresh and the right directory followed the project]  A pop came up on 2/1`/24 about Windows Firewall blocking.  I clicked Yes
+Start RStudio; Open the SurveyBlog project and load packages; call serve_site() [Need to be in the right directory, Hornbooks/5Survey etc.  I shut down R and started afresh and the right directory followed the project]
 
 Click on New Post dropdown from Addins, which runs this: blogdown:::new_post_addin().
 
@@ -45,7 +53,7 @@ Click on New Post dropdown from Addins, which runs this: blogdown:::new_post_add
   Tags delete 
   Ignore Slug 
   output: pdf_document   should I add this?
-  With the radio button at the bottom keep Format: Markdown (I did .Rmd)
+  With the radio button at the bottom keep Format: Markdown
   
   File/Rename [core idea, no spaces] and save the new .md.
   draft: replace "yes" with "no" -- no quote marks
@@ -53,8 +61,11 @@ Click on New Post dropdown from Addins, which runs this: blogdown:::new_post_add
 KEY delete the index file from SurveyBlog/content/post for the post to publish (use .Rmd with code)
 
   Copy and paste in the text 
+  
   Add packages chunk at the top if there is R code
+  
   Add data chunk to read in, for example, ukrAll
+  
   Remove \newpage
   
   Make changes on my laptop in the .md file  Useful site https://www.spanishdict.com/answers/152876/line-breaks-pictures-links-and-other-formatting-tricks-#Single
@@ -585,3 +596,515 @@ library(plotrix)   # for fanplot of DataVisualizations
 fan.plot(x = binary$Pct, max.span = pi, main = "Fanplot", labels = TRUE)
 
 ```
+
+<!--chapter:end:BlogSavSurv.Rmd-->
+
+---
+title: "ImputationPractice.Rmd in SurvSurvBlog"
+author: "Rees Morrison, Esq."
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+
+```{r setup, include=FALSE, echo=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message = FALSE)
+```
+
+```{r packages, echo=F, message=F}
+library(tidyverse)  
+library(blogdown)
+library(knitr)
+library(funModeling) # to compare vectors against each other, such as URLs of posts
+library(ggthemes) # to include the theme_tufte them in plots
+library(lubridate) # to deal with date data, such as the date a post is published
+library(ggrepel) # to spread points or text so that they do not overlap on a plot
+library(readxl) # to read in the underlying Excel data
+library(tidytext) # text-mining functions that help analyse the content of posts
+library(writexl) 
+library(kableExtra)
+
+library(cowplot)
+
+```
+
+
+# Correlation part two
+
+The Pearson correlation corresponds to the covariance of the two variables normalized (i.e. divided) by the product of their standard deviations.  
+
+The Spearman correlation between two variables is equal to the Pearson correlation between the rank scores of those two variables; while Pearson’s correlation assesses linear relationships, Spearman’s correlation assesses monotonic relationships (whether linear or not). A monotonic relationship between two variables refers to a scenario where a change in one variable is generally associated with a change in a specific direction in another variable. This may be linear or non-linear.
+
+Kendall’s Rank Method:
+
+In the normal case, the Kendall correlation is preferred to the Spearman correlation because of a smaller gross error sensitivity (GES) and a smaller asymptotic variance (AV), making it more robust and more efficient. Kendall rank correlation is used to test the similarities in the ordering of data when it is ranked by quantities. Other types of correlation coefficients use the observations as the basis of the correlation, Kendall’s correlation coefficient uses pairs of observations and determines the strength of association based on the patter on concordance and discordance between the pairs.
+
+Biweight midcorrelation:
+
+A measure of similarity that is median-based, instead of the traditional mean-based, thus being less sensitive to outliers. Therefore, if dataset and features have much outliers, this is a better correlation to use instead of other correlations.
+
+Distance correlation is a measure of association strength between non-linear random variables. It goes beyond Pearson’s correlation because it can spot more than linear associations and it can work multi-dimensionally.
+
+```{r correlation}
+# https://medium.com/@danishaman202/correlation-methods-c79b48286908  python
+# https://medium.com/data-science-in-your-pocket/calculating-non-linear-correlation-using-distance-correlation-with-examples-83f6a8cf2473
+
+# https://universeofdatascience.com/16-different-methods-for-correlation-analysis-in-r/
+
+d2c <- readxl::read_xlsx("C:/Users/rees/Documents/R/Projects/CLIENTS/LFExecDirs/US Law Firms/d2cEleven.xlsx")
+
+d2c <- d2c %>% select("Lawyers", "Offices") %>% filter(Lawyers > 5 & Offices > 0)  # 1322
+
+# covariance
+covLawOffice <- cov(d2c$Lawyers, d2c$Offices) # 3,544
+sdLawyers <- sd(d2c$Lawyers)
+sdOffices <- sd(d2c$Offices)
+
+# Pearson correlation is covariance divided by product of SD
+# covLawOffice/(sdLawyers * sdOffices)  0.79489
+cor(d2c$Lawyers, d2c$Offices, method = "pearson")   # 0.79489
+
+# spearman
+cor(d2c$Lawyers, d2c$Offices, method = "spearman") # 0.628
+
+# Kendal
+cor(d2c$Lawyers, d2c$Offices, method = "kendal")  #0.4759
+
+# see post above with 16, and correlation package
+library(correlation) 
+
+#biweight correlation, a robust alternative to Pearson correlation coefficient
+correlation(d2c, method = "biweight", p_adjust = "none")
+
+# can "plot" each one
+plot(correlation(d2c, method = "biweight", p_adjust = "none"))
+
+# Distance correlation
+correlation(d2c, method = "distance", p_adjust = "none")
+
+```
+
+```{r missingValues, eval=FALSE}
+library(finalfit)
+
+missingPlot <- dfReports %>% finalfit::missing_plot(plot_opts = theme(panel.background = element_rect(fill = "grey30")))
+missingPlot
+
+```
+
+
+# Imputation
+
+relaimpo package, it seems it can handle multiply imputed datasets using the function mianalyze.relimp()
+
+Dealing With NAs in R: From Deletion to Replacing to Machine Learning by Martinqiu
+New idea for imputation. Create my own regression model, and use that to predict missing values.
+
+Imputation in R: Top 3 Ways for Imputing Missing Data by Dario Radečić
+
+ISRS is imputation package and I have a description of it
+
+If you do not choose to delete observations that have missing data, you can turn to imputation techniques.  If you impute a single variable (univariate) that is **numeric**, you can use various imputations:
+
+* Mean/median 
+* Arbitrary value
+* End of distribution
+* Random value
+* Replace with previous/next value
+
+For replacement of missing values based on more than one variable,
+
+* KNN 
+* MICE (Multivariate Imputation by Chained Equations)
+
+with KNN imputation, the basic idea is that any data point in a dataset is similar to its neighbors. The similarity is calculated by the euclidean distance between data points in a n-dimensional space, where n is the number of independent features. But in KNN Imputer class the distance is calculated using nan euclidean distance. This distance takes care of any missing values in the K neighbors while calculating distance.
+
+With MICE, The following steps are involved in MICE:
+
+Step 1: Fill the missing values either with a random value from the column or with the mean of the values of that column. Let’s name this Table as Base Table.
+
+Step 2: Going from left to right, remove missing values from one column and take that column (with missing values) as dependent variable and others as independent variable and use a machine learning model to predict the missing values.
+
+Step 3: Repeat the process for other columns having missing values. We will obtain a table after predicting all the missing values. Let’s name this table as Table 1.
+
+Step 4: Once the missing values are all imputed, take the base table (the one obtained by imputing missing values with mean) and the table obtained after predicting the values through a ML model (Table 1) and calculate the difference between the two. Let’s call it the difference table.
+
+Step 5: Now, take Table 1 as the base table and repeat steps 2,3 and 4. Here, the difference would be between Table 1 and the new table obtained after iteration (say Table 2).
+
+Step 6: Repeat the iterations until all the values in the difference table nearly reach 0. The table obtained in the last iteration would have the most accurate values for the missing data.
+<!-- imputation by linear regression with mice package   https://medium.com/nerd-for-tech/imputing-missing-data-with-r-a7f04692c895 -->
+<!-- Should I even try this? It feels like what regression does to predict numbers. -->
+<!-- https://towardsdatascience.com/imputation-of-missing-data-in-tables-with-datawig-2d7ab327ece2 -->
+
+https://medium.com/@ayushmandurgapal/data-preprocessing-handling-missing-values-in-a-dataset-5140f77d2a47
+
+
+```{r dataMissingSkimr, skimr_digits = 2, eval=FALSE}
+# identify where missingness is
+library(naniar)
+
+ggplot(data = dfReports, aes(x = Total, y = Reports)) +
+  geom_miss_point(colour = c("black", "red")) +
+  theme_tufte()
+```
+
+
+
+```{r data}
+# from https://appsilon.com/imputation-in-r/
+imp <- readxl::read_xlsx("C:/Users/rees/Documents/R/Projects/CLIENTS/LFExecDirs/combo58.xlsx")
+
+#keep only numerics and a few of them
+imp <- imp[    , c("YearsRole", "Reports", "Lawyers", "Base", "Bonus", "Total")]  # 225 obs
+
+imp$Base[61] <- NA
+imp$Base[124] <- 114000
+imp$Bonus[124] <- 12000
+imp$Total[124] <- 126000
+imp$Bonus[142] <- 10000
+
+```
+
+Imputation is such a powerful tool for analyses of survey data, because it allows **machine learning** algorithms to chew through larger databases, analysts have at their disposal several imputation methods.
+
+We can explore those methods and how their results differ, by drawing on the survey of Chief Operating Officers in U.S. law firms.  One question asked them to state their base salary and another asked for their bonus.  Of 225 responses, 20 did not comply.  However, we can impute the total compensation (base plus bonus) and test the differences in the imputed distribution and the original distribution.
+
+Before plunging in, we need to wave a red flag.  Reliable imputation is almost always tied to domain knowledge of the problem you’re trying to solve, so make sure to ask the right business questions.  If, for example, the three missing values all came from respondents with the title "Chief *Executive* Officer," you might look deeper to see whether that title has an odd connection with numbers of direct reports.  More generally, take pains to make sure that no pattern explains the missing values.
+
+First, let's peek at the number and pattern of missing values (NA in R terminology).
+
+```{r, mice}
+library(mice)
+md.pattern(imp, rotate.names = TRUE)
+
+```
+
+Inspect the histogram of your original data that you would like to fill in by imputation, before you carry out any imputation.  You will want to compare its general shape with the shapes created after the various methods of imputation.  In each of the imputation models shown below, the original distribution of the Reports variable sits in the upper left pane.
+
+```{r histoYears}
+# summary(imp$YearsRole)  # no nas
+# summary(imp$Base)  # 3 NAs
+# summary(imp$Lawyers) # no NAs
+
+# ggplot(imp, aes(Reports)) +
+#   geom_histogram(color = "#000000", fill = "#0099F8") +
+#   ggtitle("Variable distribution") +
+#   theme_classic() +
+#   theme(plot.title = element_text(size = 18)) +
+#   scale_y_continuous(breaks = seq(1, 60, 4)) +
+#   scale_x_continuous(breaks = seq(1, 50, 5))
+
+```
+
+\newpage
+
+Now, compare the imputed-value distributions to the original distribution (top left).  They look identical.  I used a constant of 8 because the original histogram suggests that 8 represents more of the answers than any other value.
+
+```{r imputedMeanetc, message=FALSE}
+library(mice)
+
+# constant of 8 was from eyeballing histogram
+value_imputed <- data.frame(
+  original = imp$Total,
+  imputed_zero = replace(imp$Total, is.na(imp$Total), 200000),  # plausible value
+  imputed_mean = replace(imp$Total, is.na(imp$Total), mean(imp$Total, na.rm = TRUE)),
+  imputed_median = replace(imp$Total, is.na(imp$Total), median(imp$Total, na.rm = TRUE))
+)
+
+h1 <- ggplot(value_imputed, aes(x = original)) +
+  geom_histogram(fill = "#ad1538", color = "#000000", position = "identity") +
+  ggtitle("Original distribution") +
+  theme_classic()
+h2 <- ggplot(value_imputed, aes(x = imputed_zero)) +
+  geom_histogram(fill = "#15ad4f", color = "#000000", position = "identity") +
+  ggtitle("Constant-imputed distribution of $200,000") +
+  theme_classic()
+h3 <- ggplot(value_imputed, aes(x = imputed_mean)) +
+  geom_histogram(fill = "#1543ad", color = "#000000", position = "identity") +
+  ggtitle("Mean-imputed distribution") +
+  theme_classic()
+h4 <- ggplot(value_imputed, aes(x = imputed_median)) +
+  geom_histogram(fill = "#ad8415", color = "#000000", position = "identity") +
+  ggtitle("Median-imputed distribution") +
+  theme_classic()
+
+plot_grid(h1, h2, h3, h4, nrow = 2, ncol = 2)
+
+```
+
+\newpage
+
+**MICE** stands for Multivariate Imputation via Chained Equations. It assumes the missing values are **missing at random** (MAR), which we explained previously.  
+
+A survey analyst can use the following MICE imputation methods from the MICE package:
+
+* pmm: Predictive mean matching
+* cart: Classification and regression trees
+* laso.norm: Lasso linear regression.
+
+```{r miceMethods, cache=TRUE, message=FALSE, echo=FALSE}
+mice_imputed <- data.frame(
+  original = imp$Total,
+  imputed_pmm = complete(mice(imp, method = "pmm"))$Total,
+  imputed_cart = complete(mice(imp, method = "cart"))$Total,
+  imputed_lasso = complete(mice(imp, method = "lasso.norm"))$Total
+)
+
+ImputedValues <- subset(mice_imputed, is.na(original))
+
+h5 <- ggplot(mice_imputed, aes(x = original)) +
+  geom_histogram(fill = "#ad1538", color = "#000000", position = "identity") +
+  ggtitle("Original distribution") +
+  theme_classic()
+h6 <- ggplot(mice_imputed, aes(x = imputed_pmm)) +
+  geom_histogram(fill = "#ad8415", color = "#000000", position = "identity") +
+  ggtitle("Imputed by PMM") +
+  theme_classic()
+h7 <- ggplot(mice_imputed, aes(x = imputed_cart)) +
+  geom_histogram(fill = "#15ad4f", color = "#000000", position = "identity") +
+  ggtitle("Imputed by CART") +
+  theme_classic()
+h8 <- ggplot(mice_imputed, aes(x = imputed_lasso)) +
+  geom_histogram(fill = "#1543ad", color = "#000000", position = "identity") +
+  ggtitle("Imputed by Lasso") +
+  theme_classic()
+
+plot_grid(h5, h6, h7, h8, nrow = 2, ncol = 2)
+
+# Only show the 23 NAs for Total
+
+mice_imputedGat <- gather(filter(mice_imputed, is.na(mice_imputed$original)), key = "Method", value = "Imputed")
+
+ggplot(mice_imputedGat, aes(x = Method, y = Imputed)) +
+  geom_col(position = "jitter") +
+  ggtitle("Comparison of Values Imputed by Three MICE Methods") +
+  theme_classic()
+
+```
+
+\newpage
+
+The Miss Forest imputation technique is based on the Random Forest algorithm. It’s a non-parametric imputation method, which means it makes no assumptions about the function form (the distribution of values for the variable), but instead tries to estimate the function in a way that’s closest to the data points.
+
+In other words, it builds a random forest model for each variable and then uses the model to predict missing values.
+
+```{r, missForest, eval=FALSE}
+library(missForest)  # did so with dependencies = TRUE per PDF on CRAN
+
+impNoNAs <- imp[  , 1:4] # removed Bonus and Total because they have NAs
+impNoNAs <- impNoNAs[-c(116, 134), ] # missing values in Reports
+impNoNAs <- impNoNAs[-18, ] # missing value in Reports
+
+colnames(impNoNAs) <- c("Years", "Staff", "JDs", "Total")
+
+# dput(impNoNAs) for Stack Overflow
+
+# writexl::write_xlsx(impNoNAs, "C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/imputationdf.xlsx")  # changed some variable names
+
+# summary(impNoNAs)
+str(impNoNAs)
+
+impNoNAs <- as.data.frame(impNoNAs)
+
+impFor <- missForest(impNoNAs)
+
+funModeling::v_compare(impNoNAs$Total, impFor$ximp$Total) #20 imputed Totals!
+
+# missForest_imputed <- data.frame(
+#   original = impNoNAs$Base,
+#   imputed_missForest = missForest(impNoNAs)$ximp$Base
+# )
+
+# Warning: argument is not numeric or logical: returning NAWarning: argument is not numeric or logical: returning NAWarning: argument is not numeric or logical: returning NAWarning: argument is not numeric or logical: returning NAWarning: The response has five or fewer unique values.  Are you sure you want to do regression?Error in randomForest.default(x = obsX, y = obsY, ntree = ntree, mtry = mtry,  : 
+#   length of response must be the same as predictors
+
+h1 <- ggplot(impNoNAs, aes(x = original)) +
+  geom_histogram(fill = "#ad1538", color = "#000000", position = "identity") +
+  ggtitle("Original distribution") +
+  theme_classic()
+
+h2 <- ggplot(missForest_imputed, aes(x = imputed_missForest)) +
+  geom_histogram(fill = "#15ad4f", color = "#000000",, position = "identity") +
+  ggtitle("Original distribution") +
+  theme_classic()
+
+plot_grid(h1, h2, h3, nrow = 1, ncol = 2)
+
+
+```
+
+
+# Heteroskedasticity (the shape of the distribution curve)
+
+```{r ranges, eval=FALSE}
+# olsrr provides the following 4 tests for detecting heteroscedasticity: Bartlett Test; Breusch Pagan Test; Score Test;   F Test
+# %http://www.brodrigues.co/blog/2018-07-08-rob_stderr/  good ideas with tidyr: rename and heteroskedasticity. 
+
+library(olsrr)
+
+ols_test_bartlett(data = imp$Total, 'Reports', 'Lawyers')
+
+```
+
+# Variations on dataviz
+
+The person who prepares the plots of a survey report has a wealth of choices.  To give a peek at that forest, here are nine trees.  Each one represents graphically the same made-up data: how many COOs were there in a survey by three titles: Chief Operating Officer, Executive Director, and Firm Administrator.
+
+```{r plotTypes}
+df <- data.frame(Title = c("COO", "Exec. Dir.", "Firm Administrator"),
+                 Incumbents = c(40, 20, 10))
+
+df2 <- data.frame(Title = c(rep(1, 40), rep(2, 20), rep(3, 10)),
+                  Incumbents = c(rep("COO", 40), rep("EDir", 20), rep("Admin'or", 10)))
+
+# bar
+p1 <- ggplot(df, aes(x = Title, y = Incumbents)) +
+  geom_bar(fill = "#ad1538", color = "#000000", stat = "identity") +
+  ggtitle("Column Plot") +
+  theme_classic() 
+
+# pie; windrows, coxcomb
+p2 <- ggplot(df, aes(x = Title, y = Incumbents, )) +
+  geom_bar(color = "#ad1538", stat = "identity") +
+  coord_polar(theta = "x") +
+  ggtitle("Pie/Polar Plot") +
+  theme_classic() 
+
+# scatter
+p3 <- ggplot(df2, aes(x = Incumbents, y = Title, fill = Title)) +
+  geom_jitter(pch = 20, size = 6) +
+  ggtitle("Scatter Plot") +
+  theme_classic() +
+  theme(legend.position = "none")
+
+# parliament  https://r-charts.com/part-whole/ggparliament/
+library(ggparliament) # from clients/Old Client Directories/ChildLA/covid19/covidBook.Rmd
+
+geo_semicircle <- parliament_data(election_data = df, 
+                                  type = "semicircle", # Parliament type 
+                                  parl_rows = 3, 
+                                  party_seats = df$Incumbents)
+
+p4 <- ggplot(geo_semicircle, aes(x = x, y = y, colour = Title)) +
+  geom_parliament_seats() +
+  labs(colour = NULL, title = "Parliament Plot of Titles") +
+  theme_ggparliament()
+
+  # scale_colour_colorblind()
+```
+
+
+```{r plotTypesMore}
+# stacked (segment?)
+df2$Type <- rep("Type", 70)
+
+p5 <- ggplot(df2, aes(x = Type, y = Incumbents, fill = Title)) +
+  geom_bar(stat = "identity", position = "stack") +
+  labs(x = NULL, y = "Incumbents", title = "Stacked Bar Plot") +
+  theme_classic() +
+  guides(fill = FALSE) +
+  coord_flip()
+
+# see page 5 of Axiom In-House
+
+# line
+p6 <- ggplot(df, aes(x = Title, y = Incumbents, group = 1)) +
+  geom_line() +
+  ggtitle("Line Plot") +
+  theme_classic() 
+
+# lollipop
+p7 <- ggplot(df, aes(y = Incumbents, fill = Title)) +
+  geom_bar(stat = "count", position = "stack") +
+  ggtitle("Lollipop Plot") +
+  theme_classic() +
+  coord_flip()
+
+# segment  see example on ACC page 38
+p8 <- ggplot(df, aes(x = Incumbents, color = Title)) +
+  geom_segment(stat = "identity", aes(x = 0, xend = df$Incumbents[1], y = 5, yend = 5),
+                                      linetype = "solid", linewidth = 8, lineend = "round")
+
+ggplot(df, aes(x = Incumbents, color = Title)) +
+  geom_segment(stat = "identity",
+               aes(x = c(0, 40, 60),
+                   xend = c(Incumbents[1], Incumbents[2] + Incumbents[1], Incumbents[3] + Incumbents[2] + Incumbents[3]),
+                   y = 5, yend = 5),
+               linetype = "solid", linewidth = 8, lineend = "round")
+```
+
+
+```{r plotTypesEvenMore}
+# dotplot
+p9 <- ggplot(df2) +
+  geom_dotplot(method = "histodot", aes(x = Incumbents, fill = Title), position = position_jitter(height = 0.1, width = 0.1), size = 0.2, binwidth = 0.5) +  
+  labs(x = "Titles", y = "Incumbents", title = "Count of Titles") +
+  theme_classic() +
+  # scale_fill_manual(values = colorRampPalette(brewer.pal(12, "Accent"))(colourCount)) +
+  scale_y_continuous(breaks = NULL) +
+  theme(axis.title.y =  element_blank()) +
+  theme(legend.position = "bottom") +
+  guides(fill=guide_legend(nrow=2)) +
+  theme(legend.title=element_blank())
+
+# bubble plot by area, like the ACC CLO chart on page 27
+
+# donut plot doughnut
+
+# See page 4 or Relativity Ari Kaplan report, with six donuts
+# see page 4 of Axiom In-house for 3 and 5 slice donuts
+```
+
+
+```{r plotTypesCowPlot}
+# 
+# See dot plot
+# https://towardsdatascience.com/unimpressed-with-your-scatter-and-bar-plots-give-these-four-classic-alternatives-a-try-a3bab20d4872
+
+# filled outter circle with percentages inside
+# See Axiom in-house page 6
+
+cowplot::plot_grid(p1, p2, p3, p4, p5, p6, p7, p8, p9,
+                   labels = c('', '', '', '', '', '', '', '', ''),
+                   nrow = 3)
+
+```
+
+a so-called "parliament plot" (aka "horseshoe" plot). The Country posts are black and account for almost exactly half of the collected posts (53%). International posts are brownish and make up roughly one-third of the total (35%). Simulation and None complete the parliament seats in the lower right.
+
+
+# Cluster the COOs
+
+Hierarchical DBSCAN (HDBSCAN)
+
+Density-based spatial clustering of applications with noise (DBSCAN) is a data clustering algorithm. It is a density-based clustering non-parametric algorithm: given a set of points in some space, it groups together points that are closely packed together (points with many nearby neighbors), marking as outliers points that lie alone in low-density regions (whose nearest neighbors are too far away). 
+
+We can take the data from over 200 law firm Chief Operating Officers and see whether the hierarchical version of DBSCAN produces useful insights.
+
+```{r dbscan, eval=FALSE}
+# https://cran.r-project.org/web/packages/dbscan/vignettes/hdbscan.html
+# https://medium.com/@dhavalmainkar01/understanding-clustering-6c156b0289ef  Python
+
+library(dbscan)
+# data("moons") # used in vignettes, with only two variables
+
+cl <- hdbscan(filter(imp, Total > 1), minPts = 10) 
+# Error in kNN(x, k = k, sort = TRUE) : x has to be a numeric matrix.
+# removed NAs of Total
+# I picked minPts at random
+
+cl
+
+plot(filter(imp, Total > 1), col=cl$cluster+1, pch=20)
+
+plot(cl$hc, main="HDBSCAN* Hierarchy")
+
+plot(cl, show_flat = TRUE)
+
+```
+
+The HDBSCAN* hierarchy is useful, but for larger datasets it can become overly cumbersome since every data point is represented as a leaf somewhere in the hierarchy. The hdbscan object comes with a powerful visualization tool that plots the ‘simplified’ hierarchy(see [2] for more details), which shows cluster-wide changes over an infinite number of eps thresholds. It is the default visualization dispatched by the ‘plot’ method
+
+
+<!--chapter:end:ImputationPractice.Rmd-->
+

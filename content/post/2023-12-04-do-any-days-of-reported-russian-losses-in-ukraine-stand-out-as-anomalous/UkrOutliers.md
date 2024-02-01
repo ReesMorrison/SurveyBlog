@@ -220,7 +220,7 @@ The bottom left plot shows the outliers detected by the specified quantile of th
 
 ```
 ## Projection to the first and second robust principal components.
-## Proportion of total variation (explained variance): 0.6590537
+## Proportion of total variation (explained variance): 0.6626228
 ```
 
 <img src="/post/2023-12-04-do-any-days-of-reported-russian-losses-in-ukraine-stand-out-as-anomalous/UkrOutliers_files/figure-html/mvoutlier-1.png" width="672" style="display: block; margin: auto;" />
@@ -230,7 +230,6 @@ The bottom left plot shows the outliers detected by the specified quantile of th
 Other plots can help spot outliers. For example, the next plot shows the studentized residuals against a normal bell curve's quantiles.^[The quantiles are what would be expected if the residuals followed a standard normal distribution (normalized as "z-scores"). The quantiles are generated from the standard normal distribution's cumulative distribution function (CDF).] Here we see Day 247 is labeled at the top right and Day 5 is labeled at the bottom left as outliers.
 
 <img src="/post/2023-12-04-do-any-days-of-reported-russian-losses-in-ukraine-stand-out-as-anomalous/UkrOutliers_files/figure-html/QQplot-1.png" width="672" style="display: block; margin: auto;" />
-
 
 
 The next plot comes from deleting one day at a time and creating regression models from the "left-one-out" data sets.  The algorithm computes the studentized residual for the day that was left out. That means it gives the model the data of the left-out day and has the model predict Soldiers for that day; it then studentizes the difference between the prediction and the actual and plots that point on the vertical, y-axis.  The horizontal red lines mark where the absolute value of the residual is two or more different than the average, which is a threshold test for outlier status. Here, too, Day 247 at the top and Day 5 on the far right (and Day 283 to its lower left) appear to be culprits. The notable losses for Day 283 in the lower right include 39 "armor" (Tanks plus APCs) and five MLRS, compared to the highest day of 9 MLRS, yet a below average 530 Soldiers. 
