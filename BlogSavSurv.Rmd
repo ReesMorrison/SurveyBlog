@@ -67,12 +67,11 @@ Connect to GH: click "Git" above Pane 3, and "Commit" button (check mark, CTRL-A
 Stage files listed on the left pane by checking, which is usually all of them to either add or delete [D].  Ctrl-A picks all and then click one
 
 Fill in Comment of what has been done, or any random typing.  The "Commit" lozenge is below
-
 [click on box under "Staged" in Git at top right], Commit to GH
-
 Push to GH [still "branch is one commit ahead of main"].  "Stop"
-
 Then click "Close"
+
+On GitHub, if I go to SurveyBlog/public/post/ I can see all the posts.  My 2/1/24 post did not make it.
 
 Render is the hosting software.  To make sure Render is working: Go to render.com and login.  "Dashboard" on upper right and I chose GitHub
 

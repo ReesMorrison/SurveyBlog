@@ -26,6 +26,6 @@ Shared Characteristics:  When respondents share something in common with other p
 
 Publications:  One time, I ran across a book for chief operating officers while I was in the midst of surveying that role in law firms. I reached out to the publisher to see if we could hit upon an arrangement where they would publicize my survey and I would publicize their book.  Magazine articles and online outlets are of course well-known ways to spread the word about a survey but their publication schedules require the survey to stay open a long time.
 
-Consultants and Vendors:  Consultants are another fruitful source of introductions.  They have mailing lists, and they might swap some of your findings or shareable data for them launching an outreach to their mailing lists.   They might even run forms of advertisement such as banners on periodical mailings or other ways to reach more prospects.  
+Consultants and Vendors:  Consultants are another fruitful source of introductions.  They have mailing lists, and they might swap some of your findings or shareable data for them launching an outreach to their mailing lists. They might even run forms of advertisement such as banners on periodical mailings or other ways to reach more prospects.  
 
-<!-- End of post   -->
+<!-- End of post-->
