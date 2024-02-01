@@ -28,4 +28,4 @@ Everyone who surveys in the legal industry should understand and correctly use t
 
 These math tools succinctly describe many characteristics of a set of data.  The descriptions let you understand the data, communicate these important facets,  and compare them to other sets as well as to your own figures.   
 
-<!-- End of post -->
+<!-- End of post  -->
