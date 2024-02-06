@@ -34,9 +34,9 @@ library(kableExtra)
 
 # How to create individual posts
 
-Start RStudio; Open the SurveyBlog project and load packages; call serve_site() [Need to be in the right directory, Hornbooks/5Survey etc.  I shut down R and started afresh and the right directory followed the project]  A pop came up on 2/1`/24 about Windows Firewall blocking.  I clicked Yes
+Start RStudio; Open the SurveyBlog project and load packages; call serve_site() [Need to be in the right directory, Hornbooks/5Survey/SavSurvBlog/SurveyBlog/.  I shut down R and started afresh and the right directory followed the project]  A pop came up on 2/1`/24 about Windows Firewall blocking.  I clicked Yes
 
-Click on New Post dropdown from Addins, which runs this: blogdown:::new_post_addin().
+Click on New Post from Addins, which runs blogdown:::new_post_addin().
 
 <!-- https://alison.rbind.io/post/2017-06-12-up-and-running-with-blogdown/ -->
 
@@ -50,16 +50,18 @@ Click on New Post dropdown from Addins, which runs this: blogdown:::new_post_add
   File/Rename [core idea, no spaces] and save the new .md or .Rmd with code
   Draft: replace "yes" with no -- no quote marks
 
-KEY delete the index file from SurveyBlog/content/post for the post to publish
+KEY delete the index file from SurveyBlog/content/post for the post to publish (and the .md if .Rmd?)
 
   Copy and paste in the text 
-  Add packages chunk at the top if there is R code
+  Add packages chunk at the top if there is R code, such as KableExtra or insert.graphics
   Add data chunk to read in, for example, ukrAll, if needed
   Remove \newpage
   insert at end of post <!-- End of post -->  
   
   Make changes on my laptop in the .md file  Useful site https://www.spanishdict.com/answers/152876/line-breaks-pictures-links-and-other-formatting-tricks-#Single
-  
+
+Insert images from the static/media subfolder using ![](/media/picture_vacations.png)  or .jpg
+
 ## Pushing posts to GitHub, which then sends them to Render (was Netlify) and the blog 
 
 Click "Git" above Pane 3, and "Commit" button (check mark, CTRL-ALT-M)
@@ -84,7 +86,6 @@ Manual Deploy in purple box to upper right -- takes 15 seconds and should end wi
 Check savvysurveysJDs.com to be sure post is up - click on purple in upper left of name
 
 Tracking hits is https://savvysurveys.goatcounter.com/
-
 
 # How to put blog posts into the Guide
 

@@ -1,0 +1,37 @@
+---
+title: Dig the Do’s and Don’ts of Data Bar Displays
+author: Rees Morrison
+date: '2024-02-06'
+slug: []
+categories:
+  - Surveys
+draft: no
+---
+
+
+
+Bar charts appear the most in reports based on law-related surveys.  Actually, pie charts are also ubiquitous, but my sense is that bars own first place.  Scatter plots, by the way, are rare.  So much has been written about effective data visualization that I will suggest just a handful of tenets worth following for bar charts (aka column charts).  
+
+The plot below comes from the Savills Law Firm Return-to-Office Survey Results, June 2023.  I will refer to it in the text several times afterwards.
+
+![bar graph](/media/SavillsBarJune2023.png)
+
+Choose a consistent theme for the plots in your report.  By theme, I mean the general layout of your plots: background color within the plot or around the plot, width of axis lines, fonts and style of text, tick marks, location of caption, centering of titles, and so forth.  In this regard, the Savills plot could have eliminated the horizontal line and used fewer font variations.  Don't vary layout elements gratuitously; in fact, I have come to favor Prof. Edward Tufte’s minimal style that splashes as little ink as possible so that you emphasize the data, not the plot’s peripheral elements.  Along those lines, narrowing the width of bars means the plot is not overwhelmed by them.   The Savills plot did this.
+
+Write informative titles. If you can boil down the takeaway from the plot in the title you've hit the jackpot. Savills did a good job on this.  Sometimes subtitles elaborate on the terse message of the title. Don't leave any plot untitled.
+
+Add a caption to the plot regarding the amount of the data (“N = XX”). Everyone wants to be empowered to judge how meaningful your data is. Don't make readers hunt through your text for this is vital contextual information.  Conventionally, the caption hugs lower and to the right of the main plot.
+
+Array the data of the key axis, usually the horizontal x-axis, in meaningful order. That means column charts should generally go from highest on the right to lowest on the left.  That seems to be the convention rather than falling to the right.  Don't haphazardly plop down bars alphabetically or in random order.  Don't follow this general guideline if the text for the axis is completely understandable, such as months of the year (or deciles, like in the Savill’s plot).
+
+Label axes so that readers immediately know what data they present.  I favor rotating the y-axis label 90 degrees so that it is more readable (unlike what Savills did).  A more advanced technique (see the Savills plot) labels the bars themselves or adds annotations to identify the bars.  
+
+Place the legend so that the data of the main plot can be maximized. This usually means putting the legend at the bottom of the plot area and creating as many rows as fit compactly.  Often, the title to the legend becomes superfluous and can be omitted.
+
+Color bars in a meaningful pattern and with sensitivity to color blindness or black and white printing. Many thoughtful and appealing color palettes are available.  Don't choose colors simply for their aesthetic effect.  Often, a shade of grey is sufficient.  If a color does have meaning, stick to it consistently throughout the report (like a recurring leitmotif in a Wagnerian opera). Do not create fancy fills for the bars (cross hatches or icons), make them three-dimensional, or create special ends for them.  Simple is striking.
+
+Add sufficient axis numbers so that readers don’t have to guess the specific value of a point.  Even better, add the bar’s value at the end of the bar or within the bar like Savills did.  That way, the reader doesn’t have to eyeball the value from the axis as they glance over to the axis and try to guess what it is.  In this regard, Savills might have added a horizontal line for the overall average.
+
+Flip the axes if that is necessary to allow longer labels to be readable (or consider line breaks in long labels or giving them a slight angle).  
+
+<!-- End of post -->
