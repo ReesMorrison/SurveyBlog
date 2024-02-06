@@ -8,6 +8,15 @@ draft: no
 slug: []
 ---
 
+```{r Blogpackages, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)  # frequently used packages that follow a similar coding approach
+library(blogdown)
+library(knitr)
+library(ggthemes) # to include the theme_tufte them in plots
+library(ggrepel) # to spread points or text so that they do not overlap on a plot
+library(kableExtra)
+```
+
 Distracted, unfocused, or impatient respondents undermine the quality of a survey’s research.  When you’re aware of two specific types of offenders, you can design questionnaires and analyses to discourage and spot negative behaviors. Put differently, you should take steps to label and remove respondents who don't seem to be putting thought into their answers before results are analyzed, and thereby ensure more reliable and accurate data. 
 
 Here are ideas from the blog post of Bellomy [Maggie Whitley, June 25, 2020, https://www.bellomy.com/blog/improve-survey-response-quality] that focuses on “speeders” and “straightliners.”
