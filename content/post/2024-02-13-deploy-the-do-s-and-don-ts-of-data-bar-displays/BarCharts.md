@@ -19,8 +19,7 @@ knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Su
 
 <img src="../../../static/media/SavillsBarJune2023.png" width="668" />
 
-
-![bar chart](/media/SavillsBarJune2023.png)
+<!-- ![bar chart](/media/SavillsBarJune2023.png) -->
 <!-- "C:\Users\rees\Documents\R\Projects\LAWYER Hornbooks\5Surveys\SavSurvBlog\SurveyBlog\static\media\SavillsBarJune2023.png" -->
 
 Choose a consistent theme for the plots in your report.  By theme, I mean the general layout of your plots: background color within the plot or around the plot, width of axis lines, fonts and style of text, tick marks, location of caption, centering of titles, and so forth.  In this regard, the Savills plot could have eliminated the horizontal line under the purple columns and used fewer font variations.  Don't vary layout elements gratuitously; in fact, I have come to favor Prof. Edward Tufte’s minimal style that splashes as little ink as possible so that you emphasize the data, not the plot’s peripheral elements.  Along those lines, narrowing the width of bars means the plot is not overwhelmed by them.  The Savills plot did this as evidenced by the gaps between columns.
