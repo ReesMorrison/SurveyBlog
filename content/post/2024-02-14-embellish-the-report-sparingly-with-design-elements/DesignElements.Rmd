@@ -1,0 +1,51 @@
+---
+title: Embellish the Report Sparingly with Design Elements
+author: Rees Morrison
+date: '2024-02-14'
+slug: []
+categories:
+  - Surveys
+draft: 
+---
+
+As with the elements of plots, the design elements in a survey report ought to balance clarity of communication with esthetic appeal. You can splash out on a peacock of colors, shapes and decorative markings but that glamour detracts from conveying the message of the data.  You can adorn your report with fancy photos, quotes in side boxes, abstract lines and colors in the watermark, nifty page borders, and text blocks with multiple fonts.  But one would hope that you honor the primary commandment: the content clearly tells the reader what you found from your survey data.
+
+Below I offer examples from surveys in the legal field that illustrate a handful of design elements:  quotations set apart, pictures, icon images, and abstract motifs.  Many more examples could be included, but the point would remain the same: don’t clutter your report’s message with superfluous or diverting aesthetics.
+
+Leopard Solutions’ 2022 survey, Women Leaving Law, has quite a few quotations that are placed in lozenges with a different background color.  Quotes add value, but how they are presented is the point here.  These quotes are arrayed on the page in a variety of indentations.
+
+```{r savills, echo=FALSE}
+knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/LeopardQuotes.png")
+```
+
+<!-- ![quotes](/media/LeopardQuotes.png) -->
+ 
+The next example comes from Law360 Pulse’s Compensation Report: Law Firms (2023).  The image of the pen, spreadsheet, and calculator (really, in 2023 a vintage hand calculator!?) adds no insights into the data in the segmented bar plots above, but someone with an aesthetic urge must have decided that it would gussy up the report.  Visual overload, some would say.  Others would say that white space is not bad space.
+
+
+```{r picturelaw360, echo=FALSE}
+knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/Image Law360 pulse compensation.png")
+```
+
+<!-- ![pen](C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/LFSurveys/law360_pulse-compensation_report-law_firms.pdf) -->
+
+The next example comes from a survey conducted by Atticus in 2023 regarding the adjustments to Social Security payments for 2024.  The piggy bank serves as eye candy, in my Spartan view of reports, as do the two icons above it, the dollar sign in a two-colored box and the magnifying glass.  Illuminating, or distracting? 
+
+```{r iconsAtticus, echo=FALSE}
+knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/Atticus 2023 Social Security.png")
+```
+
+<!-- ![piggybank](C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/LFSurveys/Atticus 2023 Social Security.png) -->
+
+We close with an abstract design example, this one from the Littler survey published in January 2024, “Inclusion, Equity and Diversity C-Suite Survey Report.”  The three-dimensional lattice at the bottom adds nothing to the clear message of the pie chart.  Any time taken by a reader to attend to it is time lost in grasping the findings from the survey data.
+
+
+```{r abstractLittler, echo=FALSE}
+knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/LittlerAbstractDesign.jpg")
+```
+
+<!-- ![abstract](/media/LittlerAbstractDesign.jpg) -->
+
+This once-over-lightly and partial treatment of the myriad design elements that are possible in survey reports should comment on **infographics**.  The aim of an infographic is to make numbers and statistics more understandable, and part of the narrative are integral visual elements that help tell the story.  But that is another story…
+
+<!-- End of post -->
