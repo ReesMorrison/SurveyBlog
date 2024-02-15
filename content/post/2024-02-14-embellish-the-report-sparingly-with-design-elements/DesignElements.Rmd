@@ -10,7 +10,7 @@ draft:
 
 As with the elements of plots, the design elements in a survey report ought to balance clarity of communication with esthetic appeal. You can splash out on a peacock of colors, shapes and decorative markings but that glamour detracts from conveying the message of the data.  You can adorn your report with fancy photos, quotes in side boxes, abstract lines and colors in the watermark, nifty page borders, and text blocks with multiple fonts.  But one would hope that you honor the primary commandment: the content clearly tells the reader what you found from your survey data.
 
-Below I offer examples from surveys in the legal field that illustrate a handful of design elements:  quotations set apart, pictures, icon images, and abstract motifs.  Many more examples could be included, but the point would remain the same: don’t clutter your report’s message with superfluous or diverting aesthetics.
+Below I offer examples from surveys in the legal field that illustrate a handful of design elements:  quotations set apart, pictures, icon images, and abstract motifs.  Many more examples could be included, but the point would remain the same: don’t clutter your report’s message with superfluous or diverting aesthetics. 
 
 Leopard Solutions’ 2022 survey, Women Leaving Law, has quite a few quotations that are placed in lozenges with a different background color.  Quotes add value, but how they are presented is the point here.  These quotes are arrayed on the page in a variety of indentations.
 
