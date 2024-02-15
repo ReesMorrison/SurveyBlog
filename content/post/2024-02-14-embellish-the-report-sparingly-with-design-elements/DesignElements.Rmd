@@ -37,7 +37,7 @@ knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Su
 
 <!-- ![piggybank](C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/LFSurveys/Atticus 2023 Social Security.png) -->
 
-We close with an abstract design example, this one from the Littler survey published in January 2024, “Inclusion, Equity and Diversity C-Suite Survey Report.”  The three-dimensional lattice at the bottom adds nothing to the clear message of the pie chart.  Any time taken by a reader to attend to it is time lost in grasping the findings from the survey data.
+We close with an abstract design example, this one from the Littler survey published in January 2024, “Inclusion, Equity and Diversity C-Suite Survey Report.”  The three-dimensional lattice at the bottom adds nothing to the clear message of the pie chart.  Any time taken by a reader to attend to it is time lost in grasping the findings from the survey data. 
 
 
 ```{r abstractLittler, echo=FALSE}
