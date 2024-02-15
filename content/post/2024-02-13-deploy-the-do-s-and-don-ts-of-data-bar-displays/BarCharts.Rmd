@@ -12,7 +12,7 @@ Of all charts, bar charts appear the most in reports based on law-related survey
 
 The plot below comes from Savills’ Law Firm Return-to-Office Survey Results, June 2023, and illustrates several of my points that I make in the text afterwards.
 
-```{r savills}
+```{r savills, echo=FALSE}
 knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/SavillsBarJune2023.png")
 ```
 
