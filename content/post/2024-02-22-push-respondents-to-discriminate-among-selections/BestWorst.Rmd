@@ -1,0 +1,11 @@
+---
+title: Push Respondents to Discriminate among Selections
+author: Rees Morrison
+date: '2024-02-22'
+slug: []
+categories:
+  - Surveys
+tags: []
+draft: yes
+---
+
