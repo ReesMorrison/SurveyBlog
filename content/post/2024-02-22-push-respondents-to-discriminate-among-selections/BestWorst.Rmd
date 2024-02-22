@@ -5,7 +5,36 @@ date: '2024-02-22'
 slug: []
 categories:
   - Surveys
-tags: []
-draft: yes
+draft: no
 ---
 
+Here are three varieties of questions that encourage participants to take a stand on a set of selections.
+
+**Best-worst questions:** Many surveys include questions that ask respondents to choose among several selections at once—picking out of a large number of selections a small number of the best and worst options, the most important and least important, or whatever are the opposite criteria.  For example, a survey had 22 characteristics on which participants rated their manager.  It lent itself to asking respondents to mark the four most crucial characteristics of a good manager and the four characteristics that were least desirable.  
+
+This type of survey question allows you to collect information quickly and definitively at both ends of the poles.  There’s no guesswork about what respondents mean as can happen if they choose a score near the middle of a range in Likert or rating scale questions.  Respondents simply choose the extremes at either end. 
+
+Typically, and bizarrely, you find that every “best” selection has someone who nominates it as “worst.”  This schizophrenic result might be genuine (chacun a son gout), but it can also happen because a person confused the polar choices, or they were rushing to complete the questionnaire and didn’t care much about their choices, or because they interpreted the selections radically differently than did their counterparts.  Of course, the more selections to be picked at either end, the more likely the divergence of views will happen.
+
+It would be a good practice to include a text comment box with a best-worst question, so that respondents who have thoughts about their ratings can add nuance.  Even more, they might suggest a choice that you had not included, but which would improve the question’s selections.  [We reserve for another time the tricky methodological problems of analyzing responses from a question when the selection list has expanded or changed during the survey project.]  
+
+“Maximum difference” questions, as they are sometimes called, can be asked in a single question or as two questions.  I favor combining the best-worst inquiry in one question because respondents have all of the choices before them and can “balance” the ends against each other.  If “X” is my top choice, is there an inverse or lowest counterpart choice? (It’s a poor practice, however, to word the selections positively in one question (“do this”) and negatively in a second question (“don’t do this”).  It’s too hard to create exactly mirror image selections.)
+
+Pick top X:  A variation is to ask respondents to rank the top selections from a set.  Rather than pick the few best and worst, this style of question can ask for the top five, six, or more, depending mostly on how many total selections there are.  Analysts can infer that selections that earn few or no picks would have been in the worst category in the style of question described above.  Often, people don’t want to be critical, so if you ask them to pick the worst strategic tactic of the firm from a list or the worst user interface of the range of software available, they may be less comfortable – since someone’s ox is gored – than if they only are asked to hand out praise. 
+
+Here is an example of “Please select 3” from a survey done in early 2024 by Above the Law (using Qualtrics hosting software). 
+
+```{r ATLs, echo=FALSE}
+knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/AboveTheLawSelect3.png")
+```
+
+Allocate points:  A third method to separate the wheat from the chaff among a set of selections, and to allow fine-grained discrimination,  is to ask respondents to distribute points among the selections.   They can pile up the points on their key choice or choices and put nothing on the choices they disfavor.  The hosting software needs to enforce 100 points total (or 50 points or however many).  The survey constructor can set a minimum number of points for any selection, such as three or five.
+
+Sounds simple, but when respondents are asked to allocate points, some do so to every selection.  Perhaps they misread the instructions.  For one of my surveys, the instructions stated: “You can allocate 100 points to one characteristic; 25 points each to four characteristics; 40 points to one, and 20 points to each of three others; or any combination that totals 100.”  
+Perhaps they do not want to think, so they slap in numbers like a speeder (someone rushing to complete the survey) or a straightliner (a speeder who answers many questions the same way).  
+
+Averages of the points allocated to a selection are not reliable since someone could assign all their points to a single selection and thereby skew the average.  Medians serve better to show the distribution of allocations, especially if you also show how many people allocated points to a given selection.  If only three people rated one selection (attribute, tactic, actions, whatever) and one gave it 90 points, that is not as probative of the general perception of the selection as if 30 respondents gave it points. The number of people who rate each selection suggests what is important to the surveyed population.  The allocation of points method ought to result in more people allocating points to the most important selections, irrespective of how many points they distribute.
+
+One benefit of asking respondents to distribute points among the selections is that you can readily calculate based on the answers.  For example, you can calculate the standard deviation of points for each selection or you can say that selection A had three times as many points allocated to it as selection D.  If you conduct the survey a second time, point allocations let you show precise changes over time.
+
+<!-- End of post -->
