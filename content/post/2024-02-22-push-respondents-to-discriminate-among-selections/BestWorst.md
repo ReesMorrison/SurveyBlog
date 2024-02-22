@@ -24,9 +24,7 @@ Pick top X:  A variation is to ask respondents to rank the top selections from a
 
 Here is an example of “Please select 3” from a survey done in early 2024 by Above the Law (using Qualtrics hosting software).  
 
-```{r ATLs, echo=FALSE}
-knitr::include_graphics("C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvBlog/SurveyBlog/static/media/AboveTheLawSelect3.png")
-```
+<img src="../../../static/media/AboveTheLawSelect3.png" width="570" />
 
 Allocate points:  A third method to separate the wheat from the chaff among a set of selections, and to allow fine-grained discrimination,  is to ask respondents to distribute points among the selections.   They can pile up the points on their key choice or choices and put nothing on the choices they disfavor.  The hosting software needs to enforce 100 points total (or 50 points or however many).  The survey constructor can set a minimum number of points for any selection, such as three or five.
 
