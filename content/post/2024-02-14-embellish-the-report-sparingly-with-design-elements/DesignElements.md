@@ -14,8 +14,6 @@ Below I offer examples from surveys in the legal field that illustrate a handful
 
 Leopard Solutions’ 2022 survey, Women Leaving Law, has quite a few quotations that are placed in lozenges with a different background color.  Quotes add value, but how they are presented is the point here.  These quotes are arrayed on the page in a variety of indentations.
 
-<img src="../../../static/media/LeopardQuotes.png" width="363" />
-
 <!-- ![quotes](/media/LeopardQuotes.png) -->
  
 The next example comes from Law360 Pulse’s Compensation Report: Law Firms (2023).  The image of the pen, spreadsheet, and calculator (really, in 2023 a vintage hand calculator!?) adds no insights into the data in the segmented bar plots above, but someone with an aesthetic urge must have decided that it would gussy up the report.  Visual overload, some would say.  Others would say that white space is not bad space.
@@ -23,7 +21,7 @@ The next example comes from Law360 Pulse’s Compensation Report: Law Firms (202
 
 <img src="../../../static/media/Image Law360 pulse compensation.png" width="492" />
 
-<!-- ![pen](C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/LFSurveys/law360_pulse-compensation_report-law_firms.pdf) -->
+<!-- ![pen](C:/Users/rees/Documents/R/Projects/LAWYER Hornbooks/5Surveys/SavSurvLFSurveys/law360_pulse-compensation_report-law_firms.pdf) -->
 
 The next example comes from a survey conducted by Atticus in 2023 regarding the adjustments to Social Security payments for 2024.  The piggy bank serves as eye candy, in my Spartan view of reports, as do the two icons above it, the dollar sign in a two-colored box and the magnifying glass.  Illuminating, or distracting? 
 
