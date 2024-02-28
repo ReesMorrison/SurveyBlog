@@ -1,5 +1,5 @@
 ---
-title: 'See Which Questions Have Correlated Responses '
+title: See Which Questions Have Correlated Responses
 author: Rees Morrison
 date: '2024-02-28'
 slug: []
