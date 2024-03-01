@@ -30,6 +30,8 @@ library(kableExtra)
 ```
 
 
+<!-- On March 1, 2024 I reviewed the blog itself.  Four posts were duplicated (Ratios, Order, Bar charts, and Triangulate) and one was missing (Speeders).  On GitHub, under SurveyBlog/content/post I found only one entry for the duplicated ones.  Bar charts has both an .md and an .Rmd so I will delete .md.  In the directory I deleted the first folder for each of the four posts, and that removed the duplicates from the blog.  I deleted .md from Bar Charts and that fixed it, since .Rmd remained.  Speeders I left in knitr::insert and removed ![]path. STILL DON'T HAVE SPEEDERS ON SITE.  ALSO, ZERO VISITS IN PAST 8 DAYS REPORTED BY GOATCOUNTER-->
+
 <!-- CHEAT SHEET https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet -->
 
 # How to create individual posts
